@@ -1,23 +1,258 @@
 aid: accruent
 name: Accruent
-description: 'Accruent is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  Accruent is a workplace, facilities and asset management software company serving more than 10,000
+  customers in over 150 countries, with a portfolio spanning CMMS/EAM (Maintenance Connection),
+  engineering document management (Meridian), IWMS and lease accounting (Lucernex), space and event
+  scheduling (EMS), telecom and wireless site management (Siterra), and IoT condition monitoring
+  (Observe). Its public API surface is an Azure API Management developer network at
+  developer.accruent.com plus per-product REST APIs; the Maintenance Connection Web API is the only
+  contract published without a login — a Swagger 2.0 document describing 255 operations across
+  assets, work orders, parts, purchasing, labor and lookup tables. Every other product API
+  (Siterra, Meridian Cloud, EMS Platform Services, Lucernex) is documented publicly but its
+  machine-readable definition sits behind developer-program approval or a customer tenancy.
+image: https://www.accruent.com/hubfs/accruent-social-share.png
 url: https://raw.githubusercontent.com/api-evangelist/accruent/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-09-06'
 modified: '2026-09-06'
+position: Producing
 tags:
-- Company
-apis: []
+- Facilities Management
+- Asset Management
+- CMMS
+- EAM
+- Maintenance
+- Work Orders
+- IWMS
+- Space Management
+- Engineering Document Management
+- Built Environment
+- Enterprise Software
+- Real Estate
+tags_raw:
+- facilities-management
+- asset-management
+- cmms
+- eam
+- maintenance
+- work-orders
+- iwms
+- space-management
+- engineering-document-management
+- built-environment
+- enterprise-software
+- real-estate
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+apis:
+- name: Maintenance Connection Web API
+  description: >-
+    RESTful CMMS API for the Accruent Maintenance Connection product. 126 paths / 255 operations
+    across assets, asset specifications, meter history, images and documents, classifications,
+    companies, parts and inventory, labor, lookup tables, purchase orders, receipts and invoices,
+    specifications and work orders (tasks, assignments, labor/misc/part estimates and actuals,
+    status updates). HTTP Basic auth over a base64 "ConnectionKey:APIKey" token; OData-style
+    $filter / $top / $skip / $orderby query options; 200 requests per minute per connection.
+  humanURL: https://api.maintenanceconnection.com/v8/help/docs
+  baseURL: https://api.maintenanceconnection.com/v8
+  tags:
+  - CMMS
+  - Maintenance
+  - Work Orders
+  - Asset Management
+  - Facilities Management
+  tags_raw:
+  - cmms
+  - maintenance
+  - work-orders
+  - asset-management
+  - facilities-management
+  properties:
+  - type: OpenAPI
+    url: openapi/accruent-maintenance-connection-openapi.yml
+  - type: APIReference
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Documentation
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Console
+    url: https://api.maintenanceconnection.com/v8/swagger/ui/index
+  - type: Authentication
+    url: https://api.maintenanceconnection.com/v8/help/docs/AuthenticationDocs
+  - type: ErrorCatalog
+    url: errors/accruent-problem-types.yml
+  - type: DataModel
+    url: data-model/accruent-data-model.yml
+  - type: Overlay
+    url: overlays/accruent-maintenance-connection-overlay.yaml
+- name: Siterra API
+  description: >-
+    REST API for Accruent Siterra, the wireless/telecom site and project lifecycle management
+    product, fronted by the Accruent Developer Network on Azure API Management. Subscription-key
+    auth via the accruent-subscription-key header or a subscription-key query parameter. Access
+    requires an invitation into the Accruent Developer Program; the API definition is only exposed
+    to signed-in, approved subscribers.
+  humanURL: https://developer.accruent.com/wiki/siterra/gettingstarted
+  baseURL: https://api.accruent.com/siterra/us/
+  tags:
+  - Telecom
+  - Site Management
+  - Project Management
+  - Asset Management
+  tags_raw:
+  - telecom
+  - site-management
+  - project-management
+  - asset-management
+  properties:
+  - type: DeveloperPortal
+    url: https://developer.accruent.com/
+  - type: GettingStarted
+    url: https://developer.accruent.com/wiki/siterra/gettingstarted
+  - type: Documentation
+    url: https://developer.accruent.com/wiki/siterra/gettingstarted
+- name: Meridian Cloud API
+  description: >-
+    REST APIs for Accruent Meridian Cloud engineering document management — asset APIs,
+    relationship APIs and contractor package APIs used by PowerWeb, Meridian Portal, Meridian
+    Explorer and Meridian Mobile. Served from a regional Azure API Management developer portal
+    (api-developer.meridiancloud.net) with Ocp-Apim-Subscription-Key auth. Accruent does not
+    publish the API base URL outside the portal — it is disclosed to approved subscribers per
+    tenancy region — so no baseURL is recorded here rather than guessing one.
+  humanURL: https://help.accruent.com/meridian/Content/Online_Help/Cloud_Portal/Integrations/MeridianCloudAPI.htm
+  tags:
+  - Engineering Document Management
+  - Document Management
+  - Asset Management
+  tags_raw:
+  - engineering-document-management
+  - document-management
+  - asset-management
+  properties:
+  - type: DeveloperPortal
+    url: https://api-developer.meridiancloud.net/
+  - type: GettingStarted
+    url: https://api-developer.meridiancloud.net/wiki/meridian/gettingstarted
+  - type: Documentation
+    url: https://help.accruent.com/meridian/Content/Online_Help/Cloud_Portal/Integrations/MeridianCloudAPI.htm
+- name: EMS Platform Services
+  description: >-
+    RESTful API layer for Accruent EMS space and event scheduling, documented as a Platform as a
+    Service surface with JWT authentication. The Swagger UI ships with the deployment rather than
+    on a public host — self-hosted at {your-host}/EmsPlatform/swagger and, for cloud tenancies, at
+    https://{yoursite}.emscloudservice.com/platform/api/v1/static/swagger-ui/ — so the definition
+    is only reachable from inside a customer tenancy. Supersedes the legacy EMS SOAP API Web
+    Service, which Accruent states is no longer being developed.
+  humanURL: https://help.accruent.com/ems/Content/EMSPlatformServices/InstallationGuide/Introduction.html
+  baseURL: https://{yoursite}.emscloudservice.com/platform/api/v1
+  tags:
+  - Space Management
+  - Scheduling
+  - Facilities Management
+  tags_raw:
+  - space-management
+  - scheduling
+  - facilities-management
+  properties:
+  - type: Documentation
+    url: https://help.accruent.com/ems/Content/EMSPlatformServices/InstallationGuide/Introduction.html
+- name: Lucernex REST API
+  description: >-
+    RESTful API for Accruent Lucernex IWMS / lease accounting. Documented on the public customer
+    help site, but the schema browser and console are served from the customer's own tenancy at
+    {tenant-url}/en/test/RESTful.jsp, so there is no public machine-readable definition. Accruent
+    documents that Lucernex uses XML in its API calls and that JSON is not fully supported.
+  humanURL: https://help.accruent.com/lucernex/Content/Online%20Help/00_Advanced_Content/API_Documentation/1_IntroductionToAPI.htm
+  baseURL: https://{tenant}.lucernex.com/
+  tags:
+  - IWMS
+  - Lease Accounting
+  - Real Estate
+  - Facilities Management
+  tags_raw:
+  - iwms
+  - lease-accounting
+  - real-estate
+  - facilities-management
+  properties:
+  - type: Documentation
+    url: https://help.accruent.com/lucernex/Content/Online%20Help/00_Advanced_Content/API_Documentation/1_IntroductionToAPI.htm
+  - type: APIReference
+    url: https://help.accruent.com/lucernex/Content/Online%20Help/00_Advanced_Content/API_Documentation/2_APIAuthentication.htm
 common:
+- type: DomainSecurity
+  url: security/accruent-domain-security.yml
+- type: AgenticAccess
+  url: agentic-access/accruent-agentic-access.yml
 - type: Website
-  url: https://www.nasdaqprivatemarket.com/
+  url: https://www.accruent.com/
+- type: DeveloperPortal
+  url: https://developer.accruent.com/
+- type: Documentation
+  url: https://help.accruent.com/
+- type: APIReference
+  url: https://api.maintenanceconnection.com/v8/help/docs
+- type: GettingStarted
+  url: https://developer.accruent.com/wiki/siterra/gettingstarted
+- type: Support
+  url: https://www.accruent.com/support
+- type: Blog
+  url: https://www.accruent.com/resources/blog-posts
+- type: BlogRSS
+  url: https://www.accruent.com/resources/blog-posts/rss.xml
+- type: GitHubOrganization
+  url: https://github.com/Accruent
+- type: Pricing
+  url: https://www.accruent.com/product-pricing
+- type: SignUp
+  url: https://www.accruent.com/products/maintenance-connection/free-trial
+- type: Login
+  url: https://developer.accruent.com/signin
+- type: TermsOfService
+  url: https://www.accruent.com/terms-use
+- type: PrivacyPolicy
+  url: https://www.accruent.com/privacy-notice
+- type: StatusPage
+  url: https://status.accruent.com/
+- type: TrustCenter
+  url: https://trust.accruent.com/
+- type: Compliance
+  url: https://www.accruent.com/security-compliance-certifications
+- type: ChangeLog
+  url: changelog/accruent-changelog.yml
+- type: Lifecycle
+  url: lifecycle/accruent-lifecycle.yml
+- type: Authentication
+  url: authentication/accruent-authentication.yml
+- type: Conventions
+  url: conventions/accruent-conventions.yml
+- type: Conformance
+  url: conformance/accruent-conformance.yml
+- type: ErrorCatalog
+  url: errors/accruent-problem-types.yml
+- type: DataModel
+  url: data-model/accruent-data-model.yml
+- type: RateLimits
+  url: rate-limits/accruent-rate-limits.yml
+- type: Plans
+  url: plans/accruent-plans-pricing.yml
+- type: Packages
+  url: packages/accruent-packages.yml
+- type: MCPServer
+  url: mcp/accruent-mcp.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: LLMsTxt
+  url: llms/accruent-llms.txt
+- type: Overlay
+  url: overlays/accruent-maintenance-connection-overlay.yaml
+x-enrichment:
+  date: '2026-09-06'
+  status: enriched
+  artifacts_added: 23
+  pass: local-v3

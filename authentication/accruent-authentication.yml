@@ -1,0 +1,76 @@
+generated: '2026-09-06'
+method: searched
+source: openapi/accruent-maintenance-connection-openapi.yml
+docs: https://api.maintenanceconnection.com/v8/help/docs/AuthenticationDocs
+note: >-
+  Derived from the Maintenance Connection Swagger 2.0 securityDefinitions, then upgraded from the
+  published auth pages for each Accruent product surface. Accruent runs four different auth models
+  across its portfolio; only Maintenance Connection publishes its scheme in a machine-readable
+  contract, and even there the basic scheme is DEFINED but never APPLIED to any of the 255
+  operations (no top-level or per-operation security[] block), so a generator reading the spec
+  alone would emit an unauthenticated client.
+summary:
+  types:
+  - http
+  - apiKey
+  http_schemes:
+  - basic
+  api_key_in:
+  - header
+  - query
+  oauth2_flows: []
+schemes:
+- name: basic
+  type: http
+  scheme: basic
+  description: >-
+    HTTP Basic. The Authorization header carries base64("ConnectionKey:APIKey") after the "Basic "
+    prefix, where the Connection Key identifies the Maintenance Connection database and the API key
+    is issued by Accruent for that database. A missing or malformed header returns 401 Unauthorized;
+    a non-SSL request also returns 401.
+  applies_to: Maintenance Connection Web API
+  docs: https://api.maintenanceconnection.com/v8/help/docs/AuthenticationDocs
+  sources:
+  - openapi/accruent-maintenance-connection-openapi.yml
+  spec_applied: false
+- name: accruent-subscription-key
+  type: apiKey
+  in: header
+  parameter_name: accruent-subscription-key
+  alternate:
+    in: query
+    parameter_name: subscription-key
+  description: >-
+    Azure API Management subscription key for the Siterra API on the Accruent Developer Network.
+    Keys are issued only after an invitation into the Accruent Developer Program is approved.
+  applies_to: Siterra API
+  docs: https://developer.accruent.com/wiki/siterra/gettingstarted
+  method: searched
+- name: Ocp-Apim-Subscription-Key
+  type: apiKey
+  in: header
+  parameter_name: Ocp-Apim-Subscription-Key
+  alternate:
+    in: query
+    parameter_name: subscription-key
+  description: >-
+    Azure API Management subscription key for the Meridian Cloud API. Subscriptions are requested
+    from the Products page of the regional Meridian developer portal and activated on approval.
+  applies_to: Meridian Cloud API
+  docs: https://api-developer.meridiancloud.net/wiki/meridian/gettingstarted
+  method: searched
+- name: ems-platform-jwt
+  type: http
+  scheme: bearer
+  bearerFormat: JWT
+  description: >-
+    EMS Platform Services requires a valid JWT authentication token on every API resource call.
+    Tokens are issued inside the customer tenancy; the legacy EMS SOAP API Web Service it replaces
+    authenticates with a predefined EMS user account instead.
+  applies_to: EMS Platform Services
+  docs: https://help.accruent.com/ems/Content/EMSPlatformServices/InstallationGuide/Introduction.html
+  method: searched
+gaps:
+- The Maintenance Connection spec defines `basic` but applies it to zero of 255 operations.
+- No OAuth 2.0 or OpenID Connect anywhere in the published Accruent API surface.
+- No documented key rotation, expiry or scoping model for the Basic ConnectionKey/APIKey pair.

@@ -1,0 +1,28 @@
+generated: '2026-09-06'
+method: searched
+probe: true
+url: https://trust.accruent.com/
+platform: Vanta
+certifications:
+- ISO/IEC 27001
+- SOC 2
+- SOC 1
+evidence:
+- source: https://trust.accruent.com/
+  http_status: 200
+  kind: trust-center
+  detail: >-
+    Vanta-hosted trust centre. Title "Accruent Trust Center", canonical link
+    https://trust.accruent.com, Accruent-authored description in the meta tags. Body content is
+    rendered client-side and every path under the host returns the same SPA shell, so the
+    certification list was not read from this page.
+- source: https://www.accruent.com/security-compliance-certifications
+  http_status: 200
+  kind: compliance-page
+  detail: >-
+    First-party Accruent page naming ISO/IEC 27001, SOC 2 and SOC 1. This is the source of the
+    certification list above.
+note: >-
+  probe-security-programs.py reported trust=none because the JS-rendered Vanta shell carries no
+  trust keywords in its served HTML; the trust centre is nonetheless real and was confirmed by
+  hand. security.accruent.com does not resolve.

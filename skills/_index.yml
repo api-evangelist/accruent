@@ -1,0 +1,30 @@
+generated: '2026-09-06'
+method: generated
+source: openapi/accruent-maintenance-connection-openapi.yml
+note: >-
+  Accruent publishes no agent skills, AGENTS.md or agent guidance of its own (searched: the
+  developer network, the customer help sites and the Accruent GitHub organisation). These three
+  skills were generated from the only Accruent contract published without a login — the
+  Maintenance Connection Web API Swagger 2.0 document — and every operationId referenced was
+  verified present in that document. Each skill carries the two facts an agent most needs and the
+  contract does not state: the API returns 403 rather than 429 on rate-limit exhaustion, and it
+  offers no delete, no cancel and no idempotency key, so nothing written through it can be taken
+  back. No skills were generated for Siterra, Meridian Cloud, EMS Platform Services or Lucernex
+  because none of them publishes a contract to ground a skill in.
+skills:
+- file: accruent-create-and-dispatch-work-order.md
+  name: Create and dispatch a Maintenance Connection work order
+  api: openapi/accruent-maintenance-connection-openapi.yml
+  operations: [Assets_Get, WorkOrders_Post, WorkOrders_Get, WorkOrderTasks_Post, WorkOrderAssignments_Post,
+    WorkOrderLaborCostActuals_Post, WorkOrderPartActuals_Post, WorkOrderStatusUpdates_GetStatusUpdatesForWorkOrder]
+- file: accruent-asset-register-and-meters.md
+  name: Read the asset register and post meter readings
+  api: openapi/accruent-maintenance-connection-openapi.yml
+  operations: [Assets_Get, Assets_Post, Assets_Put, AssetSpecifications_Get, AssetMeterHistory_GetMeterHistoryForAsset,
+    AssetMeterHistory_Post, AssetMeterHistory_Put, AssetDocuments_Get, Classifications_Get, Schema_Get]
+- file: accruent-procure-to-receipt.md
+  name: Run purchasing from order to receipt to invoice
+  api: openapi/accruent-maintenance-connection-openapi.yml
+  operations: [Companies_Get, Parts_Get, PartVendors_Get, PurchaseOrders_Post, PurchaseOrders_Get,
+    PurchaseOrderLineItems_Post, Receipts_Post, ReceiptLineItems_Post, Invoices_Post,
+    PurchaseOrderStatusUpdates_GetStatusUpdatesForPurchaseOrder]

@@ -1,0 +1,76 @@
+generated: '2026-09-06'
+method: searched
+source: >-
+  github.com/Accruent (19 public repositories), plus registry metadata from pypi.org/pypi/<pkg>/json
+  and registry.npmjs.org, and the published API docs for each Accruent product.
+note: >-
+  Accruent publishes NO first-party client SDK for any of its APIs. The Maintenance Connection
+  Web API docs recommend Postman and Fiddler as the developer tooling and offer no generated
+  client; Siterra, Meridian Cloud, EMS Platform Services and Lucernex ship none either. The
+  Accruent GitHub organisation is real and active, but every package it publishes is QA / test
+  automation tooling for Accruent's own engineers - Robot Framework libraries and OWASP ZAP report
+  historians - not a client library for an Accruent API. They are recorded here because they are
+  genuinely first-party and genuinely published, and marked api_client: false so nothing downstream
+  reads them as SDK coverage. No `SDKs` pointer is emitted for this provider.
+sdk_count: 0
+packages:
+- language: python
+  registry: pypi
+  name: robotframework-zoomba
+  url: https://pypi.org/project/robotframework-zoomba/
+  repo: https://github.com/Accruent/zoomba
+  install: pip install robotframework-zoomba
+  official: true
+  api_client: false
+  purpose: >-
+    Extended Robot Framework libraries for testing GUI, REST/SOAP API, mobile and Windows desktop
+    applications. Accruent's most-adopted open-source project (154 stars).
+  version: 4.6.1
+  published: '2026-03-03'
+- language: python
+  registry: pypi
+  name: owasp-zap-historic-parser
+  url: https://pypi.org/project/owasp-zap-historic-parser/
+  repo: https://github.com/Accruent/owasp-zap-historic-parser
+  install: pip install owasp-zap-historic-parser
+  official: true
+  api_client: false
+  purpose: Parses OWASP ZAP reports into the owasp-zap-historic store.
+  version: 0.2.4
+  published: '2024-02-01'
+- language: python
+  registry: pypi
+  name: owasp-zap-historic
+  url: https://pypi.org/project/owasp-zap-historic/
+  repo: https://github.com/Accruent/owasp-zap-historic
+  install: pip install owasp-zap-historic
+  official: true
+  api_client: false
+  purpose: Stores OWASP ZAP reports historically and diffs alerts between runs.
+  version: 0.2.2
+  published: '2021-12-23'
+- language: python
+  registry: pypi
+  name: robotframework-applicationlibrary
+  url: https://pypi.org/project/robotframework-applicationlibrary/
+  repo: https://github.com/Accruent/robotframework-applicationlibrary
+  install: pip install robotframework-applicationlibrary
+  official: true
+  api_client: false
+  archived: true
+  purpose: Robot Framework libraries for mobile and Windows desktop testing. Repository archived 2024-06-27.
+  version: 1.2.1
+  published: '2023-06-27'
+registries_checked:
+- registry: npm
+  result: >-
+    No Accruent-owned package found. The two JavaScript repos in the org (now-sync,
+    gatsby-source-greenhouse) are forks whose npm records point at upstream authors
+    (theconnectiv, diegolamanno), so neither is recorded as an Accruent package.
+- {registry: pypi, result: 4 first-party packages found, all test tooling}
+- {registry: maven-central, result: none}
+- {registry: nuget, result: none}
+- {registry: rubygems, result: none}
+- {registry: packagist, result: none}
+- {registry: crates.io, result: none - the org's one Rust project (jiragen) is archived and unpublished}
+- {registry: pkg.go.dev, result: none}

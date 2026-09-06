@@ -1,0 +1,43 @@
+generated: '2026-09-06'
+method: searched
+source: >-
+  https://help.accruent.com/meridian/Content/Cloud_WhatsNew/LandingPages/release_notes_landing.htm,
+  https://help.accruent.com/ems/Content/ReleaseNotes/Release%20Notes.htm,
+  https://www.maintenanceconnection.com/mcv18/mapp_v80/help/Content/MCUserGuide/Whats%20New/2023.8.htm
+scheme: calendar
+current_version: null
+api_changelog: false
+note: >-
+  Accruent maintains per-product release notes inside its MadCap Flare customer help sites, not a
+  developer changelog. There is no changelog for any of its APIs specifically - no dated record of
+  when an endpoint, field or schema version changed - and the Maintenance Connection Swagger
+  document carries no version beyond "v8". The release-note trees are organised by calendar year
+  (2019 through 2026 for Meridian Cloud, 2022 through 2026 for EMS), but the individual dated
+  entries sit behind a JavaScript-rendered table of contents with non-derivable filenames, so only
+  the landing pages and one directly-verified entry are recorded below rather than a fabricated
+  list. A consumer of an Accruent API has no published feed to watch for breaking changes.
+surfaces:
+- product: Meridian Cloud
+  url: https://help.accruent.com/meridian/Content/Cloud_WhatsNew/LandingPages/release_notes_landing.htm
+  http_status: 200
+  years_listed: [2026, 2025, 2024, 2023, 2022, 2021, 2020, 2019]
+  feed: null
+- product: EMS
+  url: https://help.accruent.com/ems/Content/ReleaseNotes/Release%20Notes.htm
+  http_status: 200
+  years_listed: [2026, 2025, 2024, 2023, 2022]
+  feed: null
+- product: Maintenance Connection
+  url: https://www.maintenanceconnection.com/mcv18/mapp_v80/help/Content/MCUserGuide/Whats%20New/2023.8.htm
+  http_status: 200
+  feed: null
+entries:
+- product: Meridian Cloud
+  version: '2024.1'
+  date: null
+  url: https://help.accruent.com/meridian/Content/Cloud_WhatsNew/2024_1.htm
+  http_status: 200
+  breaking: unknown
+  note: >-
+    The only individual release-note page reachable by a derivable URL pattern; the 2025 and 2026
+    pages use a different, non-guessable naming scheme behind the JS table of contents.

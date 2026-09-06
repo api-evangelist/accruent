@@ -1,0 +1,1119 @@
+generated: '2026-09-06'
+method: derived
+status: candidate
+source: openapi/accruent-maintenance-connection-openapi.yml
+note: Accruent publishes NO MCP server - hosted or stdio - for any of its products. Searches of the Accruent developer
+  network, the Accruent GitHub organisation (19 public repos, all QA tooling), npm and the MCP registries returned
+  nothing, and no /.well-known/ probe on any Accruent host surfaced an MCP or agent surface. The tools below are
+  a CANDIDATE list derived mechanically from the 255 operations in the published Maintenance Connection Swagger
+  document; nothing here is served by Accruent. Each tool names the operation(s) that back it, and its real input
+  schema is those operations' parameters and requestBody in the spec. Note that Accruent reuses operationIds heavily
+  - 117 unique ids across 255 operations - so several candidate tools legitimately fan out to more than one path.
+deployment:
+  mode: none
+  endpoint: null
+  install: null
+  package: null
+  auth: api-key
+  auth_note: If a server were built, it would carry the Maintenance Connection HTTP Basic ConnectionKey:APIKey pair.
+  verified: derived
+server:
+  name: accruent-maintenance-connection
+  transport: null
+  url: null
+coverage:
+  rest_operations: 255
+  candidate_tools: 172
+  published_tools: 0
+tools:
+- name: list_asset_documents
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#AssetDocuments_Get (GET /AssetDocuments)
+  - openapi/accruent-maintenance-connection-openapi.yml#AssetDocuments_Get (GET /Assets/{assetPK}/documents)
+  parameters:
+  - assetPK (path, required)
+- name: create_asset_documents
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#AssetDocuments_Post (POST /Assets/{assetPK}/documents)
+  parameters:
+  - assetPK (path, required)
+- name: get_asset_documents
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#AssetDocuments_Get (GET /AssetDocuments/{assetPK})
+  - openapi/accruent-maintenance-connection-openapi.yml#AssetDocuments_Get (GET /Assets/{assetPK}/documents/{PK})
+  parameters:
+  - PK (path, required)
+  - assetPK (path, required)
+- name: create_asset_documents_by_id
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#AssetDocuments_Post (POST /AssetDocuments/{assetPK})
+  parameters:
+  - assetPK (path, required)
+- name: list_asset_images
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#AssetImages_Get (GET /AssetImages)
+  - openapi/accruent-maintenance-connection-openapi.yml#AssetImages_Get (GET /Assets/{assetPK}/images)
+  parameters:
+  - assetPK (path, required)
+- name: create_asset_images
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#AssetImages_Post (POST /Assets/{assetPK}/images)
+  parameters:
+  - assetPK (path, required)
+- name: get_asset_images
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#AssetImages_Get (GET /AssetImages/{assetPK})
+  - openapi/accruent-maintenance-connection-openapi.yml#AssetImages_Get (GET /Assets/{assetPK}/images/{imagePK})
+  parameters:
+  - assetPK (path, required)
+  - imagePK (path, required)
+- name: create_asset_images_by_id
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#AssetImages_Post (POST /AssetImages/{assetPK})
+  parameters:
+  - assetPK (path, required)
+- name: list_asset_meter_history
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#AssetMeterHistory_GetMeterHistory (GET /AssetMeterHistory)
+  - openapi/accruent-maintenance-connection-openapi.yml#AssetMeterHistory_GetMeterHistoryForAsset (GET /Assets/{assetPK}/meterhistory)
+  - openapi/accruent-maintenance-connection-openapi.yml#AssetMeterHistory_GetMeterHistoryForAsset (GET /Assets/{assetPK}/meternumberhistory)
+  parameters:
+  - assetPK (path, required)
+- name: create_asset_meter_history
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#AssetMeterHistory_Post (POST /Assets/{assetPK}/meterhistory)
+  - openapi/accruent-maintenance-connection-openapi.yml#AssetMeterHistory_Post (POST /Assets/{assetPK}/meternumberhistory)
+  parameters:
+  - assetPK (path, required)
+  - newMeterHistory (body, required)
+- name: get_asset_meter_history
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#AssetMeterHistory_GetMeterHistoryForAsset (GET /AssetMeterHistory/{assetPK})
+  - openapi/accruent-maintenance-connection-openapi.yml#AssetMeterHistory_GetMeterHistoryRecord (GET /Assets/{assetPK}/meterhistory/{historyPK})
+  - openapi/accruent-maintenance-connection-openapi.yml#AssetMeterHistory_GetMeterNumberHistory (GET /Assets/{assetPK}/meternumberhistory/{meterNumber})
+  parameters:
+  - assetPK (path, required)
+  - historyPK (path, required)
+  - meterNumber (path, required)
+- name: update_asset_meter_history_by_id
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#AssetMeterHistory_Put (PUT /AssetMeterHistory/{assetPK})
+  - openapi/accruent-maintenance-connection-openapi.yml#AssetMeterHistory_Put (PUT /Assets/{assetPK}/meterhistory/{historyPK})
+  parameters:
+  - assetPK (path, required)
+  - historyPK (path, required)
+  - historyPK (query, required)
+  - updatedViewModel (body, required)
+- name: update_asset_meter_history
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#AssetMeterHistory_Put (PUT /AssetMeterHistory)
+  - openapi/accruent-maintenance-connection-openapi.yml#AssetMeterHistory_Put (PUT /Assets/{assetPK}/meternumberhistory)
+  parameters:
+  - assetPK (path, required)
+  - historyPK (query, required)
+  - updViews (body, required)
+  - updatedViewModel (body, required)
+- name: create_asset_meter_history_by_id
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#AssetMeterHistory_Post (POST /AssetMeterHistory/{assetPK})
+  parameters:
+  - assetPK (path, required)
+  - newMeterHistory (body, required)
+- name: list_assets
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#Assets_Get (GET /Assets)
+  parameters: []
+- name: update_assets
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#Assets_Put (PUT /Assets)
+  parameters:
+  - updViews (body, required)
+- name: create_assets
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#Assets_Post (POST /Assets)
+  parameters:
+  - newAssets (body, required)
+- name: get_assets
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#Assets_Get (GET /Assets/{assetPK})
+  parameters:
+  - assetPK (path, required)
+- name: update_assets_by_id
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#Assets_Put (PUT /Assets/{assetPK})
+  parameters:
+  - assetPK (path, required)
+  - updatedViewModel (body, required)
+- name: create_assets_by_id
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#Assets_Post (POST /Assets/{assetPK})
+  parameters:
+  - assetPK (path, required)
+- name: get_asset_specifications
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#AssetSpecifications_Get (GET /AssetSpecifications/{assetPK})
+  - openapi/accruent-maintenance-connection-openapi.yml#AssetSpecifications_Get (GET /Assets/{assetPK}/specifications/{PK})
+  parameters:
+  - PK (path, required)
+  - PK (query, required)
+  - assetPK (path, required)
+- name: update_asset_specifications_by_id
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#AssetSpecifications_Put (PUT /AssetSpecifications/{assetPK})
+  - openapi/accruent-maintenance-connection-openapi.yml#AssetSpecifications_Put (PUT /Assets/{assetPK}/specifications/{PK})
+  parameters:
+  - PK (path, required)
+  - PK (query, required)
+  - assetPK (path, required)
+  - updatedViewModel (body, required)
+- name: list_asset_specifications
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#AssetSpecifications_Get (GET /AssetSpecifications)
+  - openapi/accruent-maintenance-connection-openapi.yml#AssetSpecifications_GetSpecificationsForAsset (GET /Assets/{assetPK}/specifications)
+  parameters:
+  - assetPK (path, required)
+- name: create_asset_specifications
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#AssetSpecifications_Post (POST /Assets/{assetPK}/specifications)
+  parameters:
+  - assetPK (path, required)
+  - newAssetSpecs (body, required)
+- name: update_asset_specifications
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#AssetSpecifications_Put (PUT /AssetSpecifications)
+  parameters:
+  - updViews (body, required)
+- name: create_asset_specifications_by_id
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#AssetSpecifications_Post (POST /AssetSpecifications/{assetPK})
+  parameters:
+  - assetPK (path, required)
+  - newAssetSpecs (body, required)
+- name: list_classifications
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#Classifications_Get (GET /classifications)
+  parameters: []
+- name: update_classifications
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#Classifications_Put (PUT /classifications)
+  parameters:
+  - updViews (body, required)
+- name: create_classifications
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#Classifications_Post (POST /classifications)
+  parameters:
+  - newClassifications (body, required)
+- name: get_classifications
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#Classifications_Get (GET /classifications/{classificationPK})
+  parameters:
+  - classificationPK (path, required)
+- name: update_classifications_by_id
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#Classifications_Put (PUT /classifications/{classificationPK})
+  parameters:
+  - classificationPK (path, required)
+  - updatedViewModel (body, required)
+- name: list_companies
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#Companies_Get (GET /Companies)
+  parameters: []
+- name: update_companies
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#Companies_Put (PUT /Companies)
+  parameters:
+  - updViews (body, required)
+- name: create_companies
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#Companies_Post (POST /Companies)
+  parameters:
+  - newCompanies (body, required)
+- name: get_companies
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#Companies_Get (GET /Companies/{companyPK})
+  parameters:
+  - companyPK (path, required)
+- name: update_companies_by_id
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#Companies_Put (PUT /Companies/{companyPK})
+  parameters:
+  - companyPK (path, required)
+  - updatedViewModel (body, required)
+- name: list_external_interface
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#ExternalInterface_Get (GET /ExternalInterface)
+  parameters: []
+- name: create_external_interface
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#ExternalInterface_Post (POST /ExternalInterface)
+  parameters:
+  - _externalInterfaces (body, required)
+- name: get_external_interface
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#ExternalInterface_Get (GET /ExternalInterface/{externalInterfacePK})
+  parameters:
+  - externalInterfacePK (path, required)
+- name: update_external_interface_by_id
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#ExternalInterface_Put (PUT /ExternalInterface/{externalInterfacePK})
+  parameters:
+  - externalInterfacePK (path, required)
+  - updatedViewModel (body, required)
+- name: list_invoices
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#Invoices_Get (GET /Invoices)
+  - openapi/accruent-maintenance-connection-openapi.yml#Invoices_GetInvoicesForPurchaseOrder (GET /PurchaseOrders/{purchaseOrderPK}/Invoices)
+  parameters:
+  - purchaseOrderPK (path, required)
+- name: update_invoices
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#Invoices_Put (PUT /Invoices)
+  parameters:
+  - updViews (body, required)
+- name: create_invoices
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#Invoices_Post (POST /Invoices)
+  - openapi/accruent-maintenance-connection-openapi.yml#Invoices_Post (POST /PurchaseOrders/{purchaseOrderPK}/Invoices)
+  parameters:
+  - newInvoices (body, required)
+  - purchaseOrderPK (path, required)
+  - purchaseOrderPK (query, required)
+- name: get_invoices
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#Invoices_Get (GET /Invoices/{invoicePK})
+  - openapi/accruent-maintenance-connection-openapi.yml#Invoices_Get (GET /PurchaseOrders/{purchaseOrderPK}/Invoices/{invoicePK})
+  parameters:
+  - invoicePK (path, required)
+  - purchaseOrderPK (path, required)
+  - purchaseOrderPK (query, required)
+- name: update_invoices_by_id
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#Invoices_Put (PUT /Invoices/{invoicePK})
+  - openapi/accruent-maintenance-connection-openapi.yml#Invoices_Put (PUT /PurchaseOrders/{purchaseOrderPK}/Invoices/{invoicePK})
+  parameters:
+  - invoicePK (path, required)
+  - purchaseOrderPK (path, required)
+  - purchaseOrderPK (query, required)
+  - updatedViewModel (body, required)
+- name: list_labors
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#Labors_Get (GET /Labors)
+  parameters: []
+- name: update_labors
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#Labors_Put (PUT /Labors)
+  parameters:
+  - updViews (body, required)
+- name: create_labors
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#Labors_Post (POST /Labors)
+  parameters:
+  - newLabor (body, required)
+- name: get_labors
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#Labors_Get (GET /Labors/{laborPK})
+  parameters:
+  - laborPK (path, required)
+- name: update_labors_by_id
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#Labors_Put (PUT /Labors/{laborPK})
+  parameters:
+  - laborPK (path, required)
+  - updatedViewModel (body, required)
+- name: create_labors_by_id
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#Labors_Post (POST /Labors/{laborPK})
+  parameters:
+  - laborPK (path, required)
+- name: list_log
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#Log_Get (GET /Logs)
+  parameters: []
+- name: create_log
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#Log_Post (POST /Logs)
+  parameters:
+  - newLogs (body, required)
+- name: get_log
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#Log_Get (GET /Logs/{logPK})
+  parameters:
+  - logPK (path, required)
+- name: list_lookup_tables
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#LookupTables_Get (GET /LookupTables)
+  parameters: []
+- name: update_lookup_tables
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#LookupTables_Put (PUT /LookupTables)
+  parameters:
+  - updViews (body, required)
+- name: create_lookup_tables
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#LookupTables_Post (POST /LookupTables)
+  parameters:
+  - newLookupTable (body, required)
+- name: get_lookup_tables
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#LookupTables_Get (GET /LookupTables/{lookupTableID})
+  parameters:
+  - lookupTableID (path, required)
+- name: update_lookup_tables_by_id
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#LookupTables_Put (PUT /LookupTables/{lookupTableID})
+  parameters:
+  - lookupTableID (path, required)
+  - updatedViewModel (body, required)
+- name: list_lookup_table_values
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#LookupTableValues_Get (GET /LookupTableValues)
+  - openapi/accruent-maintenance-connection-openapi.yml#LookupTableValues_Get (GET /LookupTables/{lookupTableID}/values)
+  parameters:
+  - lookupTableID (path, required)
+- name: create_lookup_table_values
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#LookupTableValues_Post (POST /LookupTables/{lookupTableID}/values)
+  parameters:
+  - lookupTableID (path, required)
+  - newLookupTableValues (body, required)
+- name: get_lookup_table_values
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#LookupTableValues_Get (GET /LookupTableValues/{lookupTableID})
+  - openapi/accruent-maintenance-connection-openapi.yml#LookupTableValues_Get (GET /LookupTables/{lookupTableID}/values/{codeName})
+  parameters:
+  - codeName (path, required)
+  - lookupTableID (path, required)
+- name: update_lookup_table_values_by_id
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#LookupTableValues_Put (PUT /LookupTableValues/{lookupTableID})
+  - openapi/accruent-maintenance-connection-openapi.yml#LookupTableValues_Put (PUT /LookupTables/{lookupTableID}/values/{codeName})
+  parameters:
+  - codeName (path, required)
+  - codeName (query, required)
+  - lookupTableID (path, required)
+  - updatedViewModel (body, required)
+- name: update_lookup_table_values
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#LookupTableValues_Put (PUT /LookupTableValues)
+  parameters:
+  - updViews (body, required)
+- name: create_lookup_table_values_by_id
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#LookupTableValues_Post (POST /LookupTableValues/{lookupTableID})
+  parameters:
+  - lookupTableID (path, required)
+  - newLookupTableValues (body, required)
+- name: list_part_documents
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#PartDocuments_Get (GET /PartDocuments)
+  - openapi/accruent-maintenance-connection-openapi.yml#PartDocuments_Get (GET /Parts/{partPK}/documents)
+  parameters:
+  - partPK (path, required)
+- name: create_part_documents
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#PartDocuments_Post (POST /Parts/{partPK}/documents)
+  parameters:
+  - partPK (path, required)
+- name: get_part_documents
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#PartDocuments_Get (GET /PartDocuments/{partPK})
+  - openapi/accruent-maintenance-connection-openapi.yml#PartDocuments_Get (GET /Parts/{partPK}/documents/{PK})
+  parameters:
+  - PK (path, required)
+  - partPK (path, required)
+- name: create_part_documents_by_id
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#PartDocuments_Post (POST /PartDocuments/{partPK})
+  parameters:
+  - partPK (path, required)
+- name: list_part_locations
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#PartLocations_Get (GET /PartLocations)
+  - openapi/accruent-maintenance-connection-openapi.yml#PartLocations_Get (GET /Parts/{partPK}/locations)
+  parameters:
+  - partPK (path, required)
+- name: create_part_locations
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#PartLocations_Post (POST /PartLocations)
+  - openapi/accruent-maintenance-connection-openapi.yml#PartLocations_Post (POST /Parts/{partPK}/locations)
+  parameters:
+  - newLocations (body, required)
+  - partPK (path, required)
+  - partPK (query, required)
+- name: get_part_locations
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#PartLocations_Get (GET /PartLocations/{partLocationPK})
+  - openapi/accruent-maintenance-connection-openapi.yml#PartLocations_Get (GET /Parts/{partPK}/locations/{partLocationPK})
+  parameters:
+  - partLocationPK (path, required)
+  - partPK (path, required)
+  - partPK (query, required)
+- name: update_part_locations_by_id
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#PartLocations_Put (PUT /PartLocations/{partLocationPK})
+  - openapi/accruent-maintenance-connection-openapi.yml#PartLocations_Put (PUT /Parts/{partPK}/locations/{partLocationPK})
+  parameters:
+  - partLocationPK (path, required)
+  - partPK (path, required)
+  - partPK (query, required)
+  - updatedViewModel (body, required)
+- name: update_part_locations
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#PartLocations_Put (PUT /PartLocations)
+  parameters:
+  - updViews (body, required)
+- name: list_parts
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#Parts_Get (GET /Parts)
+  parameters: []
+- name: update_parts
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#Parts_Put (PUT /Parts)
+  parameters:
+  - updViews (body, required)
+- name: create_parts
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#Parts_Post (POST /Parts)
+  parameters:
+  - newPart (body, required)
+- name: get_parts
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#Parts_Get (GET /Parts/{partPK})
+  parameters:
+  - partPK (path, required)
+- name: update_parts_by_id
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#Parts_Put (PUT /Parts/{partPK})
+  parameters:
+  - partPK (path, required)
+  - updatedViewModel (body, required)
+- name: create_parts_by_id
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#Parts_Post (POST /Parts/{partPK})
+  parameters:
+  - partPK (path, required)
+- name: list_part_transactions
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#PartTransactions_Get (GET /PartTransactions)
+  - openapi/accruent-maintenance-connection-openapi.yml#PartTransactions_Get (GET /Parts/{partPK}/transactions)
+  parameters:
+  - partPK (path, required)
+- name: create_part_transactions
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#PartTransactions_Post (POST /PartTransactions)
+  - openapi/accruent-maintenance-connection-openapi.yml#PartTransactions_Post (POST /Parts/{partPK}/transactions)
+  parameters:
+  - newTransactions (body, required)
+  - partPK (path, required)
+  - partPK (query, required)
+- name: get_part_transactions
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#PartTransactions_Get (GET /PartTransactions/{partTransactionPK})
+  - openapi/accruent-maintenance-connection-openapi.yml#PartTransactions_Get (GET /Parts/{partPK}/transactions/{partTransactionPK})
+  parameters:
+  - partPK (path, required)
+  - partPK (query, required)
+  - partTransactionPK (path, required)
+- name: list_part_vendors
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#PartVendors_Get (GET /PartVendors)
+  - openapi/accruent-maintenance-connection-openapi.yml#PartVendors_Get (GET /Parts/{partPK}/vendors)
+  parameters:
+  - partPK (path, required)
+- name: create_part_vendors
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#PartVendors_Post (POST /PartVendors)
+  - openapi/accruent-maintenance-connection-openapi.yml#PartVendors_Post (POST /Parts/{partPK}/vendors)
+  parameters:
+  - newVendors (body, required)
+  - partPK (path, required)
+  - partPK (query, required)
+- name: get_part_vendors
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#PartVendors_Get (GET /PartVendors/{partVendorPK})
+  - openapi/accruent-maintenance-connection-openapi.yml#PartVendors_Get (GET /Parts/{partPK}/vendors/{partVendorPK})
+  parameters:
+  - partPK (path, required)
+  - partPK (query, required)
+  - partVendorPK (path, required)
+- name: update_part_vendors_by_id
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#PartVendors_Put (PUT /PartVendors/{partvendorPK})
+  - openapi/accruent-maintenance-connection-openapi.yml#PartVendors_Put (PUT /Parts/{partPK}/vendors/{partvendorPK})
+  parameters:
+  - partPK (path, required)
+  - partPK (query, required)
+  - partvendorPK (path, required)
+  - updatedViewModel (body, required)
+- name: update_part_vendors
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#PartVendors_Put (PUT /PartVendors)
+  parameters:
+  - updViews (body, required)
+- name: list_purchase_order_line_items
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#PurchaseOrderLineItems_Get (GET /PurchaseOrderLineItems)
+  - openapi/accruent-maintenance-connection-openapi.yml#PurchaseOrderLineItems_GetLineItemsForPurchaseOrder (GET
+    /PurchaseOrders/{purchaseOrderPK}/LineItems)
+  parameters:
+  - purchaseOrderPK (path, required)
+- name: update_purchase_order_line_items
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#PurchaseOrderLineItems_Put (PUT /PurchaseOrderLineItems)
+  parameters:
+  - updViews (body, required)
+- name: create_purchase_order_line_items
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#PurchaseOrderLineItems_Post (POST /PurchaseOrderLineItems)
+  - openapi/accruent-maintenance-connection-openapi.yml#PurchaseOrderLineItems_Post (POST /PurchaseOrders/{purchaseOrderPK}/LineItems)
+  parameters:
+  - newLineItems (body, required)
+  - purchaseOrderPK (path, required)
+  - purchaseOrderPK (query, required)
+- name: get_purchase_order_line_items
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#PurchaseOrderLineItems_Get (GET /PurchaseOrderLineItems/{lineItemPK})
+  - openapi/accruent-maintenance-connection-openapi.yml#PurchaseOrderLineItems_Get (GET /PurchaseOrders/{purchaseOrderPK}/LineItems/{lineItemPK})
+  parameters:
+  - lineItemPK (path, required)
+  - purchaseOrderPK (path, required)
+  - purchaseOrderPK (query, required)
+- name: update_purchase_order_line_items_by_id
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#PurchaseOrderLineItems_Put (PUT /PurchaseOrderLineItems/{lineItemPK})
+  - openapi/accruent-maintenance-connection-openapi.yml#PurchaseOrderLineItems_Put (PUT /PurchaseOrders/{purchaseOrderPK}/LineItems/{lineItemPK})
+  parameters:
+  - lineItemPK (path, required)
+  - purchaseOrderPK (path, required)
+  - purchaseOrderPK (query, required)
+  - updatedViewModel (body, required)
+- name: list_purchase_order_note
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#PurchaseOrderNote_Get (GET /PurchaseOrderNote)
+  - openapi/accruent-maintenance-connection-openapi.yml#PurchaseOrderNote_GetNotesForPurchaseOrder (GET /PurchaseOrders/{purchaseOrderPK}/Notes)
+  parameters:
+  - purchaseOrderPK (path, required)
+- name: create_purchase_order_note
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#PurchaseOrderNote_Post (POST /PurchaseOrderNote)
+  parameters:
+  - newNotes (body, required)
+- name: get_purchase_order_note
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#PurchaseOrderNote_Get (GET /PurchaseOrderNote/{purchaseOrderNotePK})
+  parameters:
+  - purchaseOrderNotePK (path, required)
+- name: list_purchase_orders
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#PurchaseOrders_Get (GET /purchaseorders)
+  parameters: []
+- name: update_purchase_orders
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#PurchaseOrders_Put (PUT /purchaseorders)
+  parameters:
+  - updViews (body, required)
+- name: create_purchase_orders
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#PurchaseOrders_Post (POST /purchaseorders)
+  parameters:
+  - newPurchaseOrders (body, required)
+- name: get_purchase_orders
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#PurchaseOrders_Get (GET /purchaseorders/{purchaseOrderPK})
+  parameters:
+  - purchaseOrderPK (path, required)
+- name: update_purchase_orders_by_id
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#PurchaseOrders_Put (PUT /purchaseorders/{purchaseOrderPK})
+  parameters:
+  - purchaseOrderPK (path, required)
+  - updatedViewModel (body, required)
+- name: list_purchase_order_status_updates
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#PurchaseOrderStatusUpdates_GetStatusUpdatesForPurchaseOrder
+    (GET /PurchaseOrders/{purchaseOrderPK}/StatusUpdates)
+  parameters:
+  - purchaseOrderPK (path, required)
+- name: list_receipt_line_items
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#ReceiptLineItems_Get (GET /ReceiptLineItems)
+  - openapi/accruent-maintenance-connection-openapi.yml#ReceiptLineItems_GetLineItemsForPurchaseOrderReceipt (GET
+    /PurchaseOrders/{purchaseOrderPK}/Receipts/{receiptPK}/LineItems)
+  parameters:
+  - purchaseOrderPK (path, required)
+  - receiptPK (path, required)
+- name: update_receipt_line_items
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#ReceiptLineItems_Put (PUT /ReceiptLineItems)
+  parameters:
+  - updViews (body, required)
+- name: create_receipt_line_items
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#ReceiptLineItems_Post (POST /PurchaseOrders/{purchaseOrderPK}/Receipts/{receiptPK}/LineItems)
+  - openapi/accruent-maintenance-connection-openapi.yml#ReceiptLineItems_Post (POST /ReceiptLineItems)
+  parameters:
+  - newLineItems (body, required)
+  - purchaseOrderPK (path, required)
+  - purchaseOrderPK (query, required)
+  - receiptPK (path, required)
+  - receiptPK (query, required)
+- name: get_receipt_line_items
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#ReceiptLineItems_Get (GET /PurchaseOrders/{purchaseOrderPK}/Receipts/{receiptPK}/LineItems/{lineItemPK})
+  - openapi/accruent-maintenance-connection-openapi.yml#ReceiptLineItems_Get (GET /ReceiptLineItems/{lineItemPK})
+  parameters:
+  - lineItemPK (path, required)
+  - purchaseOrderPK (path, required)
+  - purchaseOrderPK (query, required)
+  - receiptPK (path, required)
+  - receiptPK (query, required)
+- name: update_receipt_line_items_by_id
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#ReceiptLineItems_Put (PUT /PurchaseOrders/{purchaseOrderPK}/Receipts/{receiptPK}/LineItems/{lineItemPK})
+  - openapi/accruent-maintenance-connection-openapi.yml#ReceiptLineItems_Put (PUT /ReceiptLineItems/{lineItemPK})
+  parameters:
+  - lineItemPK (path, required)
+  - purchaseOrderPK (path, required)
+  - purchaseOrderPK (query, required)
+  - receiptPK (path, required)
+  - receiptPK (query, required)
+  - updatedViewModel (body, required)
+- name: list_receipts
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#Receipts_Get (GET /Receipts)
+  - openapi/accruent-maintenance-connection-openapi.yml#Receipts_GetReceiptsForPurchaseOrder (GET /PurchaseOrders/{purchaseOrderPK}/Receipts)
+  parameters:
+  - purchaseOrderPK (path, required)
+- name: update_receipts
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#Receipts_Put (PUT /Receipts)
+  parameters:
+  - updViews (body, required)
+- name: create_receipts
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#Receipts_Post (POST /PurchaseOrders/{purchaseOrderPK}/Receipts)
+  - openapi/accruent-maintenance-connection-openapi.yml#Receipts_Post (POST /Receipts)
+  parameters:
+  - newReceipts (body, required)
+  - purchaseOrderPK (path, required)
+  - purchaseOrderPK (query, required)
+- name: get_receipts
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#Receipts_Get (GET /PurchaseOrders/{purchaseOrderPK}/Receipts/{receiptPK})
+  - openapi/accruent-maintenance-connection-openapi.yml#Receipts_Get (GET /Receipts/{receiptPK})
+  parameters:
+  - purchaseOrderPK (path, required)
+  - purchaseOrderPK (query, required)
+  - receiptPK (path, required)
+- name: update_receipts_by_id
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#Receipts_Put (PUT /PurchaseOrders/{purchaseOrderPK}/Receipts/{receiptPK})
+  - openapi/accruent-maintenance-connection-openapi.yml#Receipts_Put (PUT /Receipts/{receiptPK})
+  parameters:
+  - purchaseOrderPK (path, required)
+  - purchaseOrderPK (query, required)
+  - receiptPK (path, required)
+  - updatedViewModel (body, required)
+- name: get_schema
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#Schema_Get (GET /Schema/{model})
+  parameters:
+  - model (path, required)
+- name: list_specification_asset_specifications
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#SpecificationAssetSpecifications_GetAssetSpecificationsForSpecification
+    (GET /specifications/{specificationPK}/AssetSpecifications)
+  parameters:
+  - specificationPK (path, required)
+- name: get_specification_asset_specifications
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#SpecificationAssetSpecifications_Get (GET /specifications/{specificationPK}/AssetSpecifications/{assetspecPK})
+  parameters:
+  - assetspecPK (path, required)
+  - specificationPK (path, required)
+- name: list_specifications
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#Specifications_Get (GET /specifications)
+  parameters: []
+- name: get_specifications
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#Specifications_Get (GET /specifications/{specificationPK})
+  parameters:
+  - specificationPK (path, required)
+- name: get_work_order_assignments
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderAssignments_Get (GET /WorkOrderAssignments/{assignmentPK})
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderAssignments_Get (GET /WorkOrders/{workOrderPK}/Assignments/{assignmentPK})
+  parameters:
+  - assignmentPK (path, required)
+  - workOrderPK (path, required)
+  - workOrderPK (query, required)
+- name: update_work_order_assignments_by_id
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderAssignments_Put (PUT /WorkOrderAssignments/{assignmentPK})
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderAssignments_Put (PUT /WorkOrders/{workOrderPK}/Assignments/{assignmentPK})
+  parameters:
+  - assignmentPK (path, required)
+  - updatedViewModel (body, required)
+  - workOrderPK (path, required)
+  - workOrderPK (query, required)
+- name: list_work_order_assignments
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderAssignments_Get (GET /WorkOrderAssignments)
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderAssignments_GetAssignmentsForWorkOrder (GET /WorkOrders/{workOrderPK}/Assignments)
+  parameters:
+  - workOrderPK (path, required)
+- name: create_work_order_assignments
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderAssignments_Post (POST /WorkOrderAssignments)
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderAssignments_Post (POST /WorkOrders/{workOrderPK}/Assignments)
+  parameters:
+  - newAssignments (body, required)
+  - workOrderPK (path, required)
+  - workOrderPK (query, required)
+- name: update_work_order_assignments
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderAssignments_Put (PUT /WorkOrderAssignments)
+  parameters:
+  - updViews (body, required)
+- name: list_work_order_documents
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderDocuments_Get (GET /WorkOrderDocuments)
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderDocuments_Get (GET /WorkOrders/{workOrderPK}/documents)
+  parameters:
+  - workOrderPK (path, required)
+- name: create_work_order_documents
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderDocuments_Post (POST /WorkOrders/{workOrderPK}/documents)
+  parameters:
+  - workOrderPK (path, required)
+- name: get_work_order_documents
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderDocuments_Get (GET /WorkOrderDocuments/{workOrderPK})
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderDocuments_Get (GET /WorkOrders/{workOrderPK}/documents/{PK})
+  parameters:
+  - PK (path, required)
+  - workOrderPK (path, required)
+- name: create_work_order_documents_by_id
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderDocuments_Post (POST /WorkOrderDocuments/{workOrderPK})
+  parameters:
+  - workOrderPK (path, required)
+- name: list_work_order_images
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderImages_Get (GET /WorkOrderImages)
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderImages_Get (GET /WorkOrders/{workOrderPK}/images)
+  parameters:
+  - workOrderPK (path, required)
+- name: create_work_order_images
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderImages_Post (POST /WorkOrders/{workOrderPK}/images)
+  parameters:
+  - workOrderPK (path, required)
+- name: get_work_order_images
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderImages_Get (GET /WorkOrderImages/{workOrderPK})
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderImages_Get (GET /WorkOrders/{workOrderPK}/images/{imagePK})
+  parameters:
+  - imagePK (path, required)
+  - workOrderPK (path, required)
+- name: create_work_order_images_by_id
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderImages_Post (POST /WorkOrderImages/{workOrderPK})
+  parameters:
+  - workOrderPK (path, required)
+- name: get_work_order_labor_cost_actuals
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderLaborCostActuals_Get (GET /WorkOrderLaborActuals/{costPK})
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderLaborCostActuals_Get (GET /WorkOrders/{workOrderPK}/LaborActuals/{costPK})
+  parameters:
+  - costPK (path, required)
+  - workOrderPK (path, required)
+  - workOrderPK (query, required)
+- name: update_work_order_labor_cost_actuals_by_id
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderLaborCostActuals_Put (PUT /WorkOrderLaborActuals/{costPK})
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderLaborCostActuals_Put (PUT /WorkOrders/{workOrderPK}/LaborActuals/{costPK})
+  parameters:
+  - costPK (path, required)
+  - updatedViewModel (body, required)
+  - workOrderPK (path, required)
+  - workOrderPK (query, required)
+- name: list_work_order_labor_cost_actuals
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderLaborCostActuals_Get (GET /WorkOrderLaborActuals)
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderLaborCostActuals_GetLaborActualsForWorkOrder (GET
+    /WorkOrders/{workOrderPK}/LaborActuals)
+  parameters:
+  - workOrderPK (path, required)
+- name: create_work_order_labor_cost_actuals
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderLaborCostActuals_Post (POST /WorkOrderLaborActuals)
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderLaborCostActuals_Post (POST /WorkOrders/{workOrderPK}/LaborActuals)
+  parameters:
+  - newCosts (body, required)
+  - workOrderPK (path, required)
+  - workOrderPK (query, required)
+- name: update_work_order_labor_cost_actuals
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderLaborCostActuals_Put (PUT /WorkOrderLaborActuals)
+  parameters:
+  - updViews (body, required)
+- name: get_work_order_labor_cost_estimates
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderLaborCostEstimates_Get (GET /WorkOrderLaborEstimates/{costPK})
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderLaborCostEstimates_Get (GET /WorkOrders/{workOrderPK}/LaborEstimates/{costPK})
+  parameters:
+  - costPK (path, required)
+  - workOrderPK (path, required)
+  - workOrderPK (query, required)
+- name: update_work_order_labor_cost_estimates_by_id
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderLaborCostEstimates_Put (PUT /WorkOrderLaborEstimates/{costPK})
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderLaborCostEstimates_Put (PUT /WorkOrders/{workOrderPK}/LaborEstimates/{costPK})
+  parameters:
+  - costPK (path, required)
+  - updatedViewModel (body, required)
+  - workOrderPK (path, required)
+  - workOrderPK (query, required)
+- name: list_work_order_labor_cost_estimates
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderLaborCostEstimates_Get (GET /WorkOrderLaborEstimates)
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderLaborCostEstimates_GetLaborEstimatesForWorkOrder
+    (GET /WorkOrders/{workOrderPK}/LaborEstimates)
+  parameters:
+  - workOrderPK (path, required)
+- name: create_work_order_labor_cost_estimates
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderLaborCostEstimates_Post (POST /WorkOrderLaborEstimates)
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderLaborCostEstimates_Post (POST /WorkOrders/{workOrderPK}/LaborEstimates)
+  parameters:
+  - newCosts (body, required)
+  - workOrderPK (path, required)
+  - workOrderPK (query, required)
+- name: update_work_order_labor_cost_estimates
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderLaborCostEstimates_Put (PUT /WorkOrderLaborEstimates)
+  parameters:
+  - updViews (body, required)
+- name: get_work_order_misc_cost_actuals
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderMiscCostActuals_Get (GET /WorkOrderMiscActuals/{costPK})
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderMiscCostActuals_Get (GET /WorkOrders/{workOrderPK}/MiscActuals/{costPK})
+  parameters:
+  - costPK (path, required)
+  - workOrderPK (path, required)
+  - workOrderPK (query, required)
+- name: update_work_order_misc_cost_actuals_by_id
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderMiscCostActuals_Put (PUT /WorkOrderMiscActuals/{costPK})
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderMiscCostActuals_Put (PUT /WorkOrders/{workOrderPK}/MiscActuals/{costPK})
+  parameters:
+  - costPK (path, required)
+  - updatedViewModel (body, required)
+  - workOrderPK (path, required)
+  - workOrderPK (query, required)
+- name: list_work_order_misc_cost_actuals
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderMiscCostActuals_Get (GET /WorkOrderMiscActuals)
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderMiscCostActuals_GetMiscActualsForWorkOrder (GET
+    /WorkOrders/{workOrderPK}/MiscActuals)
+  parameters:
+  - workOrderPK (path, required)
+- name: create_work_order_misc_cost_actuals
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderMiscCostActuals_Post (POST /WorkOrderMiscActuals)
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderMiscCostActuals_Post (POST /WorkOrders/{workOrderPK}/MiscActuals)
+  parameters:
+  - newCosts (body, required)
+  - workOrderPK (path, required)
+  - workOrderPK (query, required)
+- name: update_work_order_misc_cost_actuals
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderMiscCostActuals_Put (PUT /WorkOrderMiscActuals)
+  parameters:
+  - updViews (body, required)
+- name: get_work_order_misc_cost_estimates
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderMiscCostEstimates_Get (GET /WorkOrderMiscEstimates/{costPK})
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderMiscCostEstimates_Get (GET /WorkOrders/{workOrderPK}/MiscEstimates/{costPK})
+  parameters:
+  - costPK (path, required)
+  - workOrderPK (path, required)
+  - workOrderPK (query, required)
+- name: update_work_order_misc_cost_estimates_by_id
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderMiscCostEstimates_Put (PUT /WorkOrderMiscEstimates/{costPK})
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderMiscCostEstimates_Put (PUT /WorkOrders/{workOrderPK}/MiscEstimates/{costPK})
+  parameters:
+  - costPK (path, required)
+  - updatedViewModel (body, required)
+  - workOrderPK (path, required)
+  - workOrderPK (query, required)
+- name: list_work_order_misc_cost_estimates
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderMiscCostEstimates_Get (GET /WorkOrderMiscEstimates)
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderMiscCostEstimates_GetMiscEstimatesForWorkOrder
+    (GET /WorkOrders/{workOrderPK}/MiscEstimates)
+  parameters:
+  - workOrderPK (path, required)
+- name: create_work_order_misc_cost_estimates
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderMiscCostEstimates_Post (POST /WorkOrderMiscEstimates)
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderMiscCostEstimates_Post (POST /WorkOrders/{workOrderPK}/MiscEstimates)
+  parameters:
+  - newCosts (body, required)
+  - workOrderPK (path, required)
+  - workOrderPK (query, required)
+- name: update_work_order_misc_cost_estimates
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderMiscCostEstimates_Put (PUT /WorkOrderMiscEstimates)
+  parameters:
+  - updViews (body, required)
+- name: get_work_order_part_actuals
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderPartActuals_Get (GET /WorkOrderPartActuals/{PK})
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderPartActuals_Get (GET /WorkOrders/{workOrderPK}/PartActuals/{PK})
+  parameters:
+  - PK (path, required)
+  - workOrderPK (path, required)
+  - workOrderPK (query, required)
+- name: update_work_order_part_actuals_by_id
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderPartActuals_Put (PUT /WorkOrderPartActuals/{PK})
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderPartActuals_Put (PUT /WorkOrders/{workOrderPK}/PartActuals/{PK})
+  parameters:
+  - PK (path, required)
+  - updatedViewModel (body, required)
+  - workOrderPK (path, required)
+  - workOrderPK (query, required)
+- name: list_work_order_part_actuals
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderPartActuals_Get (GET /WorkOrderPartActuals)
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderPartActuals_GetPartActualsForWorkOrder (GET /WorkOrders/{workOrderPK}/PartActuals)
+  parameters:
+  - workOrderPK (path, required)
+- name: create_work_order_part_actuals
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderPartActuals_Post (POST /WorkOrderPartActuals)
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderPartActuals_Post (POST /WorkOrders/{workOrderPK}/PartActuals)
+  parameters:
+  - newParts (body, required)
+  - workOrderPK (path, required)
+  - workOrderPK (query, required)
+- name: update_work_order_part_actuals
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderPartActuals_Put (PUT /WorkOrderPartActuals)
+  parameters:
+  - updViews (body, required)
+- name: get_work_order_part_estimates
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderPartEstimates_Get (GET /WorkOrderPartEstimates/{PK})
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderPartEstimates_Get (GET /WorkOrders/{workOrderPK}/PartEstimates/{PK})
+  parameters:
+  - PK (path, required)
+  - workOrderPK (path, required)
+  - workOrderPK (query, required)
+- name: update_work_order_part_estimates_by_id
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderPartEstimates_Put (PUT /WorkOrderPartEstimates/{PK})
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderPartEstimates_Put (PUT /WorkOrders/{workOrderPK}/PartEstimates/{PK})
+  parameters:
+  - PK (path, required)
+  - updatedViewModel (body, required)
+  - workOrderPK (path, required)
+  - workOrderPK (query, required)
+- name: list_work_order_part_estimates
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderPartEstimates_Get (GET /WorkOrderPartEstimates)
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderPartEstimates_GetPartEstimatesForWorkOrder (GET
+    /WorkOrders/{workOrderPK}/PartEstimates)
+  parameters:
+  - workOrderPK (path, required)
+- name: create_work_order_part_estimates
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderPartEstimates_Post (POST /WorkOrderPartEstimates)
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderPartEstimates_Post (POST /WorkOrders/{workOrderPK}/PartEstimates)
+  parameters:
+  - newParts (body, required)
+  - workOrderPK (path, required)
+  - workOrderPK (query, required)
+- name: update_work_order_part_estimates
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderPartEstimates_Put (PUT /WorkOrderPartEstimates)
+  parameters:
+  - updViews (body, required)
+- name: list_work_orders
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrders_Get (GET /workorders)
+  parameters: []
+- name: update_work_orders
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrders_Put (PUT /workorders)
+  parameters:
+  - updViews (body, required)
+- name: create_work_orders
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrders_Post (POST /workorders)
+  parameters:
+  - newWorkOrders (body, required)
+- name: get_work_orders
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrders_Get (GET /workorders/{workOrderPK})
+  parameters:
+  - workOrderPK (path, required)
+- name: update_work_orders_by_id
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrders_Put (PUT /workorders/{workOrderPK})
+  parameters:
+  - updatedViewModel (body, required)
+  - workOrderPK (path, required)
+- name: list_work_order_status_updates
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderStatusUpdates_GetStatusUpdatesForWorkOrder (GET
+    /WorkOrders/{workOrderPK}/StatusUpdates)
+  parameters:
+  - workOrderPK (path, required)
+- name: get_work_order_tasks
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderTasks_Get (GET /WorkOrderTasks/{taskPK})
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderTasks_Get (GET /WorkOrders/{workOrderPK}/Tasks/{taskPK})
+  parameters:
+  - taskPK (path, required)
+  - workOrderPK (path, required)
+  - workOrderPK (query, required)
+- name: update_work_order_tasks_by_id
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderTasks_Put (PUT /WorkOrderTasks/{taskPK})
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderTasks_Put (PUT /WorkOrders/{workOrderPK}/Tasks/{taskPK})
+  parameters:
+  - taskPK (path, required)
+  - updatedViewModel (body, required)
+  - workOrderPK (path, required)
+  - workOrderPK (query, required)
+- name: list_work_order_tasks
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderTasks_Get (GET /WorkOrderTasks)
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderTasks_GetTasksForWorkOrder (GET /WorkOrders/{workOrderPK}/Tasks)
+  parameters:
+  - workOrderPK (path, required)
+- name: create_work_order_tasks
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderTasks_Post (POST /WorkOrderTasks)
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderTasks_Post (POST /WorkOrders/{workOrderPK}/Tasks)
+  parameters:
+  - newTasks (body, required)
+  - workOrderPK (path, required)
+  - workOrderPK (query, required)
+- name: update_work_order_tasks
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderTasks_Put (PUT /WorkOrderTasks)
+  parameters:
+  - updViews (body, required)
+- name: create_work_order_tasks_by_id
+  source_operations:
+  - openapi/accruent-maintenance-connection-openapi.yml#WorkOrderTasks_Post (POST /WorkOrderTasks/{taskPK})
+  parameters:
+  - imageNumber (query, required)
+  - taskPK (path, required)
+  - workOrderPK (query, required)

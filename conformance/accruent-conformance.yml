@@ -1,0 +1,104 @@
+generated: '2026-09-06'
+method: searched
+source: >-
+  openapi/accruent-maintenance-connection-openapi.yml,
+  https://api.maintenanceconnection.com/v8/help/docs/RequestDocs,
+  https://www.accruent.com/security-compliance-certifications,
+  https://trust.accruent.com/
+standards:
+- id: swagger-2.0
+  conforms: true
+  evidence: >-
+    openapi/_original/accruent-maintenance-connection-v8-swagger-original.json declares
+    "swagger": "2.0" and parses as a valid Swagger 2.0 document (126 paths, 255 operations,
+    60 definitions). Fetched 2026-09-06 from https://api.maintenanceconnection.com/v8/swagger/docs/v8 (HTTP 200).
+- id: openapi-3
+  conforms: false
+  evidence: Accruent publishes Swagger 2.0 only; no OpenAPI 3.x document was found on any host.
+- id: http-basic-rfc7617
+  conforms: true
+  evidence: >-
+    securityDefinitions.basic is type "basic"; the auth page documents
+    Authorization: Basic base64("ConnectionKey:APIKey").
+- id: oauth2
+  conforms: false
+  evidence: No oauth2 securityScheme in the contract and no OAuth documentation on any Accruent product surface.
+- id: oidc
+  conforms: false
+  evidence: /.well-known/openid-configuration returned 404 on all 8 hosts probed.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Errors are plain HTTP statuses inside the ApiResponse envelope; no application/problem+json.
+- id: rfc6585-429
+  conforms: false
+  evidence: Rate-limit exhaustion returns 403 Forbidden rather than 429 Too Many Requests.
+- id: ietf-ratelimit-headers
+  conforms: false
+  evidence: No RateLimit-*, X-RateLimit-* or Retry-After headers are documented or returned.
+- id: rfc8594-sunset-header
+  conforms: false
+  evidence: No Sunset or Deprecation header support documented for any Accruent API.
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: /.well-known/security.txt returned 404 on all 8 hosts probed (well-known/accruent-well-known.yml).
+- id: json-api
+  conforms: false
+  evidence: Custom ApiResponse/IApiResult envelope, not JSON:API.
+- id: idempotency-key
+  conforms: false
+  evidence: No idempotency key header or replay-protection mechanism (conventions/accruent-conventions.yml).
+- id: a2a-agent-card
+  conforms: false
+  evidence: /.well-known/agent-card.json and /.well-known/agent.json returned 404 on all 8 hosts probed.
+- id: mcp
+  conforms: false
+  evidence: No hosted or stdio MCP server published by Accruent for any product (mcp/accruent-mcp.yml).
+domain_standards:
+- id: odata-query-options
+  name: OData query options (subset)
+  conforms: partial
+  evidence: >-
+    The Maintenance Connection Web API implements OData 4.0 query options natively as its filtering,
+    paging and sorting contract - $filter, $top, $skip and $orderby - with the logical operators
+    eq, ne, gt, ge, lt, le, and, or, not and precedence grouping, and dotted traversal into nested
+    Ref elements (RepairCenterRef.ID). Accruent states the scope plainly: "Currently OData support
+    is limited to the following keywords."
+  spec_location: https://api.maintenanceconnection.com/v8/help/docs/RequestDocs
+  gaps:
+  - No $metadata document, so the service is not OData-discoverable.
+  - No $select, $expand, $count or the string functions (contains/startswith/endswith).
+  - No OData-Version header or OData JSON payload format; responses use the ApiResponse envelope.
+  buyer_impact: >-
+    A consumer who already speaks OData can point an existing query builder at the filter, sort and
+    paging surface without a bespoke connector, but cannot rely on $metadata for discovery or on
+    OData response shapes for deserialisation.
+  method: searched
+- id: cmms-eam-domain-standards
+  name: CMMS / EAM interchange standards (MIMOSA CCOM, ISO 14224, OAGIS)
+  conforms: false
+  evidence: >-
+    No CMMS or EAM interchange standard is declared in the contract or the docs. The data model is
+    Maintenance Connection's own (WorkOrderViewModel, AssetViewModel, PartViewModel), not a
+    MIMOSA CCOM, ISO 14224 or OAGIS shape. Recorded as a measured absence, not a penalty - this
+    market has no standard the vendor has adopted.
+  method: searched
+compliance_program:
+  published: true
+  url: https://www.accruent.com/security-compliance-certifications
+  trust_center: https://trust.accruent.com/
+  trust_center_platform: Vanta
+  certifications:
+  - id: iso-27001
+    name: ISO/IEC 27001
+    evidence: 'Named on https://www.accruent.com/security-compliance-certifications (HTTP 200, fetched 2026-09-06)'
+  - id: soc-2
+    name: SOC 2
+    evidence: 'Named on https://www.accruent.com/security-compliance-certifications (HTTP 200, fetched 2026-09-06)'
+  - id: soc-1
+    name: SOC 1
+    evidence: 'Named on https://www.accruent.com/security-compliance-certifications (HTTP 200, fetched 2026-09-06)'
+  note: >-
+    The trust centre at trust.accruent.com is a real, live Vanta-hosted trust page (HTTP 200,
+    canonical link and Accruent branding), but its contents render client-side, so the certification
+    list above is taken from the first-party security-compliance-certifications page on
+    accruent.com rather than from the trust page body.

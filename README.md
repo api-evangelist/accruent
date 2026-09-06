@@ -64,5 +64,48 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Accruent is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://www.nasdaqprivatemarket.com/
+Accruent is a workplace, facilities and asset management software company serving more than 10,000
+customers in over 150 countries. Its portfolio spans CMMS/EAM (Maintenance Connection), engineering
+document management (Meridian), IWMS and lease accounting (Lucernex), space and event scheduling
+(EMS), telecom and wireless site management (Siterra), and IoT condition monitoring (Observe).
+
+## What this profile found
+
+Accruent runs an Azure API Management developer network at
+[developer.accruent.com](https://developer.accruent.com/), but its anonymous API catalogue exposes
+only the stock Azure "Echo API" sample — every real product API sits behind developer-program
+approval or a customer tenancy.
+
+One contract is published without a login. The **Maintenance Connection Web API** serves a
+Swagger 2.0 document at `https://api.maintenanceconnection.com/v8/swagger/docs/v8` — 126 paths and
+255 operations across assets, work orders, parts and inventory, purchasing, labor and lookup
+tables. It is captured verbatim in `openapi/`, and every derived artifact in this repository is
+built from it.
+
+Two things about that API matter more than its size:
+
+- **Rate-limit exhaustion returns `403`, not `429`,** with no `Retry-After` and no `RateLimit-*`
+  headers — 200 requests per minute, discoverable only from a prose table in the docs.
+- **Nothing written through it can be taken back.** There is no `DELETE` operation on any of the
+  126 paths, no cancel or void, no idempotency key, and both status-update surfaces are read-only.
+
+## Surfaces
+
+| Surface | State |
+|---|---|
+| Maintenance Connection Web API | Swagger 2.0 published, captured in `openapi/` |
+| Siterra API | Documented; definition behind Accruent Developer Program approval |
+| Meridian Cloud API | Documented; definition behind a regional APIM portal sign-in |
+| EMS Platform Services | Documented; Swagger ships inside the customer deployment |
+| Lucernex REST API | Documented; schema browser served from the customer tenancy |
+| EMS SOAP API Web Service | Accruent states it is no longer being developed |
+
+Accruent publishes no `/.well-known/` surface of any kind (13 named paths probed on 8 hosts, all
+404), no A2A agent card, no MCP server, no first-party API SDK, no webhooks or AsyncAPI, no API
+deprecation policy or changelog, and no vulnerability disclosure programme. It does publish a live
+StatusHub status page, a Vanta trust centre, ISO/IEC 27001 / SOC 1 / SOC 2 certifications, and
+indicative list pricing for three of its products.
+
+- Website: https://www.accruent.com/
+- Developer network: https://developer.accruent.com/
+- Documentation: https://help.accruent.com/

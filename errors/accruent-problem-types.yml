@@ -1,0 +1,56 @@
+generated: '2026-09-06'
+method: searched
+source: https://api.maintenanceconnection.com/v8/help/docs/ResponseDocs
+format: http-status
+note: >-
+  Accruent publishes a complete HTTP status table for the Maintenance Connection Web API in prose,
+  and NONE of it in the contract: all 255 operations in the Swagger 2.0 document declare only a
+  200 response, so a client generated from the spec has no error handling at all. The API does not
+  use RFC 9457 application/problem+json; responses are wrapped in the ApiResponse / IApiResult
+  envelope defined in the spec. There is no documented error-code registry beyond the status
+  codes below - no per-error identifiers, no remediation strings, no error catalogue page.
+envelope:
+  schema: ApiResponse
+  wraps: IApiResult
+  source: openapi/accruent-maintenance-connection-openapi.yml#/definitions/ApiResponse
+  content_types: [application/json, text/json, application/xml, text/xml]
+problems:
+- status: 400
+  title: Bad Request
+  detail: A validation exception has occurred.
+  remediation: Correct the request body or query options and retry.
+- status: 401
+  title: Unauthorised
+  detail: Invalid authorization credentials or no SSL connection.
+  remediation: >-
+    Send Authorization: Basic base64("ConnectionKey:APIKey") over HTTPS. A plain-HTTP request
+    returns 401 even with valid credentials.
+- status: 403
+  title: Forbidden
+  detail: 'Exceeded Connections Limit: Only 200 requests per minute are allowed.'
+  remediation: >-
+    Back off and retry after the minute window. No Retry-After or RateLimit header is returned,
+    so the client must time its own backoff. See rate-limits/accruent-rate-limits.yml.
+  note: This API overloads 403 for rate limiting rather than returning 429.
+- status: 404
+  title: Not Found
+  detail: The resource does not exist.
+- status: 409
+  title: Conflict
+  detail: The resource you are trying to create or alter conflicts with an existing resource (e.g. the ID is not unique).
+  remediation: Fetch the existing record and PUT an update instead of POSTing a duplicate.
+- status: 500
+  title: Internal Error
+  detail: An error has occurred in the API. Contact the Maintenance Connection support team if the problem persists.
+- status: 501
+  title: Not Implemented
+  detail: The method you have called has not been implemented in the Web API.
+success_codes:
+- {status: 200, title: OK, detail: The API call was completed successfully.}
+- {status: 201, title: Created, detail: Successful creation of resource.}
+- {status: 204, title: No Content, detail: Successful deletion of a resource.}
+gaps:
+- 0 of 255 operations declare any 4xx or 5xx response in the contract.
+- No RFC 9457 problem+json support.
+- No machine-readable error identifiers, only HTTP status codes.
+- 204 No Content is documented for deletion, but the contract exposes no DELETE operation on any path.

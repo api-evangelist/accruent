@@ -1,0 +1,131 @@
+generated: '2026-09-06'
+method: searched
+source: >-
+  https://api.maintenanceconnection.com/v8/help/docs/RequestDocs,
+  https://api.maintenanceconnection.com/v8/help/docs/ResponseDocs,
+  https://api.maintenanceconnection.com/v8/help/docs/AuthenticationDocs,
+  openapi/accruent-maintenance-connection-openapi.yml
+scope: >-
+  These conventions describe the Maintenance Connection Web API, the only Accruent surface whose
+  request/response semantics are published without a login. Siterra, Meridian Cloud, EMS Platform
+  Services and Lucernex document their conventions only inside gated portals or customer tenancies.
+authentication:
+  style: http-basic
+  header: Authorization
+  value: Basic base64("ConnectionKey:APIKey")
+  transport: HTTPS required - a non-SSL request returns 401
+  docs: https://api.maintenanceconnection.com/v8/help/docs/AuthenticationDocs
+  see: authentication/accruent-authentication.yml
+idempotency:
+  supported: false
+  coverage: none
+  header: null
+  scope: []
+  retention: null
+  note: >-
+    No idempotency key, request-id dedupe, or replay-protection mechanism of any kind is documented
+    or present in the contract. PUT updates are idempotent by HTTP semantics, but POST creates are
+    not: the only guard against a duplicate create is the 409 Conflict returned when an ID is not
+    unique, and that only fires for records whose ID the client supplies. A retried POST after a
+    timeout can create a second work order. No Idempotency pointer is emitted for this provider.
+pagination:
+  style: odata-offset
+  params:
+    limit: $top
+    offset: $skip
+    sort: $orderby
+    filter: $filter
+  default_page_size: 50
+  max_page_size: 500
+  response_fields: []
+  cursor: false
+  total_count_field: null
+  note: >-
+    OData-style query options over an offset window. There is no cursor, no next-page link and no
+    total-count field in the response, so a client paging a large result set must track $skip
+    itself and cannot detect concurrent inserts shifting the window.
+  docs: https://api.maintenanceconnection.com/v8/help/docs/RequestDocs
+filtering:
+  style: odata-$filter
+  operators_supported: [eq, ne, gt, ge, lt, le, and, or, not, '( )']
+  operators_absent: [contains, startswith, endswith, any, all, $select, $expand, $count]
+  traversal: >-
+    $filter can reference nested elements in the response, including "Ref" type elements such as
+    RepairCenterRef.ID.
+  note: >-
+    A deliberate subset of OData 4.0 query options - Accruent's own words are "Currently OData
+    support is limited to the following keywords". See conformance/accruent-conformance.yml.
+  docs: https://api.maintenanceconnection.com/v8/help/docs/RequestDocs
+batching:
+  supported: true
+  methods: [POST, PUT]
+  max_records_per_batch: 200
+  note: Creating or updating multiple resources in one request, capped at 200 records per batch.
+  docs: https://api.maintenanceconnection.com/v8/help/docs/RequestDocs
+field_expansion:
+  supported: false
+  note: No $expand or sparse-fieldset support; related entities appear as EntityRefViewModel stubs.
+metadata:
+  custom_fields: false
+  note: No customer-defined metadata bag on resources in the published contract.
+request_tracing:
+  request_id_header: null
+  correlation_id: null
+  note: No request-id or correlation-id header is documented or returned.
+versioning:
+  scheme: uri-path
+  current: v8
+  previous: v7
+  note: >-
+    Two schema versions are documented side by side at /v7/help/docs and /v8/help/docs. The v8
+    Swagger document is served at /v8/swagger/docs/v8; the v7 tree has help pages but no Swagger
+    endpoint (/v7/swagger/ui/index returns 404), so v7 is documented but not machine-readable.
+  see: lifecycle/accruent-lifecycle.yml
+error_envelope:
+  format: http-status
+  problem_json: false
+  schema: ApiResponse
+  see: errors/accruent-problem-types.yml
+rate_limit_signaling:
+  headers: []
+  status_on_exhaustion: 403
+  retry_after: false
+  note: >-
+    200 requests per minute, signalled only by a 403 with a prose message. No RateLimit-*,
+    X-RateLimit-* or Retry-After header. See rate-limits/accruent-rate-limits.yml.
+content_negotiation:
+  produces: [application/json, text/json, application/xml, text/xml]
+  default: JSON
+  note: Every operation advertises both JSON and XML representations.
+dry_run_mode:
+  supported: false
+  status: none
+  note: No preview, validate-only or dry-run mode is documented for any write operation.
+reversibility:
+  status: none
+  grade: null
+  note: >-
+    The Maintenance Connection Web API has a substantial write surface - 131 of 255 operations are
+    POST or PUT - and publishes NO reversal path for any of it. There is no DELETE operation on any
+    of the 126 paths, and no cancel, void, reverse, undo or restore operation exists under any
+    other verb. The docs describe a 204 No Content response for "successful deletion of a
+    resource", but no operation in the contract can produce it. Nor is there a status-transition
+    escape hatch: the two status surfaces the API exposes -
+    WorkOrderStatusUpdates_GetStatusUpdatesForWorkOrder and
+    PurchaseOrderStatusUpdates_GetStatusUpdatesForPurchaseOrder - are GET-only, so an agent can
+    read a record's status history but cannot write a cancelling or closing transition through
+    them. Accruent publishes no statement about which transitions are permitted or reversible, and
+    no window inside which any correction is possible. An agent that creates a work order, a
+    purchase order, an invoice or a part transaction through this API cannot take it back through
+    this API.
+  reversal_operations: []
+  window: null
+  evidence:
+  - openapi/accruent-maintenance-connection-openapi.yml (0 DELETE operations across 126 paths)
+  - https://api.maintenanceconnection.com/v8/help/docs/ResponseDocs
+cross_references:
+  errors: errors/accruent-problem-types.yml
+  lifecycle: lifecycle/accruent-lifecycle.yml
+  authentication: authentication/accruent-authentication.yml
+  rate_limits: rate-limits/accruent-rate-limits.yml
+  conformance: conformance/accruent-conformance.yml

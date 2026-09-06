@@ -1,0 +1,86 @@
+generated: '2026-09-06'
+method: searched
+source: https://www.accruent.com/product-pricing
+plan_count: 8
+currency: USD
+note: >-
+  Accruent publishes indicative list pricing for three of its products on a single pricing page -
+  unusual for an enterprise built-environment vendor - while the rest of the portfolio (Meridian,
+  EMS, Siterra, FAMIS, Observe) remains quote-only. None of the published tiers price API access
+  separately: the Maintenance Connection Web API is included with the product, the Meridian Cloud
+  API is an add-on subscription arranged through an account manager, and the Siterra API requires
+  an invitation into the developer program. The page states: "Pricing displayed is an indicative
+  estimate. Pricing will vary based on final configuration. Contact for personalized quote or for
+  more details."
+api_pricing_published: false
+plans:
+- product: Maintenance Connection
+  name: Professional
+  price_monthly: 110
+  price_annual: 1325
+  billing_unit: per user
+  currency: USD
+  minimum: 3 users
+  includes: CMMS work order, asset and inventory management; Web API access included with the product.
+- product: Maintenance Connection
+  name: Mobile Add-on
+  price_monthly: 58
+  price_annual: 700
+  billing_unit: per user
+  currency: USD
+  minimum: null
+  includes: Mobile technician add-on layered on a Professional or Enterprise seat.
+- product: Maintenance Connection
+  name: Enterprise
+  price_monthly: null
+  price_annual: null
+  billing_unit: per user
+  currency: USD
+  minimum: 5 users
+  includes: Custom quote.
+- product: RedEye
+  name: Core
+  price_monthly: 1333
+  price_annual: 16000
+  billing_unit: per organization
+  currency: USD
+  overage: plus artifact costs
+- product: RedEye
+  name: Advanced
+  price_monthly: 4000
+  price_annual: 48000
+  billing_unit: per organization
+  currency: USD
+  overage: plus artifact costs
+- product: RedEye
+  name: Enterprise
+  price_monthly: 6666
+  price_annual: 80000
+  billing_unit: per organization
+  currency: USD
+  overage: plus artifact costs
+- product: Accruent Space Intelligence
+  name: Basic
+  price_monthly: 833
+  price_annual: 10000
+  billing_unit: per organization
+  currency: USD
+  overage: plus headcount costs
+- product: Accruent Space Intelligence
+  name: Advanced
+  price_monthly: 2500
+  price_annual: 30000
+  billing_unit: per organization
+  currency: USD
+  overage: plus headcount costs
+quote_only_products:
+- Meridian / Meridian Cloud
+- EMS
+- Siterra
+- FAMIS 360
+- Lucernex
+- Observe
+trial:
+  available: true
+  product: Maintenance Connection
+  url: https://www.accruent.com/products/maintenance-connection/free-trial

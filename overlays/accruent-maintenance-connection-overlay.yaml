@@ -1,0 +1,99 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for the Accruent Maintenance Connection Web API
+  version: 1.0.0
+x-generated: '2026-09-06'
+x-method: generated
+x-source: >-
+  Derived from the published Swagger 2.0 document at
+  https://api.maintenanceconnection.com/v8/swagger/docs/v8 plus the published help pages at
+  https://api.maintenanceconnection.com/v8/help/docs. Every value below is stated by Accruent
+  somewhere in its own public documentation; nothing here is invented, and the original spec is
+  never mutated.
+extends: openapi/accruent-maintenance-connection-openapi.yml
+actions:
+- target: $.info
+  description: >-
+    Attach the provenance and rating context the harvested document does not carry, plus the
+    contact and licence-of-use pointers that live only in the help pages.
+  update:
+    x-apievangelist-slug: accruent
+    x-apievangelist-harvested: '2026-09-06'
+    x-apievangelist-source: https://api.maintenanceconnection.com/v8/swagger/docs/v8
+    x-apievangelist-product: Accruent Maintenance Connection
+    x-apievangelist-vendor: Accruent
+    description: >-
+      The Maintenance Connection Web API is a RESTful service for the Accruent Maintenance
+      Connection CMMS. Each resource is addressable by a unique URI and acted on with standard
+      HTTP verbs. Authentication is HTTP Basic over a base64 "ConnectionKey:APIKey" token.
+      Filtering, sorting and paging use a documented subset of OData query options.
+    contact:
+      name: Maintenance Connection support
+      url: https://www.accruent.com/support
+    termsOfService: https://www.accruent.com/terms-use
+- target: $.host
+  description: >-
+    The harvested document declares host "api.maintenanceconnection.com:80" while schemes is
+    ["https"] and the documented transport is HTTPS-only (a non-SSL request returns 401). The
+    stray :80 is a Swashbuckle artifact, not a real port; correct it in the overlay rather than
+    in the original.
+  update: api.maintenanceconnection.com
+- target: $
+  description: Apply the security scheme the document defines but never attaches to any operation.
+  update:
+    security:
+    - basic: []
+- target: $.securityDefinitions.basic
+  description: Document how the Basic credential is actually constructed.
+  update:
+    description: >-
+      HTTP Basic. Authorization: Basic base64("ConnectionKey:APIKey"), where the Connection Key
+      identifies the Maintenance Connection database and the API key is issued by Accruent for
+      that database. HTTPS is required; a non-SSL request returns 401.
+      See https://api.maintenanceconnection.com/v8/help/docs/AuthenticationDocs
+- target: $.paths.*.*.responses
+  description: >-
+    Add the error responses Accruent publishes in its Response and Error Codes table but declares
+    on none of the 255 operations. All seven statuses below are quoted from that table.
+  update:
+    '400':
+      description: Bad Request - a validation exception has occurred.
+    '401':
+      description: Unauthorised - invalid authorization credentials or no SSL connection.
+    '403':
+      description: 'Forbidden - Exceeded Connections Limit: Only 200 requests per minute are allowed.'
+    '404':
+      description: Not Found - the resource does not exist.
+    '409':
+      description: Conflict - the resource conflicts with an existing resource (e.g. the ID is not unique).
+    '500':
+      description: Internal Error - contact Maintenance Connection support if the problem persists.
+    '501':
+      description: Not Implemented - the method has not been implemented in the Web API.
+- target: $.paths.*.get
+  description: >-
+    Record the documented collection query surface. Accruent states that GET requests accept
+    OData $filter, $top, $skip and $orderby, defaulting to 50 results with a maximum of 500 -
+    none of which appears as a parameter on any operation in the harvested document.
+  update:
+    x-query-options:
+      filter: $filter
+      top: $top
+      skip: $skip
+      orderby: $orderby
+      default_page_size: 50
+      max_page_size: 500
+      supported_operators: [eq, ne, gt, ge, lt, le, and, or, not]
+      docs: https://api.maintenanceconnection.com/v8/help/docs/RequestDocs
+- target: $.paths.*.post
+  description: Record the documented batch ceiling for multi-record creates.
+  update:
+    x-batch:
+      max_records_per_batch: 200
+      docs: https://api.maintenanceconnection.com/v8/help/docs/RequestDocs
+- target: $.paths.*.put
+  description: Record the documented batch ceiling for multi-record updates.
+  update:
+    x-batch:
+      max_records_per_batch: 200
+      docs: https://api.maintenanceconnection.com/v8/help/docs/RequestDocs

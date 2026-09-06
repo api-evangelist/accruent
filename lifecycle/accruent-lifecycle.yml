@@ -1,0 +1,72 @@
+generated: '2026-09-06'
+method: searched
+source: >-
+  https://api.maintenanceconnection.com/v8/help/docs,
+  https://help.accruent.com/ems/Content/OptionalFeatures/EMS_API/A_V44.1/API_Introduction.htm,
+  https://status.accruent.com/,
+  https://help.accruent.com/meridian/Content/Cloud_WhatsNew/LandingPages/release_notes_landing.htm
+versioning:
+  scheme: uri-path
+  current: v8
+  previous: [v7]
+  docs: https://api.maintenanceconnection.com/v8/help/docs
+  note: >-
+    Maintenance Connection versions its Web API in the URI path and keeps two schema generations
+    documented side by side. v7 has help pages but no machine-readable definition -
+    /v7/swagger/ui/index and /v7/swagger/docs/* both 404 - so only v8 is consumable by a generator.
+    Accruent publishes no statement of how long v7 remains supported.
+deprecation:
+  policy_url: null
+  policy_published: false
+  sunset_header: false
+  deprecation_header: false
+  note: >-
+    Accruent publishes no API deprecation policy, no sunset schedule and no RFC 8594 header support
+    for any product. What it does publish are individual end-of-development announcements in the
+    product docs - see deprecated_apis below - which tell a reader that a surface is finished but
+    not when it will stop answering.
+deprecated_apis:
+- api: EMS SOAP API Web Service
+  endpoint_pattern: http://[ServerName]/EMSAPI/Service.asmx
+  status: no longer developed
+  successor: EMS Platform Services (REST)
+  evidence: https://help.accruent.com/ems/Content/OptionalFeatures/EMS_API/A_V44.1/API_Introduction.htm
+  sunset_date: null
+  note: >-
+    Accruent states the EMS SOAP API is no longer being developed and recommends EMS Platform
+    Services for new projects. No sunset date is given. The WSDL is served by the customer's own
+    installation, not by Accruent, so no contract could be harvested for this repo.
+deprecated_operations: []
+deprecated_operations_note: >-
+  No operation in the Maintenance Connection Swagger document carries deprecated: true.
+status_page:
+  url: https://status.accruent.com/
+  platform: StatusHub
+  http_status: 200
+  machine_readable: false
+  note: >-
+    A real, live StatusHub status page (StatusHub 3.103.0). It renders entirely client-side and
+    exposes no public JSON or RSS/Atom feed - /api/v2/status.json, /api/v1/services and /rss all
+    return 404 or the SPA shell - so an agent cannot read Accruent's incident state
+    programmatically.
+sla:
+  url: null
+  uptime_target: null
+  note: No public SLA or uptime commitment published for any Accruent API.
+release_notes:
+- product: Maintenance Connection
+  url: https://www.maintenanceconnection.com/mcv18/mapp_v80/help/Content/MCUserGuide/Whats%20New/2023.8.htm
+  scheme: calendar (YYYY.N)
+- product: Meridian Cloud
+  url: https://help.accruent.com/meridian/Content/Cloud_WhatsNew/LandingPages/release_notes_landing.htm
+  scheme: calendar (YYYY.N)
+- product: EMS
+  url: https://help.accruent.com/ems/Content/ReleaseNotes/Release%20Notes.htm
+  scheme: calendar (YYYY)
+support:
+  url: https://www.accruent.com/support
+  developer_program_contact: https://developer.accruent.com/wiki/siterra/gettingstarted
+  note: >-
+    API access to Siterra and Meridian Cloud is granted by a human - an invitation into the
+    Accruent Developer Program, or an account manager adding the API to a tenancy - so there is no
+    self-serve path to a key for either.

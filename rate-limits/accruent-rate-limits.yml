@@ -1,0 +1,43 @@
+generated: '2026-09-06'
+method: searched
+source: https://api.maintenanceconnection.com/v8/help/docs/ResponseDocs
+limit_count: 1
+note: >-
+  Accruent publishes exactly one numeric rate limit anywhere in its public API surface, and it is
+  buried in the Maintenance Connection response-code table rather than in a rate-limit page. The
+  API returns 403 Forbidden - not 429 - on exhaustion, and ships no rate-limit response headers at
+  all, so an agent cannot see how much budget is left or when it resets; it can only observe the
+  403 after the fact and cannot distinguish it from an authorisation failure without reading the
+  body. Siterra, Meridian Cloud, EMS Platform Services and Lucernex publish no limits.
+rate_limits:
+- api: Maintenance Connection Web API
+  scope: per-connection
+  window: 1m
+  limit: 200
+  unit: requests
+  burst: null
+  status_on_exhaustion: 403
+  status_note: >-
+    "403 Forbidden - Exceeded Connections Limit: Only 200 requests per minute are allowed."
+    Verbatim from the published Response and Error Codes table.
+  headers: []
+  retry_after: false
+  docs: https://api.maintenanceconnection.com/v8/help/docs/ResponseDocs
+  method: searched
+batch_limits:
+- api: Maintenance Connection Web API
+  operation_class: POST and PUT multi-record requests
+  max_records_per_batch: 200
+  docs: https://api.maintenanceconnection.com/v8/help/docs/RequestDocs
+page_size_limits:
+- api: Maintenance Connection Web API
+  default_page_size: 50
+  max_page_size: 500
+  params: [$top, $skip]
+  docs: https://api.maintenanceconnection.com/v8/help/docs/RequestDocs
+undocumented:
+- api: Siterra API
+  reason: No limits stated on the public Getting Started wiki; the developer portal's Azure APIM products (Starter 5 calls/minute up to 100 calls/week, Unlimited) are the stock Azure sample products, not Accruent's Siterra policy.
+- {api: Meridian Cloud API, reason: No limits published outside the gated developer portal.}
+- {api: EMS Platform Services, reason: Self-hosted or per-tenant; no published limits.}
+- {api: Lucernex REST API, reason: Per-tenant; no published limits.}
