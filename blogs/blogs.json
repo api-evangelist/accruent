@@ -1,0 +1,21 @@
+{
+  "repo": "accruent",
+  "feeds": [
+    {
+      "source": "https://www.accruent.com/support",
+      "feed_url": "https://www.accruent.com/support",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    },
+    {
+      "source": "https://www.accruent.com/resources/blog-posts",
+      "feed_url": "https://www.accruent.com/resources/blog-posts/rss.xml",
+      "title": "",
+      "saved": 1,
+      "method": "discovered"
+    }
+  ],
+  "post_count": 1,
+  "fetched": "2026-09-06T19:17:18Z"
+}
