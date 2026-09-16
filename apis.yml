@@ -31,7 +31,7 @@ tags:
 - Engineering Document Management
 - Built Environment
 - Enterprise Software
-- Real Estate
+- Real-Estate
 tags_raw:
 - facilities-management
 - asset-management
@@ -51,52 +51,12 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 apis:
-- name: Maintenance Connection Web API
-  description: >-
-    RESTful CMMS API for the Accruent Maintenance Connection product. 126 paths / 255 operations
-    across assets, asset specifications, meter history, images and documents, classifications,
-    companies, parts and inventory, labor, lookup tables, purchase orders, receipts and invoices,
-    specifications and work orders (tasks, assignments, labor/misc/part estimates and actuals,
-    status updates). HTTP Basic auth over a base64 "ConnectionKey:APIKey" token; OData-style
-    $filter / $top / $skip / $orderby query options; 200 requests per minute per connection.
-  humanURL: https://api.maintenanceconnection.com/v8/help/docs
-  baseURL: https://api.maintenanceconnection.com/v8
-  tags:
-  - CMMS
-  - Maintenance
-  - Work Orders
-  - Asset Management
-  - Facilities Management
-  tags_raw:
-  - cmms
-  - maintenance
-  - work-orders
-  - asset-management
-  - facilities-management
-  properties:
-  - type: OpenAPI
-    url: openapi/accruent-maintenance-connection-openapi.yml
-  - type: APIReference
-    url: https://api.maintenanceconnection.com/v8/help/docs
-  - type: Documentation
-    url: https://api.maintenanceconnection.com/v8/help/docs
-  - type: Console
-    url: https://api.maintenanceconnection.com/v8/swagger/ui/index
-  - type: Authentication
-    url: https://api.maintenanceconnection.com/v8/help/docs/AuthenticationDocs
-  - type: ErrorCatalog
-    url: errors/accruent-problem-types.yml
-  - type: DataModel
-    url: data-model/accruent-data-model.yml
-  - type: Overlay
-    url: overlays/accruent-maintenance-connection-overlay.yaml
 - name: Siterra API
   description: >-
-    REST API for Accruent Siterra, the wireless/telecom site and project lifecycle management
-    product, fronted by the Accruent Developer Network on Azure API Management. Subscription-key
-    auth via the accruent-subscription-key header or a subscription-key query parameter. Access
-    requires an invitation into the Accruent Developer Program; the API definition is only exposed
-    to signed-in, approved subscribers.
+    REST API for Accruent Siterra, the wireless/telecom site and project lifecycle management product,
+    fronted by the Accruent Developer Network on Azure API Management. Subscription-key auth via the accruent-subscription-key
+    header or a subscription-key query parameter. Access requires an invitation into the Accruent Developer
+    Program; the API definition is only exposed to signed-in, approved subscribers.
   humanURL: https://developer.accruent.com/wiki/siterra/gettingstarted
   baseURL: https://api.accruent.com/siterra/us/
   tags:
@@ -118,16 +78,17 @@ apis:
     url: https://developer.accruent.com/wiki/siterra/gettingstarted
 - name: Meridian Cloud API
   description: >-
-    REST APIs for Accruent Meridian Cloud engineering document management — asset APIs,
-    relationship APIs and contractor package APIs used by PowerWeb, Meridian Portal, Meridian
-    Explorer and Meridian Mobile. Served from a regional Azure API Management developer portal
-    (api-developer.meridiancloud.net) with Ocp-Apim-Subscription-Key auth. Accruent does not
-    publish the API base URL outside the portal — it is disclosed to approved subscribers per
-    tenancy region — so no baseURL is recorded here rather than guessing one.
-  humanURL: https://help.accruent.com/meridian/Content/Online_Help/Cloud_Portal/Integrations/MeridianCloudAPI.htm
+    REST APIs for Accruent Meridian Cloud engineering document management — asset APIs, relationship APIs
+    and contractor package APIs used by PowerWeb, Meridian Portal, Meridian Explorer and Meridian Mobile.
+    Served from a regional Azure API Management developer portal (api-developer.meridiancloud.net) with
+    Ocp-Apim-Subscription-Key auth. Accruent does not publish the API base URL outside the portal — it
+    is disclosed to approved subscribers per tenancy region — so no baseURL is recorded here rather than
+    guessing one.
+  humanURL: >-
+    https://help.accruent.com/meridian/Content/Online_Help/Cloud_Portal/Integrations/MeridianCloudAPI.htm
   tags:
   - Engineering Document Management
-  - Document Management
+  - Document-Management
   - Asset Management
   tags_raw:
   - engineering-document-management
@@ -139,16 +100,17 @@ apis:
   - type: GettingStarted
     url: https://api-developer.meridiancloud.net/wiki/meridian/gettingstarted
   - type: Documentation
-    url: https://help.accruent.com/meridian/Content/Online_Help/Cloud_Portal/Integrations/MeridianCloudAPI.htm
+    url: >-
+      https://help.accruent.com/meridian/Content/Online_Help/Cloud_Portal/Integrations/MeridianCloudAPI.htm
 - name: EMS Platform Services
   description: >-
-    RESTful API layer for Accruent EMS space and event scheduling, documented as a Platform as a
-    Service surface with JWT authentication. The Swagger UI ships with the deployment rather than
-    on a public host — self-hosted at {your-host}/EmsPlatform/swagger and, for cloud tenancies, at
-    https://{yoursite}.emscloudservice.com/platform/api/v1/static/swagger-ui/ — so the definition
-    is only reachable from inside a customer tenancy. Supersedes the legacy EMS SOAP API Web
-    Service, which Accruent states is no longer being developed.
-  humanURL: https://help.accruent.com/ems/Content/EMSPlatformServices/InstallationGuide/Introduction.html
+    RESTful API layer for Accruent EMS space and event scheduling, documented as a Platform as a Service
+    surface with JWT authentication. The Swagger UI ships with the deployment rather than on a public
+    host — self-hosted at {your-host}/EmsPlatform/swagger and, for cloud tenancies, at https://{yoursite}.emscloudservice.com/platform/api/v1/static/swagger-ui/
+    — so the definition is only reachable from inside a customer tenancy. Supersedes the legacy EMS SOAP
+    API Web Service, which Accruent states is no longer being developed.
+  humanURL: >-
+    https://help.accruent.com/ems/Content/EMSPlatformServices/InstallationGuide/Introduction.html
   baseURL: https://{yoursite}.emscloudservice.com/platform/api/v1
   tags:
   - Space Management
@@ -160,19 +122,21 @@ apis:
   - facilities-management
   properties:
   - type: Documentation
-    url: https://help.accruent.com/ems/Content/EMSPlatformServices/InstallationGuide/Introduction.html
+    url: >-
+      https://help.accruent.com/ems/Content/EMSPlatformServices/InstallationGuide/Introduction.html
 - name: Lucernex REST API
   description: >-
-    RESTful API for Accruent Lucernex IWMS / lease accounting. Documented on the public customer
-    help site, but the schema browser and console are served from the customer's own tenancy at
-    {tenant-url}/en/test/RESTful.jsp, so there is no public machine-readable definition. Accruent
-    documents that Lucernex uses XML in its API calls and that JSON is not fully supported.
-  humanURL: https://help.accruent.com/lucernex/Content/Online%20Help/00_Advanced_Content/API_Documentation/1_IntroductionToAPI.htm
+    RESTful API for Accruent Lucernex IWMS / lease accounting. Documented on the public customer help
+    site, but the schema browser and console are served from the customer's own tenancy at {tenant-url}/en/test/RESTful.jsp,
+    so there is no public machine-readable definition. Accruent documents that Lucernex uses XML in its
+    API calls and that JSON is not fully supported.
+  humanURL: >-
+    https://help.accruent.com/lucernex/Content/Online%20Help/00_Advanced_Content/API_Documentation/1_IntroductionToAPI.htm
   baseURL: https://{tenant}.lucernex.com/
   tags:
   - IWMS
   - Lease Accounting
-  - Real Estate
+  - Real-Estate
   - Facilities Management
   tags_raw:
   - iwms
@@ -181,9 +145,878 @@ apis:
   - facilities-management
   properties:
   - type: Documentation
-    url: https://help.accruent.com/lucernex/Content/Online%20Help/00_Advanced_Content/API_Documentation/1_IntroductionToAPI.htm
+    url: >-
+      https://help.accruent.com/lucernex/Content/Online%20Help/00_Advanced_Content/API_Documentation/1_IntroductionToAPI.htm
   - type: APIReference
-    url: https://help.accruent.com/lucernex/Content/Online%20Help/00_Advanced_Content/API_Documentation/2_APIAuthentication.htm
+    url: >-
+      https://help.accruent.com/lucernex/Content/Online%20Help/00_Advanced_Content/API_Documentation/2_APIAuthentication.htm
+- aid: accruent:accruent-assetdocuments-api
+  name: Accruent Asset Documents API
+  description: The AssetDocuments API from Accruent — 4 operation(s) for assetdocuments.
+  humanURL: https://api.maintenanceconnection.com/v8/help/docs
+  baseURL: https://api.maintenanceconnection.com/v8
+  tags:
+  - AssetDocuments
+  properties:
+  - type: OpenAPI
+    url: openapi/accruent-assetdocuments-api-openapi.yml
+  - type: APIReference
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Documentation
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Console
+    url: https://api.maintenanceconnection.com/v8/swagger/ui/index
+  - type: Authentication
+    url: https://api.maintenanceconnection.com/v8/help/docs/AuthenticationDocs
+  - type: ErrorCatalog
+    url: errors/accruent-problem-types.yml
+  - type: DataModel
+    url: data-model/accruent-data-model.yml
+- aid: accruent:accruent-assetimages-api
+  name: Accruent Asset Images API
+  description: The AssetImages API from Accruent — 4 operation(s) for assetimages.
+  humanURL: https://api.maintenanceconnection.com/v8/help/docs
+  baseURL: https://api.maintenanceconnection.com/v8
+  tags:
+  - AssetImages
+  properties:
+  - type: OpenAPI
+    url: openapi/accruent-assetimages-api-openapi.yml
+  - type: APIReference
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Documentation
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Console
+    url: https://api.maintenanceconnection.com/v8/swagger/ui/index
+  - type: Authentication
+    url: https://api.maintenanceconnection.com/v8/help/docs/AuthenticationDocs
+  - type: ErrorCatalog
+    url: errors/accruent-problem-types.yml
+  - type: DataModel
+    url: data-model/accruent-data-model.yml
+- aid: accruent:accruent-assetmeterhistory-api
+  name: Accruent Asset Meter History API
+  description: The AssetMeterHistory API from Accruent — 6 operation(s) for assetmeterhistory.
+  humanURL: https://api.maintenanceconnection.com/v8/help/docs
+  baseURL: https://api.maintenanceconnection.com/v8
+  tags:
+  - AssetMeterHistory
+  properties:
+  - type: OpenAPI
+    url: openapi/accruent-assetmeterhistory-api-openapi.yml
+  - type: APIReference
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Documentation
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Console
+    url: https://api.maintenanceconnection.com/v8/swagger/ui/index
+  - type: Authentication
+    url: https://api.maintenanceconnection.com/v8/help/docs/AuthenticationDocs
+  - type: ErrorCatalog
+    url: errors/accruent-problem-types.yml
+  - type: DataModel
+    url: data-model/accruent-data-model.yml
+- aid: accruent:accruent-assets-api
+  name: Accruent Assets API
+  description: The Assets API from Accruent — 2 operation(s) for assets.
+  humanURL: https://api.maintenanceconnection.com/v8/help/docs
+  baseURL: https://api.maintenanceconnection.com/v8
+  tags:
+  - Assets
+  properties:
+  - type: OpenAPI
+    url: openapi/accruent-assets-api-openapi.yml
+  - type: APIReference
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Documentation
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Console
+    url: https://api.maintenanceconnection.com/v8/swagger/ui/index
+  - type: Authentication
+    url: https://api.maintenanceconnection.com/v8/help/docs/AuthenticationDocs
+  - type: ErrorCatalog
+    url: errors/accruent-problem-types.yml
+  - type: DataModel
+    url: data-model/accruent-data-model.yml
+- aid: accruent:accruent-assetspecifications-api
+  name: Accruent Asset Specifications API
+  description: The AssetSpecifications API from Accruent — 4 operation(s) for assetspecifications.
+  humanURL: https://api.maintenanceconnection.com/v8/help/docs
+  baseURL: https://api.maintenanceconnection.com/v8
+  tags:
+  - AssetSpecifications
+  properties:
+  - type: OpenAPI
+    url: openapi/accruent-assetspecifications-api-openapi.yml
+  - type: APIReference
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Documentation
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Console
+    url: https://api.maintenanceconnection.com/v8/swagger/ui/index
+  - type: Authentication
+    url: https://api.maintenanceconnection.com/v8/help/docs/AuthenticationDocs
+  - type: ErrorCatalog
+    url: errors/accruent-problem-types.yml
+  - type: DataModel
+    url: data-model/accruent-data-model.yml
+- aid: accruent:accruent-classifications-api
+  name: Accruent Classifications API
+  description: The Classifications API from Accruent — 2 operation(s) for classifications.
+  humanURL: https://api.maintenanceconnection.com/v8/help/docs
+  baseURL: https://api.maintenanceconnection.com/v8
+  tags:
+  - Classifications
+  properties:
+  - type: OpenAPI
+    url: openapi/accruent-classifications-api-openapi.yml
+  - type: APIReference
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Documentation
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Console
+    url: https://api.maintenanceconnection.com/v8/swagger/ui/index
+  - type: Authentication
+    url: https://api.maintenanceconnection.com/v8/help/docs/AuthenticationDocs
+  - type: ErrorCatalog
+    url: errors/accruent-problem-types.yml
+  - type: DataModel
+    url: data-model/accruent-data-model.yml
+- aid: accruent:accruent-companies-api
+  name: Accruent Companies API
+  description: The Companies API from Accruent — 2 operation(s) for companies.
+  humanURL: https://api.maintenanceconnection.com/v8/help/docs
+  baseURL: https://api.maintenanceconnection.com/v8
+  tags:
+  - Companies
+  properties:
+  - type: OpenAPI
+    url: openapi/accruent-companies-api-openapi.yml
+  - type: APIReference
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Documentation
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Console
+    url: https://api.maintenanceconnection.com/v8/swagger/ui/index
+  - type: Authentication
+    url: https://api.maintenanceconnection.com/v8/help/docs/AuthenticationDocs
+  - type: ErrorCatalog
+    url: errors/accruent-problem-types.yml
+  - type: DataModel
+    url: data-model/accruent-data-model.yml
+- aid: accruent:accruent-externalinterface-api
+  name: Accruent External Interface API
+  description: The ExternalInterface API from Accruent — 2 operation(s) for externalinterface.
+  humanURL: https://api.maintenanceconnection.com/v8/help/docs
+  baseURL: https://api.maintenanceconnection.com/v8
+  tags:
+  - ExternalInterface
+  properties:
+  - type: OpenAPI
+    url: openapi/accruent-externalinterface-api-openapi.yml
+  - type: APIReference
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Documentation
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Console
+    url: https://api.maintenanceconnection.com/v8/swagger/ui/index
+  - type: Authentication
+    url: https://api.maintenanceconnection.com/v8/help/docs/AuthenticationDocs
+  - type: ErrorCatalog
+    url: errors/accruent-problem-types.yml
+  - type: DataModel
+    url: data-model/accruent-data-model.yml
+- aid: accruent:accruent-invoices-api
+  name: Accruent Invoices API
+  description: The Invoices API from Accruent — 4 operation(s) for invoices.
+  humanURL: https://api.maintenanceconnection.com/v8/help/docs
+  baseURL: https://api.maintenanceconnection.com/v8
+  tags:
+  - Invoices
+  properties:
+  - type: OpenAPI
+    url: openapi/accruent-invoices-api-openapi.yml
+  - type: APIReference
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Documentation
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Console
+    url: https://api.maintenanceconnection.com/v8/swagger/ui/index
+  - type: Authentication
+    url: https://api.maintenanceconnection.com/v8/help/docs/AuthenticationDocs
+  - type: ErrorCatalog
+    url: errors/accruent-problem-types.yml
+  - type: DataModel
+    url: data-model/accruent-data-model.yml
+- aid: accruent:accruent-labors-api
+  name: Accruent Labors API
+  description: The Labors API from Accruent — 2 operation(s) for labors.
+  humanURL: https://api.maintenanceconnection.com/v8/help/docs
+  baseURL: https://api.maintenanceconnection.com/v8
+  tags:
+  - Labors
+  properties:
+  - type: OpenAPI
+    url: openapi/accruent-labors-api-openapi.yml
+  - type: APIReference
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Documentation
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Console
+    url: https://api.maintenanceconnection.com/v8/swagger/ui/index
+  - type: Authentication
+    url: https://api.maintenanceconnection.com/v8/help/docs/AuthenticationDocs
+  - type: ErrorCatalog
+    url: errors/accruent-problem-types.yml
+  - type: DataModel
+    url: data-model/accruent-data-model.yml
+- aid: accruent:accruent-log-api
+  name: Accruent Log API
+  description: The Log API from Accruent — 2 operation(s) for log.
+  humanURL: https://api.maintenanceconnection.com/v8/help/docs
+  baseURL: https://api.maintenanceconnection.com/v8
+  tags:
+  - Log
+  properties:
+  - type: OpenAPI
+    url: openapi/accruent-log-api-openapi.yml
+  - type: APIReference
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Documentation
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Console
+    url: https://api.maintenanceconnection.com/v8/swagger/ui/index
+  - type: Authentication
+    url: https://api.maintenanceconnection.com/v8/help/docs/AuthenticationDocs
+  - type: ErrorCatalog
+    url: errors/accruent-problem-types.yml
+  - type: DataModel
+    url: data-model/accruent-data-model.yml
+- aid: accruent:accruent-lookuptables-api
+  name: Accruent Lookup Tables API
+  description: The LookupTables API from Accruent — 2 operation(s) for lookuptables.
+  humanURL: https://api.maintenanceconnection.com/v8/help/docs
+  baseURL: https://api.maintenanceconnection.com/v8
+  tags:
+  - LookupTables
+  properties:
+  - type: OpenAPI
+    url: openapi/accruent-lookuptables-api-openapi.yml
+  - type: APIReference
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Documentation
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Console
+    url: https://api.maintenanceconnection.com/v8/swagger/ui/index
+  - type: Authentication
+    url: https://api.maintenanceconnection.com/v8/help/docs/AuthenticationDocs
+  - type: ErrorCatalog
+    url: errors/accruent-problem-types.yml
+  - type: DataModel
+    url: data-model/accruent-data-model.yml
+- aid: accruent:accruent-lookuptablevalues-api
+  name: Accruent Lookup Table Values API
+  description: The LookupTableValues API from Accruent — 4 operation(s) for lookuptablevalues.
+  humanURL: https://api.maintenanceconnection.com/v8/help/docs
+  baseURL: https://api.maintenanceconnection.com/v8
+  tags:
+  - LookupTableValues
+  properties:
+  - type: OpenAPI
+    url: openapi/accruent-lookuptablevalues-api-openapi.yml
+  - type: APIReference
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Documentation
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Console
+    url: https://api.maintenanceconnection.com/v8/swagger/ui/index
+  - type: Authentication
+    url: https://api.maintenanceconnection.com/v8/help/docs/AuthenticationDocs
+  - type: ErrorCatalog
+    url: errors/accruent-problem-types.yml
+  - type: DataModel
+    url: data-model/accruent-data-model.yml
+- aid: accruent:accruent-partdocuments-api
+  name: Accruent Part Documents API
+  description: The PartDocuments API from Accruent — 4 operation(s) for partdocuments.
+  humanURL: https://api.maintenanceconnection.com/v8/help/docs
+  baseURL: https://api.maintenanceconnection.com/v8
+  tags:
+  - PartDocuments
+  properties:
+  - type: OpenAPI
+    url: openapi/accruent-partdocuments-api-openapi.yml
+  - type: APIReference
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Documentation
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Console
+    url: https://api.maintenanceconnection.com/v8/swagger/ui/index
+  - type: Authentication
+    url: https://api.maintenanceconnection.com/v8/help/docs/AuthenticationDocs
+  - type: ErrorCatalog
+    url: errors/accruent-problem-types.yml
+  - type: DataModel
+    url: data-model/accruent-data-model.yml
+- aid: accruent:accruent-partlocations-api
+  name: Accruent Part Locations API
+  description: The PartLocations API from Accruent — 4 operation(s) for partlocations.
+  humanURL: https://api.maintenanceconnection.com/v8/help/docs
+  baseURL: https://api.maintenanceconnection.com/v8
+  tags:
+  - PartLocations
+  properties:
+  - type: OpenAPI
+    url: openapi/accruent-partlocations-api-openapi.yml
+  - type: APIReference
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Documentation
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Console
+    url: https://api.maintenanceconnection.com/v8/swagger/ui/index
+  - type: Authentication
+    url: https://api.maintenanceconnection.com/v8/help/docs/AuthenticationDocs
+  - type: ErrorCatalog
+    url: errors/accruent-problem-types.yml
+  - type: DataModel
+    url: data-model/accruent-data-model.yml
+- aid: accruent:accruent-parts-api
+  name: Accruent Parts API
+  description: The Parts API from Accruent — 2 operation(s) for parts.
+  humanURL: https://api.maintenanceconnection.com/v8/help/docs
+  baseURL: https://api.maintenanceconnection.com/v8
+  tags:
+  - Parts
+  properties:
+  - type: OpenAPI
+    url: openapi/accruent-parts-api-openapi.yml
+  - type: APIReference
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Documentation
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Console
+    url: https://api.maintenanceconnection.com/v8/swagger/ui/index
+  - type: Authentication
+    url: https://api.maintenanceconnection.com/v8/help/docs/AuthenticationDocs
+  - type: ErrorCatalog
+    url: errors/accruent-problem-types.yml
+  - type: DataModel
+    url: data-model/accruent-data-model.yml
+- aid: accruent:accruent-parttransactions-api
+  name: Accruent Part Transactions API
+  description: The PartTransactions API from Accruent — 4 operation(s) for parttransactions.
+  humanURL: https://api.maintenanceconnection.com/v8/help/docs
+  baseURL: https://api.maintenanceconnection.com/v8
+  tags:
+  - PartTransactions
+  properties:
+  - type: OpenAPI
+    url: openapi/accruent-parttransactions-api-openapi.yml
+  - type: APIReference
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Documentation
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Console
+    url: https://api.maintenanceconnection.com/v8/swagger/ui/index
+  - type: Authentication
+    url: https://api.maintenanceconnection.com/v8/help/docs/AuthenticationDocs
+  - type: ErrorCatalog
+    url: errors/accruent-problem-types.yml
+  - type: DataModel
+    url: data-model/accruent-data-model.yml
+- aid: accruent:accruent-partvendors-api
+  name: Accruent Part Vendors API
+  description: The PartVendors API from Accruent — 6 operation(s) for partvendors.
+  humanURL: https://api.maintenanceconnection.com/v8/help/docs
+  baseURL: https://api.maintenanceconnection.com/v8
+  tags:
+  - PartVendors
+  properties:
+  - type: OpenAPI
+    url: openapi/accruent-partvendors-api-openapi.yml
+  - type: APIReference
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Documentation
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Console
+    url: https://api.maintenanceconnection.com/v8/swagger/ui/index
+  - type: Authentication
+    url: https://api.maintenanceconnection.com/v8/help/docs/AuthenticationDocs
+  - type: ErrorCatalog
+    url: errors/accruent-problem-types.yml
+  - type: DataModel
+    url: data-model/accruent-data-model.yml
+- aid: accruent:accruent-purchaseorderlineitems-api
+  name: Accruent Purchase Order Line Items API
+  description: >-
+    The PurchaseOrderLineItems API from Accruent — 4 operation(s) for purchaseorderlineitems.
+  humanURL: https://api.maintenanceconnection.com/v8/help/docs
+  baseURL: https://api.maintenanceconnection.com/v8
+  tags:
+  - PurchaseOrderLineItems
+  properties:
+  - type: OpenAPI
+    url: openapi/accruent-purchaseorderlineitems-api-openapi.yml
+  - type: APIReference
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Documentation
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Console
+    url: https://api.maintenanceconnection.com/v8/swagger/ui/index
+  - type: Authentication
+    url: https://api.maintenanceconnection.com/v8/help/docs/AuthenticationDocs
+  - type: ErrorCatalog
+    url: errors/accruent-problem-types.yml
+  - type: DataModel
+    url: data-model/accruent-data-model.yml
+- aid: accruent:accruent-purchaseordernote-api
+  name: Accruent Purchase Order Note API
+  description: The PurchaseOrderNote API from Accruent — 3 operation(s) for purchaseordernote.
+  humanURL: https://api.maintenanceconnection.com/v8/help/docs
+  baseURL: https://api.maintenanceconnection.com/v8
+  tags:
+  - PurchaseOrderNote
+  properties:
+  - type: OpenAPI
+    url: openapi/accruent-purchaseordernote-api-openapi.yml
+  - type: APIReference
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Documentation
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Console
+    url: https://api.maintenanceconnection.com/v8/swagger/ui/index
+  - type: Authentication
+    url: https://api.maintenanceconnection.com/v8/help/docs/AuthenticationDocs
+  - type: ErrorCatalog
+    url: errors/accruent-problem-types.yml
+  - type: DataModel
+    url: data-model/accruent-data-model.yml
+- aid: accruent:accruent-purchaseorders-api
+  name: Accruent Purchase Orders API
+  description: The PurchaseOrders API from Accruent — 2 operation(s) for purchaseorders.
+  humanURL: https://api.maintenanceconnection.com/v8/help/docs
+  baseURL: https://api.maintenanceconnection.com/v8
+  tags:
+  - PurchaseOrders
+  properties:
+  - type: OpenAPI
+    url: openapi/accruent-purchaseorders-api-openapi.yml
+  - type: APIReference
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Documentation
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Console
+    url: https://api.maintenanceconnection.com/v8/swagger/ui/index
+  - type: Authentication
+    url: https://api.maintenanceconnection.com/v8/help/docs/AuthenticationDocs
+  - type: ErrorCatalog
+    url: errors/accruent-problem-types.yml
+  - type: DataModel
+    url: data-model/accruent-data-model.yml
+- aid: accruent:accruent-purchaseorderstatusupdates-api
+  name: Accruent Purchase Order Status Updates API
+  description: >-
+    The PurchaseOrderStatusUpdates API from Accruent — 1 operation(s) for purchaseorderstatusupdates.
+  humanURL: https://api.maintenanceconnection.com/v8/help/docs
+  baseURL: https://api.maintenanceconnection.com/v8
+  tags:
+  - PurchaseOrderStatusUpdates
+  properties:
+  - type: OpenAPI
+    url: openapi/accruent-purchaseorderstatusupdates-api-openapi.yml
+  - type: APIReference
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Documentation
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Console
+    url: https://api.maintenanceconnection.com/v8/swagger/ui/index
+  - type: Authentication
+    url: https://api.maintenanceconnection.com/v8/help/docs/AuthenticationDocs
+  - type: ErrorCatalog
+    url: errors/accruent-problem-types.yml
+  - type: DataModel
+    url: data-model/accruent-data-model.yml
+- aid: accruent:accruent-receiptlineitems-api
+  name: Accruent Receipt Line Items API
+  description: The ReceiptLineItems API from Accruent — 4 operation(s) for receiptlineitems.
+  humanURL: https://api.maintenanceconnection.com/v8/help/docs
+  baseURL: https://api.maintenanceconnection.com/v8
+  tags:
+  - ReceiptLineItems
+  properties:
+  - type: OpenAPI
+    url: openapi/accruent-receiptlineitems-api-openapi.yml
+  - type: APIReference
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Documentation
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Console
+    url: https://api.maintenanceconnection.com/v8/swagger/ui/index
+  - type: Authentication
+    url: https://api.maintenanceconnection.com/v8/help/docs/AuthenticationDocs
+  - type: ErrorCatalog
+    url: errors/accruent-problem-types.yml
+  - type: DataModel
+    url: data-model/accruent-data-model.yml
+- aid: accruent:accruent-receipts-api
+  name: Accruent Receipts API
+  description: The Receipts API from Accruent — 4 operation(s) for receipts.
+  humanURL: https://api.maintenanceconnection.com/v8/help/docs
+  baseURL: https://api.maintenanceconnection.com/v8
+  tags:
+  - Receipts
+  properties:
+  - type: OpenAPI
+    url: openapi/accruent-receipts-api-openapi.yml
+  - type: APIReference
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Documentation
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Console
+    url: https://api.maintenanceconnection.com/v8/swagger/ui/index
+  - type: Authentication
+    url: https://api.maintenanceconnection.com/v8/help/docs/AuthenticationDocs
+  - type: ErrorCatalog
+    url: errors/accruent-problem-types.yml
+  - type: DataModel
+    url: data-model/accruent-data-model.yml
+- aid: accruent:accruent-schema-api
+  name: Accruent Schema API
+  description: The Schema API from Accruent — 1 operation(s) for schema.
+  humanURL: https://api.maintenanceconnection.com/v8/help/docs
+  baseURL: https://api.maintenanceconnection.com/v8
+  tags:
+  - Schema
+  properties:
+  - type: OpenAPI
+    url: openapi/accruent-schema-api-openapi.yml
+  - type: APIReference
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Documentation
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Console
+    url: https://api.maintenanceconnection.com/v8/swagger/ui/index
+  - type: Authentication
+    url: https://api.maintenanceconnection.com/v8/help/docs/AuthenticationDocs
+  - type: ErrorCatalog
+    url: errors/accruent-problem-types.yml
+  - type: DataModel
+    url: data-model/accruent-data-model.yml
+- aid: accruent:accruent-specificationassetspecifications-api
+  name: Accruent Specification Asset Specifications API
+  description: >-
+    The SpecificationAssetSpecifications API from Accruent — 2 operation(s) for specificationassetspecifications.
+  humanURL: https://api.maintenanceconnection.com/v8/help/docs
+  baseURL: https://api.maintenanceconnection.com/v8
+  tags:
+  - SpecificationAssetSpecifications
+  properties:
+  - type: OpenAPI
+    url: openapi/accruent-specificationassetspecifications-api-openapi.yml
+  - type: APIReference
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Documentation
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Console
+    url: https://api.maintenanceconnection.com/v8/swagger/ui/index
+  - type: Authentication
+    url: https://api.maintenanceconnection.com/v8/help/docs/AuthenticationDocs
+  - type: ErrorCatalog
+    url: errors/accruent-problem-types.yml
+  - type: DataModel
+    url: data-model/accruent-data-model.yml
+- aid: accruent:accruent-specifications-api
+  name: Accruent Specifications API
+  description: The Specifications API from Accruent — 2 operation(s) for specifications.
+  humanURL: https://api.maintenanceconnection.com/v8/help/docs
+  baseURL: https://api.maintenanceconnection.com/v8
+  tags:
+  - Specifications
+  properties:
+  - type: OpenAPI
+    url: openapi/accruent-specifications-api-openapi.yml
+  - type: APIReference
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Documentation
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Console
+    url: https://api.maintenanceconnection.com/v8/swagger/ui/index
+  - type: Authentication
+    url: https://api.maintenanceconnection.com/v8/help/docs/AuthenticationDocs
+  - type: ErrorCatalog
+    url: errors/accruent-problem-types.yml
+  - type: DataModel
+    url: data-model/accruent-data-model.yml
+- aid: accruent:accruent-workorderassignments-api
+  name: Accruent Work Order Assignments API
+  description: The WorkOrderAssignments API from Accruent — 4 operation(s) for workorderassignments.
+  humanURL: https://api.maintenanceconnection.com/v8/help/docs
+  baseURL: https://api.maintenanceconnection.com/v8
+  tags:
+  - WorkOrderAssignments
+  properties:
+  - type: OpenAPI
+    url: openapi/accruent-workorderassignments-api-openapi.yml
+  - type: APIReference
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Documentation
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Console
+    url: https://api.maintenanceconnection.com/v8/swagger/ui/index
+  - type: Authentication
+    url: https://api.maintenanceconnection.com/v8/help/docs/AuthenticationDocs
+  - type: ErrorCatalog
+    url: errors/accruent-problem-types.yml
+  - type: DataModel
+    url: data-model/accruent-data-model.yml
+- aid: accruent:accruent-workorderdocuments-api
+  name: Accruent Work Order Documents API
+  description: The WorkOrderDocuments API from Accruent — 4 operation(s) for workorderdocuments.
+  humanURL: https://api.maintenanceconnection.com/v8/help/docs
+  baseURL: https://api.maintenanceconnection.com/v8
+  tags:
+  - WorkOrderDocuments
+  properties:
+  - type: OpenAPI
+    url: openapi/accruent-workorderdocuments-api-openapi.yml
+  - type: APIReference
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Documentation
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Console
+    url: https://api.maintenanceconnection.com/v8/swagger/ui/index
+  - type: Authentication
+    url: https://api.maintenanceconnection.com/v8/help/docs/AuthenticationDocs
+  - type: ErrorCatalog
+    url: errors/accruent-problem-types.yml
+  - type: DataModel
+    url: data-model/accruent-data-model.yml
+- aid: accruent:accruent-workorderimages-api
+  name: Accruent Work Order Images API
+  description: The WorkOrderImages API from Accruent — 4 operation(s) for workorderimages.
+  humanURL: https://api.maintenanceconnection.com/v8/help/docs
+  baseURL: https://api.maintenanceconnection.com/v8
+  tags:
+  - WorkOrderImages
+  properties:
+  - type: OpenAPI
+    url: openapi/accruent-workorderimages-api-openapi.yml
+  - type: APIReference
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Documentation
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Console
+    url: https://api.maintenanceconnection.com/v8/swagger/ui/index
+  - type: Authentication
+    url: https://api.maintenanceconnection.com/v8/help/docs/AuthenticationDocs
+  - type: ErrorCatalog
+    url: errors/accruent-problem-types.yml
+  - type: DataModel
+    url: data-model/accruent-data-model.yml
+- aid: accruent:accruent-workorderlaborcostactuals-api
+  name: Accruent Work Order Labor Cost Actuals API
+  description: >-
+    The WorkOrderLaborCostActuals API from Accruent — 4 operation(s) for workorderlaborcostactuals.
+  humanURL: https://api.maintenanceconnection.com/v8/help/docs
+  baseURL: https://api.maintenanceconnection.com/v8
+  tags:
+  - WorkOrderLaborCostActuals
+  properties:
+  - type: OpenAPI
+    url: openapi/accruent-workorderlaborcostactuals-api-openapi.yml
+  - type: APIReference
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Documentation
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Console
+    url: https://api.maintenanceconnection.com/v8/swagger/ui/index
+  - type: Authentication
+    url: https://api.maintenanceconnection.com/v8/help/docs/AuthenticationDocs
+  - type: ErrorCatalog
+    url: errors/accruent-problem-types.yml
+  - type: DataModel
+    url: data-model/accruent-data-model.yml
+- aid: accruent:accruent-workorderlaborcostestimates-api
+  name: Accruent Work Order Labor Cost Estimates API
+  description: >-
+    The WorkOrderLaborCostEstimates API from Accruent — 4 operation(s) for workorderlaborcostestimates.
+  humanURL: https://api.maintenanceconnection.com/v8/help/docs
+  baseURL: https://api.maintenanceconnection.com/v8
+  tags:
+  - WorkOrderLaborCostEstimates
+  properties:
+  - type: OpenAPI
+    url: openapi/accruent-workorderlaborcostestimates-api-openapi.yml
+  - type: APIReference
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Documentation
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Console
+    url: https://api.maintenanceconnection.com/v8/swagger/ui/index
+  - type: Authentication
+    url: https://api.maintenanceconnection.com/v8/help/docs/AuthenticationDocs
+  - type: ErrorCatalog
+    url: errors/accruent-problem-types.yml
+  - type: DataModel
+    url: data-model/accruent-data-model.yml
+- aid: accruent:accruent-workordermisccostactuals-api
+  name: Accruent Work Order Misc Cost Actuals API
+  description: >-
+    The WorkOrderMiscCostActuals API from Accruent — 4 operation(s) for workordermisccostactuals.
+  humanURL: https://api.maintenanceconnection.com/v8/help/docs
+  baseURL: https://api.maintenanceconnection.com/v8
+  tags:
+  - WorkOrderMiscCostActuals
+  properties:
+  - type: OpenAPI
+    url: openapi/accruent-workordermisccostactuals-api-openapi.yml
+  - type: APIReference
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Documentation
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Console
+    url: https://api.maintenanceconnection.com/v8/swagger/ui/index
+  - type: Authentication
+    url: https://api.maintenanceconnection.com/v8/help/docs/AuthenticationDocs
+  - type: ErrorCatalog
+    url: errors/accruent-problem-types.yml
+  - type: DataModel
+    url: data-model/accruent-data-model.yml
+- aid: accruent:accruent-workordermisccostestimates-api
+  name: Accruent Work Order Misc Cost Estimates API
+  description: >-
+    The WorkOrderMiscCostEstimates API from Accruent — 4 operation(s) for workordermisccostestimates.
+  humanURL: https://api.maintenanceconnection.com/v8/help/docs
+  baseURL: https://api.maintenanceconnection.com/v8
+  tags:
+  - WorkOrderMiscCostEstimates
+  properties:
+  - type: OpenAPI
+    url: openapi/accruent-workordermisccostestimates-api-openapi.yml
+  - type: APIReference
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Documentation
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Console
+    url: https://api.maintenanceconnection.com/v8/swagger/ui/index
+  - type: Authentication
+    url: https://api.maintenanceconnection.com/v8/help/docs/AuthenticationDocs
+  - type: ErrorCatalog
+    url: errors/accruent-problem-types.yml
+  - type: DataModel
+    url: data-model/accruent-data-model.yml
+- aid: accruent:accruent-workorderpartactuals-api
+  name: Accruent Work Order Part Actuals API
+  description: The WorkOrderPartActuals API from Accruent — 4 operation(s) for workorderpartactuals.
+  humanURL: https://api.maintenanceconnection.com/v8/help/docs
+  baseURL: https://api.maintenanceconnection.com/v8
+  tags:
+  - WorkOrderPartActuals
+  properties:
+  - type: OpenAPI
+    url: openapi/accruent-workorderpartactuals-api-openapi.yml
+  - type: APIReference
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Documentation
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Console
+    url: https://api.maintenanceconnection.com/v8/swagger/ui/index
+  - type: Authentication
+    url: https://api.maintenanceconnection.com/v8/help/docs/AuthenticationDocs
+  - type: ErrorCatalog
+    url: errors/accruent-problem-types.yml
+  - type: DataModel
+    url: data-model/accruent-data-model.yml
+- aid: accruent:accruent-workorderpartestimates-api
+  name: Accruent Work Order Part Estimates API
+  description: >-
+    The WorkOrderPartEstimates API from Accruent — 4 operation(s) for workorderpartestimates.
+  humanURL: https://api.maintenanceconnection.com/v8/help/docs
+  baseURL: https://api.maintenanceconnection.com/v8
+  tags:
+  - WorkOrderPartEstimates
+  properties:
+  - type: OpenAPI
+    url: openapi/accruent-workorderpartestimates-api-openapi.yml
+  - type: APIReference
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Documentation
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Console
+    url: https://api.maintenanceconnection.com/v8/swagger/ui/index
+  - type: Authentication
+    url: https://api.maintenanceconnection.com/v8/help/docs/AuthenticationDocs
+  - type: ErrorCatalog
+    url: errors/accruent-problem-types.yml
+  - type: DataModel
+    url: data-model/accruent-data-model.yml
+- aid: accruent:accruent-workorders-api
+  name: Accruent Work Orders API
+  description: The WorkOrders API from Accruent — 2 operation(s) for workorders.
+  humanURL: https://api.maintenanceconnection.com/v8/help/docs
+  baseURL: https://api.maintenanceconnection.com/v8
+  tags:
+  - WorkOrders
+  properties:
+  - type: OpenAPI
+    url: openapi/accruent-workorders-api-openapi.yml
+  - type: APIReference
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Documentation
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Console
+    url: https://api.maintenanceconnection.com/v8/swagger/ui/index
+  - type: Authentication
+    url: https://api.maintenanceconnection.com/v8/help/docs/AuthenticationDocs
+  - type: ErrorCatalog
+    url: errors/accruent-problem-types.yml
+  - type: DataModel
+    url: data-model/accruent-data-model.yml
+- aid: accruent:accruent-workorderstatusupdates-api
+  name: Accruent Work Order Status Updates API
+  description: >-
+    The WorkOrderStatusUpdates API from Accruent — 1 operation(s) for workorderstatusupdates.
+  humanURL: https://api.maintenanceconnection.com/v8/help/docs
+  baseURL: https://api.maintenanceconnection.com/v8
+  tags:
+  - WorkOrderStatusUpdates
+  properties:
+  - type: OpenAPI
+    url: openapi/accruent-workorderstatusupdates-api-openapi.yml
+  - type: APIReference
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Documentation
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Console
+    url: https://api.maintenanceconnection.com/v8/swagger/ui/index
+  - type: Authentication
+    url: https://api.maintenanceconnection.com/v8/help/docs/AuthenticationDocs
+  - type: ErrorCatalog
+    url: errors/accruent-problem-types.yml
+  - type: DataModel
+    url: data-model/accruent-data-model.yml
+- aid: accruent:accruent-workordertasks-api
+  name: Accruent Work Order Tasks API
+  description: The WorkOrderTasks API from Accruent — 4 operation(s) for workordertasks.
+  humanURL: https://api.maintenanceconnection.com/v8/help/docs
+  baseURL: https://api.maintenanceconnection.com/v8
+  tags:
+  - WorkOrderTasks
+  properties:
+  - type: OpenAPI
+    url: openapi/accruent-workordertasks-api-openapi.yml
+  - type: APIReference
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Documentation
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Console
+    url: https://api.maintenanceconnection.com/v8/swagger/ui/index
+  - type: Authentication
+    url: https://api.maintenanceconnection.com/v8/help/docs/AuthenticationDocs
+  - type: ErrorCatalog
+    url: errors/accruent-problem-types.yml
+  - type: DataModel
+    url: data-model/accruent-data-model.yml
 common:
 - type: DomainSecurity
   url: security/accruent-domain-security.yml
