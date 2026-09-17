@@ -392,28 +392,6 @@ apis:
     url: errors/accruent-problem-types.yml
   - type: DataModel
     url: data-model/accruent-data-model.yml
-- aid: accruent:accruent-lookuptables-api
-  name: Accruent Lookup Tables API
-  description: The LookupTables API from Accruent — 2 operation(s) for lookuptables.
-  humanURL: https://api.maintenanceconnection.com/v8/help/docs
-  baseURL: https://api.maintenanceconnection.com/v8
-  tags:
-  - LookupTables
-  properties:
-  - type: OpenAPI
-    url: openapi/accruent-lookuptables-api-openapi.yml
-  - type: APIReference
-    url: https://api.maintenanceconnection.com/v8/help/docs
-  - type: Documentation
-    url: https://api.maintenanceconnection.com/v8/help/docs
-  - type: Console
-    url: https://api.maintenanceconnection.com/v8/swagger/ui/index
-  - type: Authentication
-    url: https://api.maintenanceconnection.com/v8/help/docs/AuthenticationDocs
-  - type: ErrorCatalog
-    url: errors/accruent-problem-types.yml
-  - type: DataModel
-    url: data-model/accruent-data-model.yml
 - aid: accruent:accruent-lookuptablevalues-api
   name: Accruent Lookup Table Values API
   description: The LookupTableValues API from Accruent — 4 operation(s) for lookuptablevalues.
@@ -546,29 +524,6 @@ apis:
     url: errors/accruent-problem-types.yml
   - type: DataModel
     url: data-model/accruent-data-model.yml
-- aid: accruent:accruent-purchaseorderlineitems-api
-  name: Accruent Purchase Order Line Items API
-  description: >-
-    The PurchaseOrderLineItems API from Accruent — 4 operation(s) for purchaseorderlineitems.
-  humanURL: https://api.maintenanceconnection.com/v8/help/docs
-  baseURL: https://api.maintenanceconnection.com/v8
-  tags:
-  - PurchaseOrderLineItems
-  properties:
-  - type: OpenAPI
-    url: openapi/accruent-purchaseorderlineitems-api-openapi.yml
-  - type: APIReference
-    url: https://api.maintenanceconnection.com/v8/help/docs
-  - type: Documentation
-    url: https://api.maintenanceconnection.com/v8/help/docs
-  - type: Console
-    url: https://api.maintenanceconnection.com/v8/swagger/ui/index
-  - type: Authentication
-    url: https://api.maintenanceconnection.com/v8/help/docs/AuthenticationDocs
-  - type: ErrorCatalog
-    url: errors/accruent-problem-types.yml
-  - type: DataModel
-    url: data-model/accruent-data-model.yml
 - aid: accruent:accruent-purchaseordernote-api
   name: Accruent Purchase Order Note API
   description: The PurchaseOrderNote API from Accruent — 3 operation(s) for purchaseordernote.
@@ -579,28 +534,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/accruent-purchaseordernote-api-openapi.yml
-  - type: APIReference
-    url: https://api.maintenanceconnection.com/v8/help/docs
-  - type: Documentation
-    url: https://api.maintenanceconnection.com/v8/help/docs
-  - type: Console
-    url: https://api.maintenanceconnection.com/v8/swagger/ui/index
-  - type: Authentication
-    url: https://api.maintenanceconnection.com/v8/help/docs/AuthenticationDocs
-  - type: ErrorCatalog
-    url: errors/accruent-problem-types.yml
-  - type: DataModel
-    url: data-model/accruent-data-model.yml
-- aid: accruent:accruent-purchaseorders-api
-  name: Accruent Purchase Orders API
-  description: The PurchaseOrders API from Accruent — 2 operation(s) for purchaseorders.
-  humanURL: https://api.maintenanceconnection.com/v8/help/docs
-  baseURL: https://api.maintenanceconnection.com/v8
-  tags:
-  - PurchaseOrders
-  properties:
-  - type: OpenAPI
-    url: openapi/accruent-purchaseorders-api-openapi.yml
   - type: APIReference
     url: https://api.maintenanceconnection.com/v8/help/docs
   - type: Documentation
@@ -950,28 +883,6 @@ apis:
     url: errors/accruent-problem-types.yml
   - type: DataModel
     url: data-model/accruent-data-model.yml
-- aid: accruent:accruent-workorders-api
-  name: Accruent Work Orders API
-  description: The WorkOrders API from Accruent — 2 operation(s) for workorders.
-  humanURL: https://api.maintenanceconnection.com/v8/help/docs
-  baseURL: https://api.maintenanceconnection.com/v8
-  tags:
-  - WorkOrders
-  properties:
-  - type: OpenAPI
-    url: openapi/accruent-workorders-api-openapi.yml
-  - type: APIReference
-    url: https://api.maintenanceconnection.com/v8/help/docs
-  - type: Documentation
-    url: https://api.maintenanceconnection.com/v8/help/docs
-  - type: Console
-    url: https://api.maintenanceconnection.com/v8/swagger/ui/index
-  - type: Authentication
-    url: https://api.maintenanceconnection.com/v8/help/docs/AuthenticationDocs
-  - type: ErrorCatalog
-    url: errors/accruent-problem-types.yml
-  - type: DataModel
-    url: data-model/accruent-data-model.yml
 - aid: accruent:accruent-workorderstatusupdates-api
   name: Accruent Work Order Status Updates API
   description: >-
@@ -1005,6 +916,95 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/accruent-workordertasks-api-openapi.yml
+  - type: APIReference
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Documentation
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Console
+    url: https://api.maintenanceconnection.com/v8/swagger/ui/index
+  - type: Authentication
+    url: https://api.maintenanceconnection.com/v8/help/docs/AuthenticationDocs
+  - type: ErrorCatalog
+    url: errors/accruent-problem-types.yml
+  - type: DataModel
+    url: data-model/accruent-data-model.yml
+- aid: accruent:accruent-lookup-tables-api
+  name: Accruent Lookup Tables API
+  description: The Lookup Tables API from Accruent — 2 operation(s) for lookup tables.
+  humanURL: https://developer.accruent.com/wiki/siterra/gettingstarted
+  baseURL: https://api.accruent.com/siterra/us/
+  tags:
+  - Lookup Tables
+  properties:
+  - type: OpenAPI
+    url: openapi/accruent-lookup-tables-api-openapi.yml
+  - type: APIReference
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Documentation
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Console
+    url: https://api.maintenanceconnection.com/v8/swagger/ui/index
+  - type: Authentication
+    url: https://api.maintenanceconnection.com/v8/help/docs/AuthenticationDocs
+  - type: ErrorCatalog
+    url: errors/accruent-problem-types.yml
+  - type: DataModel
+    url: data-model/accruent-data-model.yml
+- aid: accruent:accruent-purchase-order-line-items-api
+  name: Accruent Purchase Order Line Items API
+  description: >-
+    The Purchase Order Line Items API from Accruent — 4 operation(s) for purchase order line items.
+  humanURL: https://developer.accruent.com/wiki/siterra/gettingstarted
+  baseURL: https://api.accruent.com/siterra/us/
+  tags:
+  - Purchase Order Line Items
+  properties:
+  - type: OpenAPI
+    url: openapi/accruent-purchase-order-line-items-api-openapi.yml
+  - type: APIReference
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Documentation
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Console
+    url: https://api.maintenanceconnection.com/v8/swagger/ui/index
+  - type: Authentication
+    url: https://api.maintenanceconnection.com/v8/help/docs/AuthenticationDocs
+  - type: ErrorCatalog
+    url: errors/accruent-problem-types.yml
+  - type: DataModel
+    url: data-model/accruent-data-model.yml
+- aid: accruent:accruent-purchase-orders-api
+  name: Accruent Purchase Orders API
+  description: The Purchase Orders API from Accruent — 2 operation(s) for purchase orders.
+  humanURL: https://developer.accruent.com/wiki/siterra/gettingstarted
+  baseURL: https://api.accruent.com/siterra/us/
+  tags:
+  - Purchase Orders
+  properties:
+  - type: OpenAPI
+    url: openapi/accruent-purchase-orders-api-openapi.yml
+  - type: APIReference
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Documentation
+    url: https://api.maintenanceconnection.com/v8/help/docs
+  - type: Console
+    url: https://api.maintenanceconnection.com/v8/swagger/ui/index
+  - type: Authentication
+    url: https://api.maintenanceconnection.com/v8/help/docs/AuthenticationDocs
+  - type: ErrorCatalog
+    url: errors/accruent-problem-types.yml
+  - type: DataModel
+    url: data-model/accruent-data-model.yml
+- aid: accruent:accruent-work-orders-api
+  name: Accruent Work Orders API
+  description: The Work Orders API from Accruent — 2 operation(s) for work orders.
+  humanURL: https://developer.accruent.com/wiki/siterra/gettingstarted
+  baseURL: https://api.accruent.com/siterra/us/
+  tags:
+  - Work Orders
+  properties:
+  - type: OpenAPI
+    url: openapi/accruent-work-orders-api-openapi.yml
   - type: APIReference
     url: https://api.maintenanceconnection.com/v8/help/docs
   - type: Documentation
