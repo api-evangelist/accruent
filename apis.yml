@@ -664,6 +664,8 @@ apis:
   humanURL: https://api.maintenanceconnection.com/v8/help/docs
   baseURL: https://api.maintenanceconnection.com/v8
   tags:
+  - Specification
+  tags_raw:
   - Specifications
   properties:
   - type: OpenAPI
