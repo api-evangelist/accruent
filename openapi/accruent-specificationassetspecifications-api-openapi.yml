@@ -1,0 +1,95 @@
+openapi: 3.2.0
+info:
+  version: v8
+  title: Maintenance Connection REST Specification Asset…
+servers:
+- url: https://api.maintenanceconnection.com:80/v8
+tags:
+- name: SpecificationAssetSpecifications
+paths:
+  /specifications/{specificationPK}/AssetSpecifications:
+    get:
+      tags:
+      - SpecificationAssetSpecifications
+      operationId: SpecificationAssetSpecifications_GetAssetSpecificationsForSpecification
+      parameters:
+      - name: specificationPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Specification asset specifications get asset specifications for specification
+      x-summary-source: derived
+  /specifications/{specificationPK}/AssetSpecifications/{assetspecPK}:
+    get:
+      tags:
+      - SpecificationAssetSpecifications
+      operationId: SpecificationAssetSpecifications_Get
+      parameters:
+      - name: specificationPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: assetspecPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Specification asset specifications get
+      x-summary-source: derived
+components:
+  schemas:
+    ApiResponse:
+      type: object
+      properties:
+        Results:
+          type: array
+          items:
+            $ref: '#/components/schemas/IApiResult'
+        Total:
+          format: int32
+          type: integer
+    IApiResult:
+      type: object
+      properties: {}
+  securitySchemes:
+    basic:
+      type: http
+      scheme: basic
+      description: Basic HTTP Authentication

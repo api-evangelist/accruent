@@ -1,0 +1,475 @@
+openapi: 3.2.0
+info:
+  version: v8
+  title: Maintenance Connection REST Invoices API
+servers:
+- url: https://api.maintenanceconnection.com:80/v8
+tags:
+- name: Invoices
+paths:
+  /Invoices:
+    get:
+      tags:
+      - Invoices
+      operationId: Invoices_Get
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Invoices get
+      x-summary-source: derived
+    put:
+      tags:
+      - Invoices
+      operationId: Invoices_Put
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/InvoiceViewModel'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/InvoiceViewModel'
+          application/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/InvoiceViewModel'
+          text/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/InvoiceViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/InvoiceViewModel'
+        required: true
+      summary: Invoices put
+      x-summary-source: derived
+    post:
+      tags:
+      - Invoices
+      operationId: Invoices_Post
+      parameters:
+      - name: purchaseOrderPK
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/InvoiceViewModel'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/InvoiceViewModel'
+          application/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/InvoiceViewModel'
+          text/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/InvoiceViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/InvoiceViewModel'
+        required: true
+      summary: Invoices post
+      x-summary-source: derived
+  /Invoices/{invoicePK}:
+    get:
+      tags:
+      - Invoices
+      operationId: Invoices_Get
+      parameters:
+      - name: purchaseOrderPK
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: invoicePK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Invoices get
+      x-summary-source: derived
+    put:
+      tags:
+      - Invoices
+      operationId: Invoices_Put
+      parameters:
+      - name: purchaseOrderPK
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: invoicePK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InvoiceViewModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/InvoiceViewModel'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/InvoiceViewModel'
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/InvoiceViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/InvoiceViewModel'
+        required: true
+      summary: Invoices put
+      x-summary-source: derived
+  /PurchaseOrders/{purchaseOrderPK}/Invoices/{invoicePK}:
+    get:
+      tags:
+      - Invoices
+      operationId: Invoices_Get
+      parameters:
+      - name: purchaseOrderPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: invoicePK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Invoices get
+      x-summary-source: derived
+    put:
+      tags:
+      - Invoices
+      operationId: Invoices_Put
+      parameters:
+      - name: purchaseOrderPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: invoicePK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InvoiceViewModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/InvoiceViewModel'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/InvoiceViewModel'
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/InvoiceViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/InvoiceViewModel'
+        required: true
+      summary: Invoices put
+      x-summary-source: derived
+  /PurchaseOrders/{purchaseOrderPK}/Invoices:
+    get:
+      tags:
+      - Invoices
+      operationId: Invoices_GetInvoicesForPurchaseOrder
+      parameters:
+      - name: purchaseOrderPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Invoices get invoices for purchase order
+      x-summary-source: derived
+    post:
+      tags:
+      - Invoices
+      operationId: Invoices_Post
+      parameters:
+      - name: purchaseOrderPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/InvoiceViewModel'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/InvoiceViewModel'
+          application/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/InvoiceViewModel'
+          text/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/InvoiceViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/InvoiceViewModel'
+        required: true
+      summary: Invoices post
+      x-summary-source: derived
+components:
+  schemas:
+    InvoiceViewModel:
+      type: object
+      properties:
+        Subtotal:
+          format: double
+          type: number
+        FreightCharge:
+          format: double
+          type: number
+        TaxAmount:
+          format: double
+          type: number
+        Total:
+          format: double
+          type: number
+        TransactionDate:
+          format: date-time
+          type: string
+        InvoiceNumber:
+          type: string
+        CanNotDelete:
+          type: boolean
+        InvoiceDate:
+          format: date-time
+          type: string
+        FuelSurcharge:
+          format: double
+          type: number
+        ExchangeRateSurcharge:
+          format: double
+          type: number
+        OtherCosts:
+          format: double
+          type: number
+        ResourceUri:
+          type: string
+        PK:
+          format: int32
+          type: integer
+        PurchaseOrderPK:
+          format: int32
+          type: integer
+        LastModifiedDate:
+          format: date-time
+          type: string
+        TypeDesc:
+          type: string
+        RcptTrans:
+          type: boolean
+        InvTrans:
+          type: boolean
+    ApiResponse:
+      type: object
+      properties:
+        Results:
+          type: array
+          items:
+            $ref: '#/components/schemas/IApiResult'
+        Total:
+          format: int32
+          type: integer
+    IApiResult:
+      type: object
+      properties: {}
+  securitySchemes:
+    basic:
+      type: http
+      scheme: basic
+      description: Basic HTTP Authentication

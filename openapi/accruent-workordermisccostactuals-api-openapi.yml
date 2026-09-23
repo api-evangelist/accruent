@@ -1,0 +1,533 @@
+openapi: 3.2.0
+info:
+  version: v8
+  title: Maintenance Connection REST Work Order Misc Cost Actuals API
+servers:
+- url: https://api.maintenanceconnection.com:80/v8
+tags:
+- name: WorkOrderMiscCostActuals
+paths:
+  /WorkOrders/{workOrderPK}/MiscActuals/{costPK}:
+    get:
+      tags:
+      - WorkOrderMiscCostActuals
+      operationId: WorkOrderMiscCostActuals_Get
+      parameters:
+      - name: workOrderPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: costPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Work order misc cost actuals get
+      x-summary-source: derived
+    put:
+      tags:
+      - WorkOrderMiscCostActuals
+      operationId: WorkOrderMiscCostActuals_Put
+      parameters:
+      - name: workOrderPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: costPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkOrderMiscCostActualViewModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/WorkOrderMiscCostActualViewModel'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/WorkOrderMiscCostActualViewModel'
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/WorkOrderMiscCostActualViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/WorkOrderMiscCostActualViewModel'
+        required: true
+      summary: Work order misc cost actuals put
+      x-summary-source: derived
+  /WorkOrders/{workOrderPK}/MiscActuals:
+    get:
+      tags:
+      - WorkOrderMiscCostActuals
+      operationId: WorkOrderMiscCostActuals_GetMiscActualsForWorkOrder
+      parameters:
+      - name: workOrderPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Work order misc cost actuals get misc actuals for work order
+      x-summary-source: derived
+    post:
+      tags:
+      - WorkOrderMiscCostActuals
+      operationId: WorkOrderMiscCostActuals_Post
+      parameters:
+      - name: workOrderPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderMiscCostActualViewModel'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderMiscCostActualViewModel'
+          application/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderMiscCostActualViewModel'
+          text/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderMiscCostActualViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderMiscCostActualViewModel'
+        required: true
+      summary: Work order misc cost actuals post
+      x-summary-source: derived
+  /WorkOrderMiscActuals:
+    get:
+      tags:
+      - WorkOrderMiscCostActuals
+      operationId: WorkOrderMiscCostActuals_Get
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Work order misc cost actuals get
+      x-summary-source: derived
+    put:
+      tags:
+      - WorkOrderMiscCostActuals
+      operationId: WorkOrderMiscCostActuals_Put
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderMiscCostActualViewModel'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderMiscCostActualViewModel'
+          application/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderMiscCostActualViewModel'
+          text/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderMiscCostActualViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderMiscCostActualViewModel'
+        required: true
+      summary: Work order misc cost actuals put
+      x-summary-source: derived
+    post:
+      tags:
+      - WorkOrderMiscCostActuals
+      operationId: WorkOrderMiscCostActuals_Post
+      parameters:
+      - name: workOrderPK
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderMiscCostActualViewModel'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderMiscCostActualViewModel'
+          application/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderMiscCostActualViewModel'
+          text/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderMiscCostActualViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderMiscCostActualViewModel'
+        required: true
+      summary: Work order misc cost actuals post
+      x-summary-source: derived
+  /WorkOrderMiscActuals/{costPK}:
+    get:
+      tags:
+      - WorkOrderMiscCostActuals
+      operationId: WorkOrderMiscCostActuals_Get
+      parameters:
+      - name: workOrderPK
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: costPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Work order misc cost actuals get
+      x-summary-source: derived
+    put:
+      tags:
+      - WorkOrderMiscCostActuals
+      operationId: WorkOrderMiscCostActuals_Put
+      parameters:
+      - name: workOrderPK
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: costPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkOrderMiscCostActualViewModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/WorkOrderMiscCostActualViewModel'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/WorkOrderMiscCostActualViewModel'
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/WorkOrderMiscCostActualViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/WorkOrderMiscCostActualViewModel'
+        required: true
+      summary: Work order misc cost actuals put
+      x-summary-source: derived
+components:
+  schemas:
+    EntityRefViewModel_Category:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    EntityRefViewModel_Account:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    EntityRefViewModel_Labor:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    IApiResult:
+      type: object
+      properties: {}
+    ApiResponse:
+      type: object
+      properties:
+        Results:
+          type: array
+          items:
+            $ref: '#/components/schemas/IApiResult'
+        Total:
+          format: int32
+          type: integer
+    WorkOrderMiscCostActualViewModel:
+      type: object
+      properties:
+        ActualCost:
+          format: double
+          type: number
+        InvoiceNumber:
+          type: string
+        Other1:
+          type: string
+        Other2:
+          type: string
+        Comments:
+          type: string
+        PK:
+          format: int32
+          type: integer
+        WorkOrderPK:
+          format: int32
+          type: integer
+        MiscCostName:
+          type: string
+        MiscCostDesc:
+          type: string
+        EstimatedCost:
+          format: double
+          type: number
+        MiscCostDate:
+          format: date-time
+          type: string
+        ChargePercentage:
+          format: double
+          type: number
+        TotalCharge:
+          format: double
+          type: number
+        LastModifiedDate:
+          format: date-time
+          type: string
+        ResourceUri:
+          type: string
+        LaborRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Labor'
+        AccountRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Account'
+        CategoryRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Category'
+        CompanyRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Company'
+        AutoCalcCost:
+          type: boolean
+        AutoCalcCharge:
+          type: boolean
+    EntityRefViewModel_Company:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+  securitySchemes:
+    basic:
+      type: http
+      scheme: basic
+      description: Basic HTTP Authentication

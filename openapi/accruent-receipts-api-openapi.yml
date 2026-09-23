@@ -1,0 +1,470 @@
+openapi: 3.2.0
+info:
+  version: v8
+  title: Maintenance Connection REST Receipts API
+servers:
+- url: https://api.maintenanceconnection.com:80/v8
+tags:
+- name: Receipts
+paths:
+  /Receipts:
+    get:
+      tags:
+      - Receipts
+      operationId: Receipts_Get
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Receipts get
+      x-summary-source: derived
+    put:
+      tags:
+      - Receipts
+      operationId: Receipts_Put
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ReceiptViewModel'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ReceiptViewModel'
+          application/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ReceiptViewModel'
+          text/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ReceiptViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ReceiptViewModel'
+        required: true
+      summary: Receipts put
+      x-summary-source: derived
+    post:
+      tags:
+      - Receipts
+      operationId: Receipts_Post
+      parameters:
+      - name: purchaseOrderPK
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ReceiptViewModel'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ReceiptViewModel'
+          application/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ReceiptViewModel'
+          text/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ReceiptViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ReceiptViewModel'
+        required: true
+      summary: Receipts post
+      x-summary-source: derived
+  /Receipts/{receiptPK}:
+    get:
+      tags:
+      - Receipts
+      operationId: Receipts_Get
+      parameters:
+      - name: purchaseOrderPK
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: receiptPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Receipts get
+      x-summary-source: derived
+    put:
+      tags:
+      - Receipts
+      operationId: Receipts_Put
+      parameters:
+      - name: purchaseOrderPK
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: receiptPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReceiptViewModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/ReceiptViewModel'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ReceiptViewModel'
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/ReceiptViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ReceiptViewModel'
+        required: true
+      summary: Receipts put
+      x-summary-source: derived
+  /PurchaseOrders/{purchaseOrderPK}/Receipts/{receiptPK}:
+    get:
+      tags:
+      - Receipts
+      operationId: Receipts_Get
+      parameters:
+      - name: purchaseOrderPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: receiptPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Receipts get
+      x-summary-source: derived
+    put:
+      tags:
+      - Receipts
+      operationId: Receipts_Put
+      parameters:
+      - name: purchaseOrderPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: receiptPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReceiptViewModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/ReceiptViewModel'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ReceiptViewModel'
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/ReceiptViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ReceiptViewModel'
+        required: true
+      summary: Receipts put
+      x-summary-source: derived
+  /PurchaseOrders/{purchaseOrderPK}/Receipts:
+    get:
+      tags:
+      - Receipts
+      operationId: Receipts_GetReceiptsForPurchaseOrder
+      parameters:
+      - name: purchaseOrderPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Receipts get receipts for purchase order
+      x-summary-source: derived
+    post:
+      tags:
+      - Receipts
+      operationId: Receipts_Post
+      parameters:
+      - name: purchaseOrderPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ReceiptViewModel'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ReceiptViewModel'
+          application/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ReceiptViewModel'
+          text/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ReceiptViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ReceiptViewModel'
+        required: true
+      summary: Receipts post
+      x-summary-source: derived
+components:
+  schemas:
+    EntityRefViewModel_Labor:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    ReceiptViewModel:
+      type: object
+      properties:
+        ReceiptNo:
+          type: string
+        ReceiptDate:
+          format: date-time
+          type: string
+        ReceiptNoInternal:
+          format: int32
+          type: integer
+        ReceivedByRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Labor'
+        ResourceUri:
+          type: string
+        PK:
+          format: int32
+          type: integer
+        PurchaseOrderPK:
+          format: int32
+          type: integer
+        LastModifiedDate:
+          format: date-time
+          type: string
+        TypeDesc:
+          type: string
+        RcptTrans:
+          type: boolean
+        InvTrans:
+          type: boolean
+        CanNotDelete:
+          type: boolean
+    ApiResponse:
+      type: object
+      properties:
+        Results:
+          type: array
+          items:
+            $ref: '#/components/schemas/IApiResult'
+        Total:
+          format: int32
+          type: integer
+    IApiResult:
+      type: object
+      properties: {}
+  securitySchemes:
+    basic:
+      type: http
+      scheme: basic
+      description: Basic HTTP Authentication

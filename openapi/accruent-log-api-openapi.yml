@@ -1,0 +1,175 @@
+openapi: 3.2.0
+info:
+  version: v8
+  title: Maintenance Connection REST Log API
+servers:
+- url: https://api.maintenanceconnection.com:80/v8
+tags:
+- name: Log
+paths:
+  /Logs:
+    get:
+      tags:
+      - Log
+      operationId: Log_Get
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Log get
+      x-summary-source: derived
+    post:
+      tags:
+      - Log
+      operationId: Log_Post
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/LogItemViewModel'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/LogItemViewModel'
+          application/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/LogItemViewModel'
+          text/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/LogItemViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/LogItemViewModel'
+        required: true
+      summary: Log post
+      x-summary-source: derived
+  /Logs/{logPK}:
+    get:
+      tags:
+      - Log
+      operationId: Log_Get
+      parameters:
+      - name: logPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Log get
+      x-summary-source: derived
+components:
+  schemas:
+    AuthorizationStatusViewModel:
+      type: object
+      properties:
+        AuthStatusDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        AuthLevelsRequired:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          type: integer
+        AuthStatusUserPK:
+          format: int32
+          type: integer
+        AuthStatusUserInitials:
+          type: string
+        AuthStatusDate:
+          format: date-time
+          type: string
+    LogItemViewModel:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        Date:
+          format: date-time
+          type: string
+        Message:
+          type: string
+        AuthorizationStatus:
+          $ref: '#/components/schemas/AuthorizationStatusViewModel'
+    IApiResult:
+      type: object
+      properties: {}
+    ValueDescriptionPairViewModel:
+      type: object
+      properties:
+        Value:
+          type: string
+        Description:
+          type: string
+    ApiResponse:
+      type: object
+      properties:
+        Results:
+          type: array
+          items:
+            $ref: '#/components/schemas/IApiResult'
+        Total:
+          format: int32
+          type: integer
+  securitySchemes:
+    basic:
+      type: http
+      scheme: basic
+      description: Basic HTTP Authentication

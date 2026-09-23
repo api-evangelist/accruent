@@ -1,0 +1,206 @@
+openapi: 3.2.0
+info:
+  version: v8
+  title: Maintenance Connection REST Asset Images API
+servers:
+- url: https://api.maintenanceconnection.com:80/v8
+tags:
+- name: AssetImages
+paths:
+  /Assets/{assetPK}/images:
+    get:
+      tags:
+      - AssetImages
+      operationId: AssetImages_Get
+      parameters:
+      - name: assetPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Asset images get
+      x-summary-source: derived
+    post:
+      tags:
+      - AssetImages
+      operationId: AssetImages_Post
+      parameters:
+      - name: assetPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Asset images post
+      x-summary-source: derived
+  /Assets/{assetPK}/images/{imagePK}:
+    get:
+      tags:
+      - AssetImages
+      operationId: AssetImages_Get
+      parameters:
+      - name: assetPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: imagePK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Asset images get
+      x-summary-source: derived
+  /AssetImages:
+    get:
+      tags:
+      - AssetImages
+      operationId: AssetImages_Get
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Asset images get
+      x-summary-source: derived
+  /AssetImages/{assetPK}:
+    get:
+      tags:
+      - AssetImages
+      operationId: AssetImages_Get
+      parameters:
+      - name: assetPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Asset images get
+      x-summary-source: derived
+    post:
+      tags:
+      - AssetImages
+      operationId: AssetImages_Post
+      parameters:
+      - name: assetPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Asset images post
+      x-summary-source: derived
+components:
+  schemas:
+    ApiResponse:
+      type: object
+      properties:
+        Results:
+          type: array
+          items:
+            $ref: '#/components/schemas/IApiResult'
+        Total:
+          format: int32
+          type: integer
+    IApiResult:
+      type: object
+      properties: {}
+  securitySchemes:
+    basic:
+      type: http
+      scheme: basic
+      description: Basic HTTP Authentication

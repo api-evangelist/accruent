@@ -1,0 +1,547 @@
+openapi: 3.2.0
+info:
+  version: v8
+  title: Maintenance Connection REST Part Locations API
+servers:
+- url: https://api.maintenanceconnection.com:80/v8
+tags:
+- name: PartLocations
+paths:
+  /Parts/{partPK}/locations:
+    get:
+      tags:
+      - PartLocations
+      operationId: PartLocations_Get
+      parameters:
+      - name: partPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Part locations get
+      x-summary-source: derived
+    post:
+      tags:
+      - PartLocations
+      operationId: PartLocations_Post
+      parameters:
+      - name: partPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PartLocationViewModel'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PartLocationViewModel'
+          application/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PartLocationViewModel'
+          text/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PartLocationViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PartLocationViewModel'
+        required: true
+      summary: Part locations post
+      x-summary-source: derived
+  /Parts/{partPK}/locations/{partLocationPK}:
+    get:
+      tags:
+      - PartLocations
+      operationId: PartLocations_Get
+      parameters:
+      - name: partPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: partLocationPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Part locations get
+      x-summary-source: derived
+    put:
+      tags:
+      - PartLocations
+      operationId: PartLocations_Put
+      parameters:
+      - name: partPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: partLocationPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PartLocationViewModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/PartLocationViewModel'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/PartLocationViewModel'
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/PartLocationViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PartLocationViewModel'
+        required: true
+      summary: Part locations put
+      x-summary-source: derived
+  /PartLocations:
+    get:
+      tags:
+      - PartLocations
+      operationId: PartLocations_Get
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Part locations get
+      x-summary-source: derived
+    put:
+      tags:
+      - PartLocations
+      operationId: PartLocations_Put
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PartLocationViewModel'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PartLocationViewModel'
+          application/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PartLocationViewModel'
+          text/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PartLocationViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PartLocationViewModel'
+        required: true
+      summary: Part locations put
+      x-summary-source: derived
+    post:
+      tags:
+      - PartLocations
+      operationId: PartLocations_Post
+      parameters:
+      - name: partPK
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PartLocationViewModel'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PartLocationViewModel'
+          application/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PartLocationViewModel'
+          text/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PartLocationViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PartLocationViewModel'
+        required: true
+      summary: Part locations post
+      x-summary-source: derived
+  /PartLocations/{partLocationPK}:
+    get:
+      tags:
+      - PartLocations
+      operationId: PartLocations_Get
+      parameters:
+      - name: partPK
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: partLocationPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Part locations get
+      x-summary-source: derived
+    put:
+      tags:
+      - PartLocations
+      operationId: PartLocations_Put
+      parameters:
+      - name: partPK
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: partLocationPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PartLocationViewModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/PartLocationViewModel'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/PartLocationViewModel'
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/PartLocationViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PartLocationViewModel'
+        required: true
+      summary: Part locations put
+      x-summary-source: derived
+components:
+  schemas:
+    PartLocationViewModel:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        PartPK:
+          format: int32
+          type: integer
+        LocationRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Location'
+        Bin:
+          type: string
+        Lot:
+          type: string
+        Stock:
+          type: boolean
+        MinIssueUnitQty:
+          format: int32
+          type: integer
+        MaxIssueUnitQty:
+          format: int32
+          type: integer
+        ReorderOrderUnitQty:
+          format: int32
+          type: integer
+        OrderUnitsDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        ConversionToIssueUnits:
+          format: double
+          type: number
+        IssueUnitsDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        Available:
+          format: double
+          type: number
+        Reserved:
+          format: double
+          type: number
+        OnHand:
+          format: double
+          type: number
+        OnOrder:
+          format: double
+          type: number
+        OnOrderOpenPO:
+          format: double
+          type: number
+        OnHandPendingDiff:
+          format: double
+          type: number
+        AccountRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Account'
+        ABCCodeDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        CycleCountDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        PhysicalLast:
+          format: date-time
+          type: string
+        AverageOrderUnitPrice:
+          format: double
+          type: number
+        LastOrderUnitPrice:
+          format: double
+          type: number
+        IssueUnitCost:
+          format: double
+          type: number
+        IssueUnitChargePrice:
+          format: double
+          type: number
+        IssueUnitChargePercentage:
+          format: double
+          type: number
+        LastOrdered:
+          format: date-time
+          type: string
+        LastIssued:
+          format: date-time
+          type: string
+        Comments:
+          type: string
+        LastModifiedDate:
+          format: date-time
+          type: string
+        CostRuleDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+    EntityRefViewModel_Account:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    IApiResult:
+      type: object
+      properties: {}
+    ValueDescriptionPairViewModel:
+      type: object
+      properties:
+        Value:
+          type: string
+        Description:
+          type: string
+    ApiResponse:
+      type: object
+      properties:
+        Results:
+          type: array
+          items:
+            $ref: '#/components/schemas/IApiResult'
+        Total:
+          format: int32
+          type: integer
+    EntityRefViewModel_Location:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+  securitySchemes:
+    basic:
+      type: http
+      scheme: basic
+      description: Basic HTTP Authentication

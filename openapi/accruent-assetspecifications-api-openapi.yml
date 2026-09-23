@@ -1,0 +1,481 @@
+openapi: 3.2.0
+info:
+  version: v8
+  title: Maintenance Connection REST Asset Specifications API
+servers:
+- url: https://api.maintenanceconnection.com:80/v8
+tags:
+- name: AssetSpecifications
+paths:
+  /Assets/{assetPK}/specifications/{PK}:
+    get:
+      tags:
+      - AssetSpecifications
+      operationId: AssetSpecifications_Get
+      parameters:
+      - name: assetPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: PK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Asset specifications get
+      x-summary-source: derived
+    put:
+      tags:
+      - AssetSpecifications
+      operationId: AssetSpecifications_Put
+      parameters:
+      - name: assetPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: PK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssetSpecificationViewModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/AssetSpecificationViewModel'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/AssetSpecificationViewModel'
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/AssetSpecificationViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/AssetSpecificationViewModel'
+        required: true
+      summary: Asset specifications put
+      x-summary-source: derived
+  /Assets/{assetPK}/specifications:
+    get:
+      tags:
+      - AssetSpecifications
+      operationId: AssetSpecifications_GetSpecificationsForAsset
+      parameters:
+      - name: assetPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Asset specifications get specifications for asset
+      x-summary-source: derived
+    post:
+      tags:
+      - AssetSpecifications
+      operationId: AssetSpecifications_Post
+      parameters:
+      - name: assetPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/AssetSpecificationViewModel'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/AssetSpecificationViewModel'
+          application/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/AssetSpecificationViewModel'
+          text/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/AssetSpecificationViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/AssetSpecificationViewModel'
+        required: true
+      summary: Asset specifications post
+      x-summary-source: derived
+  /AssetSpecifications:
+    get:
+      tags:
+      - AssetSpecifications
+      operationId: AssetSpecifications_Get
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Asset specifications get
+      x-summary-source: derived
+    put:
+      tags:
+      - AssetSpecifications
+      operationId: AssetSpecifications_Put
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/AssetSpecificationViewModel'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/AssetSpecificationViewModel'
+          application/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/AssetSpecificationViewModel'
+          text/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/AssetSpecificationViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/AssetSpecificationViewModel'
+        required: true
+      summary: Asset specifications put
+      x-summary-source: derived
+  /AssetSpecifications/{assetPK}:
+    get:
+      tags:
+      - AssetSpecifications
+      operationId: AssetSpecifications_Get
+      parameters:
+      - name: assetPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: PK
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Asset specifications get
+      x-summary-source: derived
+    put:
+      tags:
+      - AssetSpecifications
+      operationId: AssetSpecifications_Put
+      parameters:
+      - name: assetPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: PK
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssetSpecificationViewModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/AssetSpecificationViewModel'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/AssetSpecificationViewModel'
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/AssetSpecificationViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/AssetSpecificationViewModel'
+        required: true
+      summary: Asset specifications put
+      x-summary-source: derived
+    post:
+      tags:
+      - AssetSpecifications
+      operationId: AssetSpecifications_Post
+      parameters:
+      - name: assetPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/AssetSpecificationViewModel'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/AssetSpecificationViewModel'
+          application/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/AssetSpecificationViewModel'
+          text/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/AssetSpecificationViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/AssetSpecificationViewModel'
+        required: true
+      summary: Asset specifications post
+      x-summary-source: derived
+components:
+  schemas:
+    AssetSpecificationViewModel:
+      type: object
+      properties:
+        PK:
+          format: int64
+          type: integer
+        AssetPK:
+          format: int32
+          type: integer
+        SpecificationPK:
+          format: int32
+          type: integer
+        SpecificationName:
+          type: string
+        TrackHistory:
+          type: boolean
+        ValueNumeric:
+          format: double
+          type: number
+        ValueText:
+          type: string
+        ValueDate:
+          format: date-time
+          type: string
+        ValueHi:
+          format: double
+          type: number
+        ValueLow:
+          format: double
+          type: number
+        Comments:
+          type: string
+        LastModifiedDate:
+          format: date-time
+          type: string
+        RowVersionIPAddress:
+          type: string
+        RowVersionUserPK:
+          format: int32
+          type: integer
+        RowVersionInitials:
+          type: string
+        ValueOptimal:
+          format: double
+          type: number
+        ValueOutOfRangeWO:
+          type: boolean
+        WOGenerated:
+          type: boolean
+        ProcedurePK:
+          format: int32
+          type: integer
+        WOPKUsedToChangeSpec:
+          format: int32
+          type: integer
+        ResourceUri:
+          type: string
+    ApiResponse:
+      type: object
+      properties:
+        Results:
+          type: array
+          items:
+            $ref: '#/components/schemas/IApiResult'
+        Total:
+          format: int32
+          type: integer
+    IApiResult:
+      type: object
+      properties: {}
+  securitySchemes:
+    basic:
+      type: http
+      scheme: basic
+      description: Basic HTTP Authentication

@@ -1,0 +1,547 @@
+openapi: 3.2.0
+info:
+  version: v8
+  title: Maintenance Connection REST Work Order Tasks API
+servers:
+- url: https://api.maintenanceconnection.com:80/v8
+tags:
+- name: WorkOrderTasks
+paths:
+  /WorkOrders/{workOrderPK}/Tasks/{taskPK}:
+    get:
+      tags:
+      - WorkOrderTasks
+      operationId: WorkOrderTasks_Get
+      parameters:
+      - name: workOrderPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: taskPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Work order tasks get
+      x-summary-source: derived
+    put:
+      tags:
+      - WorkOrderTasks
+      operationId: WorkOrderTasks_Put
+      parameters:
+      - name: workOrderPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: taskPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkOrderTaskViewModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/WorkOrderTaskViewModel'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/WorkOrderTaskViewModel'
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/WorkOrderTaskViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/WorkOrderTaskViewModel'
+        required: true
+      summary: Work order tasks put
+      x-summary-source: derived
+  /WorkOrders/{workOrderPK}/Tasks:
+    get:
+      tags:
+      - WorkOrderTasks
+      operationId: WorkOrderTasks_GetTasksForWorkOrder
+      parameters:
+      - name: workOrderPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Work order tasks get tasks for work order
+      x-summary-source: derived
+    post:
+      tags:
+      - WorkOrderTasks
+      operationId: WorkOrderTasks_Post
+      parameters:
+      - name: workOrderPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderTaskViewModel'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderTaskViewModel'
+          application/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderTaskViewModel'
+          text/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderTaskViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderTaskViewModel'
+        required: true
+      summary: Work order tasks post
+      x-summary-source: derived
+  /WorkOrderTasks:
+    get:
+      tags:
+      - WorkOrderTasks
+      operationId: WorkOrderTasks_Get
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Work order tasks get
+      x-summary-source: derived
+    put:
+      tags:
+      - WorkOrderTasks
+      operationId: WorkOrderTasks_Put
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderTaskViewModel'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderTaskViewModel'
+          application/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderTaskViewModel'
+          text/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderTaskViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderTaskViewModel'
+        required: true
+      summary: Work order tasks put
+      x-summary-source: derived
+    post:
+      tags:
+      - WorkOrderTasks
+      operationId: WorkOrderTasks_Post
+      parameters:
+      - name: workOrderPK
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderTaskViewModel'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderTaskViewModel'
+          application/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderTaskViewModel'
+          text/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderTaskViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderTaskViewModel'
+        required: true
+      summary: Work order tasks post
+      x-summary-source: derived
+  /WorkOrderTasks/{taskPK}:
+    get:
+      tags:
+      - WorkOrderTasks
+      operationId: WorkOrderTasks_Get
+      parameters:
+      - name: workOrderPK
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: taskPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Work order tasks get
+      x-summary-source: derived
+    put:
+      tags:
+      - WorkOrderTasks
+      operationId: WorkOrderTasks_Put
+      parameters:
+      - name: workOrderPK
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: taskPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkOrderTaskViewModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/WorkOrderTaskViewModel'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/WorkOrderTaskViewModel'
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/WorkOrderTaskViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/WorkOrderTaskViewModel'
+        required: true
+      summary: Work order tasks put
+      x-summary-source: derived
+    post:
+      tags:
+      - WorkOrderTasks
+      operationId: WorkOrderTasks_Post
+      parameters:
+      - name: workOrderPK
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: taskPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: imageNumber
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      summary: Work order tasks post
+      x-summary-source: derived
+components:
+  schemas:
+    ApiResponse:
+      type: object
+      properties:
+        Results:
+          type: array
+          items:
+            $ref: '#/components/schemas/IApiResult'
+        Total:
+          format: int32
+          type: integer
+    IApiResult:
+      type: object
+      properties: {}
+    WorkOrderTaskViewModel:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        WorkOrderPK:
+          format: int32
+          type: integer
+        TaskNo:
+          format: double
+          type: number
+        TaskAction:
+          type: string
+        IsHeader:
+          type: boolean
+        MeasurementInitial:
+          type: string
+        Measurement:
+          type: string
+        HoursEstimated:
+          format: double
+          type: number
+        HoursActual:
+          format: double
+          type: number
+        Rate:
+          format: int32
+          type: integer
+        TaskPK:
+          format: int32
+          type: integer
+        CraftPK:
+          format: int32
+          type: integer
+        AssetSpecificationPK:
+          format: int64
+          type: integer
+        SpecificationPK:
+          format: int32
+          type: integer
+        AssetPK:
+          format: int32
+          type: integer
+        ClassificationPK:
+          format: int32
+          type: integer
+        ToolPK:
+          format: int32
+          type: integer
+        IsComplete:
+          type: boolean
+        IsFailed:
+          type: boolean
+        IsSpec:
+          type: boolean
+        IsMeter1:
+          type: boolean
+        IsMeter2:
+          type: boolean
+        NotApplicable:
+          type: boolean
+        Comments:
+          type: string
+        Initials:
+          type: string
+        Photo1:
+          type: string
+        DeletePhoto1:
+          type: boolean
+        Photo2:
+          type: string
+        DeletePhoto2:
+          type: boolean
+        FollowupWorkOrderPK:
+          format: int32
+          type: integer
+        LastModifiedDate:
+          format: date-time
+          type: string
+        ResourceUri:
+          type: string
+  securitySchemes:
+    basic:
+      type: http
+      scheme: basic
+      description: Basic HTTP Authentication

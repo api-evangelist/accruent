@@ -1,0 +1,529 @@
+openapi: 3.2.0
+info:
+  version: v8
+  title: Maintenance Connection REST Work Order Labor Cost Estimates…
+servers:
+- url: https://api.maintenanceconnection.com:80/v8
+tags:
+- name: WorkOrderLaborCostEstimates
+paths:
+  /WorkOrders/{workOrderPK}/LaborEstimates/{costPK}:
+    get:
+      tags:
+      - WorkOrderLaborCostEstimates
+      operationId: WorkOrderLaborCostEstimates_Get
+      parameters:
+      - name: workOrderPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: costPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Work order labor cost estimates get
+      x-summary-source: derived
+    put:
+      tags:
+      - WorkOrderLaborCostEstimates
+      operationId: WorkOrderLaborCostEstimates_Put
+      parameters:
+      - name: workOrderPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: costPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkOrderLaborCostEstimateViewModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/WorkOrderLaborCostEstimateViewModel'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/WorkOrderLaborCostEstimateViewModel'
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/WorkOrderLaborCostEstimateViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/WorkOrderLaborCostEstimateViewModel'
+        required: true
+      summary: Work order labor cost estimates put
+      x-summary-source: derived
+  /WorkOrders/{workOrderPK}/LaborEstimates:
+    get:
+      tags:
+      - WorkOrderLaborCostEstimates
+      operationId: WorkOrderLaborCostEstimates_GetLaborEstimatesForWorkOrder
+      parameters:
+      - name: workOrderPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Work order labor cost estimates get labor estimates for work order
+      x-summary-source: derived
+    post:
+      tags:
+      - WorkOrderLaborCostEstimates
+      operationId: WorkOrderLaborCostEstimates_Post
+      parameters:
+      - name: workOrderPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderLaborCostEstimateViewModel'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderLaborCostEstimateViewModel'
+          application/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderLaborCostEstimateViewModel'
+          text/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderLaborCostEstimateViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderLaborCostEstimateViewModel'
+        required: true
+      summary: Work order labor cost estimates post
+      x-summary-source: derived
+  /WorkOrderLaborEstimates:
+    get:
+      tags:
+      - WorkOrderLaborCostEstimates
+      operationId: WorkOrderLaborCostEstimates_Get
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Work order labor cost estimates get
+      x-summary-source: derived
+    put:
+      tags:
+      - WorkOrderLaborCostEstimates
+      operationId: WorkOrderLaborCostEstimates_Put
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderLaborCostEstimateViewModel'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderLaborCostEstimateViewModel'
+          application/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderLaborCostEstimateViewModel'
+          text/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderLaborCostEstimateViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderLaborCostEstimateViewModel'
+        required: true
+      summary: Work order labor cost estimates put
+      x-summary-source: derived
+    post:
+      tags:
+      - WorkOrderLaborCostEstimates
+      operationId: WorkOrderLaborCostEstimates_Post
+      parameters:
+      - name: workOrderPK
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderLaborCostEstimateViewModel'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderLaborCostEstimateViewModel'
+          application/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderLaborCostEstimateViewModel'
+          text/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderLaborCostEstimateViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderLaborCostEstimateViewModel'
+        required: true
+      summary: Work order labor cost estimates post
+      x-summary-source: derived
+  /WorkOrderLaborEstimates/{costPK}:
+    get:
+      tags:
+      - WorkOrderLaborCostEstimates
+      operationId: WorkOrderLaborCostEstimates_Get
+      parameters:
+      - name: workOrderPK
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: costPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Work order labor cost estimates get
+      x-summary-source: derived
+    put:
+      tags:
+      - WorkOrderLaborCostEstimates
+      operationId: WorkOrderLaborCostEstimates_Put
+      parameters:
+      - name: workOrderPK
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: costPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkOrderLaborCostEstimateViewModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/WorkOrderLaborCostEstimateViewModel'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/WorkOrderLaborCostEstimateViewModel'
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/WorkOrderLaborCostEstimateViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/WorkOrderLaborCostEstimateViewModel'
+        required: true
+      summary: Work order labor cost estimates put
+      x-summary-source: derived
+components:
+  schemas:
+    EntityRefViewModel_Category:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    EntityRefViewModel_Account:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    EntityRefViewModel_Labor:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    IApiResult:
+      type: object
+      properties: {}
+    ValueDescriptionPairViewModel:
+      type: object
+      properties:
+        Value:
+          type: string
+        Description:
+          type: string
+    WorkOrderLaborCostEstimateViewModel:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        WorkOrderPK:
+          format: int32
+          type: integer
+        EstimatedHours:
+          format: double
+          type: number
+        TotalHours:
+          format: double
+          type: number
+        TotalCost:
+          format: double
+          type: number
+        RegularRate:
+          format: double
+          type: number
+        OvertimeRate:
+          format: double
+          type: number
+        OtherRate:
+          format: double
+          type: number
+        ChargeRate:
+          format: double
+          type: number
+        ChargePercentage:
+          format: double
+          type: number
+        TotalCharge:
+          format: double
+          type: number
+        WorkDate:
+          format: date-time
+          type: string
+        LastModifiedDate:
+          format: date-time
+          type: string
+        ResourceUri:
+          type: string
+        LaborTypeDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        LaborRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Labor'
+        AccountRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Account'
+        CategoryRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Category'
+        AutoCalcCost:
+          type: boolean
+        AutoCalcCharge:
+          type: boolean
+    ApiResponse:
+      type: object
+      properties:
+        Results:
+          type: array
+          items:
+            $ref: '#/components/schemas/IApiResult'
+        Total:
+          format: int32
+          type: integer
+  securitySchemes:
+    basic:
+      type: http
+      scheme: basic
+      description: Basic HTTP Authentication

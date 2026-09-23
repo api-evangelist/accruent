@@ -1,0 +1,428 @@
+openapi: 3.2.0
+info:
+  version: v8
+  title: Maintenance Connection REST Companies API
+servers:
+- url: https://api.maintenanceconnection.com:80/v8
+tags:
+- name: Companies
+paths:
+  /Companies:
+    get:
+      tags:
+      - Companies
+      operationId: Companies_Get
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Companies get
+      x-summary-source: derived
+    put:
+      tags:
+      - Companies
+      operationId: Companies_Put
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/CompanyViewModel'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/CompanyViewModel'
+          application/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/CompanyViewModel'
+          text/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/CompanyViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/CompanyViewModel'
+        required: true
+      summary: Companies put
+      x-summary-source: derived
+    post:
+      tags:
+      - Companies
+      operationId: Companies_Post
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/CompanyViewModel'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/CompanyViewModel'
+          application/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/CompanyViewModel'
+          text/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/CompanyViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/CompanyViewModel'
+        required: true
+      summary: Companies post
+      x-summary-source: derived
+  /Companies/{companyPK}:
+    get:
+      tags:
+      - Companies
+      operationId: Companies_Get
+      parameters:
+      - name: companyPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Companies get
+      x-summary-source: derived
+    put:
+      tags:
+      - Companies
+      operationId: Companies_Put
+      parameters:
+      - name: companyPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CompanyViewModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/CompanyViewModel'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CompanyViewModel'
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/CompanyViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CompanyViewModel'
+        required: true
+      summary: Companies put
+      x-summary-source: derived
+components:
+  schemas:
+    EntityRefViewModel_Category:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    CompanyViewModel:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Active:
+          type: boolean
+        LastModifiedDate:
+          format: date-time
+          type: string
+        URL:
+          type: string
+        Division:
+          type: string
+        CustomerNum:
+          type: string
+        DunsNum:
+          type: string
+        PayTaxToVendor:
+          type: boolean
+        TaxCode:
+          type: string
+        TaxCodeDesc:
+          type: string
+        TaxExemptNumber:
+          type: string
+        ECommerceEnabled:
+          type: boolean
+        FOBPoint:
+          type: string
+        BankName:
+          type: string
+        BankRefNumber:
+          type: string
+        PayTo:
+          type: string
+        PaymentOnReceipt:
+          type: boolean
+        Attention:
+          type: string
+        Address:
+          type: string
+        Address2:
+          type: string
+        City:
+          type: string
+        State:
+          type: string
+        Zip:
+          type: string
+        Country:
+          type: string
+        RemitToAddress:
+          type: string
+        RemitToAddress2:
+          type: string
+        RemitToCity:
+          type: string
+        RemitToState:
+          type: string
+        RemitToZip:
+          type: string
+        RemitToCountry:
+          type: string
+        Phone:
+          type: string
+        Fax:
+          type: string
+        Legal:
+          type: string
+        Comments:
+          type: string
+        Photo:
+          type: string
+        UDFChar1:
+          type: string
+        UDFChar2:
+          type: string
+        UDFChar3:
+          type: string
+        UDFChar4:
+          type: string
+        UDFChar5:
+          type: string
+        UDFChar6:
+          type: string
+        UDFChar7:
+          type: string
+        UDFChar8:
+          type: string
+        UDFChar9:
+          type: string
+        UDFChar10:
+          type: string
+        UDFBit1:
+          type: boolean
+        UDFBit2:
+          type: boolean
+        UDFBit3:
+          type: boolean
+        UDFBit4:
+          type: boolean
+        UDFBit5:
+          type: boolean
+        UDFDate1:
+          format: date-time
+          type: string
+        UDFDate2:
+          format: date-time
+          type: string
+        UDFDate3:
+          format: date-time
+          type: string
+        UDFDate4:
+          format: date-time
+          type: string
+        UDFDate5:
+          format: date-time
+          type: string
+        DemoLaborPK:
+          format: int32
+          type: integer
+        RowVersionIPAddress:
+          type: string
+        RowVersionUserPK:
+          format: int32
+          type: integer
+        RowVersionInitials:
+          type: string
+        RowVersionAction:
+          type: string
+        UseAsLaborResource:
+          type: boolean
+        Currency:
+          type: string
+        SMSEmail:
+          type: string
+        PhoneSales:
+          type: string
+        PhoneCustSupport:
+          type: string
+        PhoneTechSupport:
+          type: string
+        ResourceUri:
+          type: string
+        TypeDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        TaxExemptDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        ShipViaDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        FreightTermsDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        PaymentTermsDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        AccountRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Account'
+        CategoryRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Category'
+    EntityRefViewModel_Account:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    IApiResult:
+      type: object
+      properties: {}
+    ValueDescriptionPairViewModel:
+      type: object
+      properties:
+        Value:
+          type: string
+        Description:
+          type: string
+    ApiResponse:
+      type: object
+      properties:
+        Results:
+          type: array
+          items:
+            $ref: '#/components/schemas/IApiResult'
+        Total:
+          format: int32
+          type: integer
+  securitySchemes:
+    basic:
+      type: http
+      scheme: basic
+      description: Basic HTTP Authentication

@@ -1,0 +1,61 @@
+openapi: 3.2.0
+info:
+  version: v8
+  title: Maintenance Connection REST Schema API
+servers:
+- url: https://api.maintenanceconnection.com:80/v8
+tags:
+- name: Schema
+paths:
+  /Schema/{model}:
+    get:
+      tags:
+      - Schema
+      operationId: Schema_Get
+      parameters:
+      - name: model
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SchemaViewModel'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SchemaViewModel'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SchemaViewModel'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/SchemaViewModel'
+      summary: Schema get
+      x-summary-source: derived
+components:
+  schemas:
+    SchemaViewModel:
+      type: object
+      properties:
+        Name:
+          type: string
+        Properties:
+          type: array
+          items:
+            $ref: '#/components/schemas/PropertyInfoViewModel'
+    PropertyInfoViewModel:
+      type: object
+      properties:
+        Name:
+          type: string
+        Type:
+          type: string
+  securitySchemes:
+    basic:
+      type: http
+      scheme: basic
+      description: Basic HTTP Authentication

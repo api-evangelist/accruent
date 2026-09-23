@@ -1,3 +1,5 @@
+# x-archived-from: accruent-maintenance-connection-openapi.yml
+# x-archived-on: 2026-09-16
 # Accruent Maintenance Connection Web API v8 — verbatim YAML serialization of the
 # Swagger 2.0 document Accruent publishes at
 # https://api.maintenanceconnection.com/v8/swagger/docs/v8 (fetched 2026-09-06, HTTP 200).

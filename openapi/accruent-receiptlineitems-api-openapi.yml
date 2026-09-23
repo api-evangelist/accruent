@@ -1,0 +1,497 @@
+openapi: 3.2.0
+info:
+  version: v8
+  title: Maintenance Connection REST Receipt Line Items API
+servers:
+- url: https://api.maintenanceconnection.com:80/v8
+tags:
+- name: ReceiptLineItems
+paths:
+  /ReceiptLineItems:
+    get:
+      tags:
+      - ReceiptLineItems
+      operationId: ReceiptLineItems_Get
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Receipt line items get
+      x-summary-source: derived
+    put:
+      tags:
+      - ReceiptLineItems
+      operationId: ReceiptLineItems_Put
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ReceiptLineItemViewModel'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ReceiptLineItemViewModel'
+          application/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ReceiptLineItemViewModel'
+          text/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ReceiptLineItemViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ReceiptLineItemViewModel'
+        required: true
+      summary: Receipt line items put
+      x-summary-source: derived
+    post:
+      tags:
+      - ReceiptLineItems
+      operationId: ReceiptLineItems_Post
+      parameters:
+      - name: purchaseOrderPK
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: receiptPK
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ReceiptLineItemViewModel'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ReceiptLineItemViewModel'
+          application/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ReceiptLineItemViewModel'
+          text/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ReceiptLineItemViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ReceiptLineItemViewModel'
+        required: true
+      summary: Receipt line items post
+      x-summary-source: derived
+  /ReceiptLineItems/{lineItemPK}:
+    get:
+      tags:
+      - ReceiptLineItems
+      operationId: ReceiptLineItems_Get
+      parameters:
+      - name: purchaseOrderPK
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: receiptPK
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: lineItemPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Receipt line items get
+      x-summary-source: derived
+    put:
+      tags:
+      - ReceiptLineItems
+      operationId: ReceiptLineItems_Put
+      parameters:
+      - name: purchaseOrderPK
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: receiptPK
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: lineItemPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReceiptLineItemViewModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/ReceiptLineItemViewModel'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ReceiptLineItemViewModel'
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/ReceiptLineItemViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ReceiptLineItemViewModel'
+        required: true
+      summary: Receipt line items put
+      x-summary-source: derived
+  /PurchaseOrders/{purchaseOrderPK}/Receipts/{receiptPK}/LineItems/{lineItemPK}:
+    get:
+      tags:
+      - ReceiptLineItems
+      operationId: ReceiptLineItems_Get
+      parameters:
+      - name: purchaseOrderPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: receiptPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: lineItemPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Receipt line items get
+      x-summary-source: derived
+    put:
+      tags:
+      - ReceiptLineItems
+      operationId: ReceiptLineItems_Put
+      parameters:
+      - name: purchaseOrderPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: receiptPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: lineItemPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReceiptLineItemViewModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/ReceiptLineItemViewModel'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ReceiptLineItemViewModel'
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/ReceiptLineItemViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ReceiptLineItemViewModel'
+        required: true
+      summary: Receipt line items put
+      x-summary-source: derived
+  /PurchaseOrders/{purchaseOrderPK}/Receipts/{receiptPK}/LineItems:
+    get:
+      tags:
+      - ReceiptLineItems
+      operationId: ReceiptLineItems_GetLineItemsForPurchaseOrderReceipt
+      parameters:
+      - name: purchaseOrderPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: receiptPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Receipt line items get line items for purchase order receipt
+      x-summary-source: derived
+    post:
+      tags:
+      - ReceiptLineItems
+      operationId: ReceiptLineItems_Post
+      parameters:
+      - name: purchaseOrderPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: receiptPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ReceiptLineItemViewModel'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ReceiptLineItemViewModel'
+          application/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ReceiptLineItemViewModel'
+          text/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ReceiptLineItemViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ReceiptLineItemViewModel'
+        required: true
+      summary: Receipt line items post
+      x-summary-source: derived
+components:
+  schemas:
+    ReceiptLineItemViewModel:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ReceiptPK:
+          format: int32
+          type: integer
+        PurchaseOrderLineItemPK:
+          format: int32
+          type: integer
+        OrderUnitQtyReceived:
+          format: int32
+          type: integer
+        OrderUnitQtyBackOrdered:
+          format: int32
+          type: integer
+        OrderUnitQtyCanceled:
+          format: int32
+          type: integer
+        ReceiveDate:
+          format: date-time
+          type: string
+        Bin:
+          type: string
+        LastModifiedDate:
+          format: date-time
+          type: string
+        ResourceUri:
+          type: string
+    ApiResponse:
+      type: object
+      properties:
+        Results:
+          type: array
+          items:
+            $ref: '#/components/schemas/IApiResult'
+        Total:
+          format: int32
+          type: integer
+    IApiResult:
+      type: object
+      properties: {}
+  securitySchemes:
+    basic:
+      type: http
+      scheme: basic
+      description: Basic HTTP Authentication

@@ -1,0 +1,206 @@
+openapi: 3.2.0
+info:
+  version: v8
+  title: Maintenance Connection REST Work Order Documents API
+servers:
+- url: https://api.maintenanceconnection.com:80/v8
+tags:
+- name: WorkOrderDocuments
+paths:
+  /WorkOrders/{workOrderPK}/documents:
+    get:
+      tags:
+      - WorkOrderDocuments
+      operationId: WorkOrderDocuments_Get
+      parameters:
+      - name: workOrderPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Work order documents get
+      x-summary-source: derived
+    post:
+      tags:
+      - WorkOrderDocuments
+      operationId: WorkOrderDocuments_Post
+      parameters:
+      - name: workOrderPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Work order documents post
+      x-summary-source: derived
+  /WorkOrders/{workOrderPK}/documents/{PK}:
+    get:
+      tags:
+      - WorkOrderDocuments
+      operationId: WorkOrderDocuments_Get
+      parameters:
+      - name: workOrderPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: PK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Work order documents get
+      x-summary-source: derived
+  /WorkOrderDocuments:
+    get:
+      tags:
+      - WorkOrderDocuments
+      operationId: WorkOrderDocuments_Get
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Work order documents get
+      x-summary-source: derived
+  /WorkOrderDocuments/{workOrderPK}:
+    get:
+      tags:
+      - WorkOrderDocuments
+      operationId: WorkOrderDocuments_Get
+      parameters:
+      - name: workOrderPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Work order documents get
+      x-summary-source: derived
+    post:
+      tags:
+      - WorkOrderDocuments
+      operationId: WorkOrderDocuments_Post
+      parameters:
+      - name: workOrderPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Work order documents post
+      x-summary-source: derived
+components:
+  schemas:
+    ApiResponse:
+      type: object
+      properties:
+        Results:
+          type: array
+          items:
+            $ref: '#/components/schemas/IApiResult'
+        Total:
+          format: int32
+          type: integer
+    IApiResult:
+      type: object
+      properties: {}
+  securitySchemes:
+    basic:
+      type: http
+      scheme: basic
+      description: Basic HTTP Authentication

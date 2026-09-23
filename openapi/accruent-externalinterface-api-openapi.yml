@@ -1,0 +1,203 @@
+openapi: 3.2.0
+info:
+  version: v8
+  title: Maintenance Connection REST External Interface API
+servers:
+- url: https://api.maintenanceconnection.com:80/v8
+tags:
+- name: ExternalInterface
+paths:
+  /ExternalInterface:
+    get:
+      tags:
+      - ExternalInterface
+      operationId: ExternalInterface_Get
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: External interface get
+      x-summary-source: derived
+    post:
+      tags:
+      - ExternalInterface
+      operationId: ExternalInterface_Post
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ExternalInterface'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ExternalInterface'
+          application/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ExternalInterface'
+          text/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ExternalInterface'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ExternalInterface'
+        required: true
+      summary: External interface post
+      x-summary-source: derived
+  /ExternalInterface/{externalInterfacePK}:
+    get:
+      tags:
+      - ExternalInterface
+      operationId: ExternalInterface_Get
+      parameters:
+      - name: externalInterfacePK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: External interface get
+      x-summary-source: derived
+    put:
+      tags:
+      - ExternalInterface
+      operationId: ExternalInterface_Put
+      parameters:
+      - name: externalInterfacePK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExternalInterfaceViewModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/ExternalInterfaceViewModel'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ExternalInterfaceViewModel'
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/ExternalInterfaceViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ExternalInterfaceViewModel'
+        required: true
+      summary: External interface put
+      x-summary-source: derived
+components:
+  schemas:
+    ExternalInterface:
+      type: object
+      properties:
+        ExternalInterfacePK:
+          format: int32
+          type: integer
+        ExternalInterfaceID:
+          maxLength: 50
+          minLength: 0
+          type: string
+        ExternalInterfaceName:
+          maxLength: 50
+          minLength: 0
+          type: string
+    ApiResponse:
+      type: object
+      properties:
+        Results:
+          type: array
+          items:
+            $ref: '#/components/schemas/IApiResult'
+        Total:
+          format: int32
+          type: integer
+    IApiResult:
+      type: object
+      properties: {}
+    ExternalInterfaceViewModel:
+      type: object
+      properties:
+        ExternalInterfacePK:
+          format: int32
+          type: integer
+        ExternalInterfaceID:
+          type: string
+        ExternalInterfaceName:
+          type: string
+  securitySchemes:
+    basic:
+      type: http
+      scheme: basic
+      description: Basic HTTP Authentication

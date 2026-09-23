@@ -1,0 +1,536 @@
+openapi: 3.2.0
+info:
+  version: v8
+  title: Maintenance Connection REST Purchase Orders API
+servers:
+- url: https://api.maintenanceconnection.com:80/v8
+tags:
+- name: Purchase Orders
+paths:
+  /purchaseorders:
+    get:
+      tags:
+      - Purchase Orders
+      operationId: PurchaseOrders_Get
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Purchase orders get
+      x-summary-source: derived
+    put:
+      tags:
+      - Purchase Orders
+      operationId: PurchaseOrders_Put
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PurchaseOrderViewModel'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PurchaseOrderViewModel'
+          application/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PurchaseOrderViewModel'
+          text/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PurchaseOrderViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PurchaseOrderViewModel'
+        required: true
+      summary: Purchase orders put
+      x-summary-source: derived
+    post:
+      tags:
+      - Purchase Orders
+      operationId: PurchaseOrders_Post
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PurchaseOrderViewModel'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PurchaseOrderViewModel'
+          application/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PurchaseOrderViewModel'
+          text/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PurchaseOrderViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PurchaseOrderViewModel'
+        required: true
+      summary: Purchase orders post
+      x-summary-source: derived
+  /purchaseorders/{purchaseOrderPK}:
+    get:
+      tags:
+      - Purchase Orders
+      operationId: PurchaseOrders_Get
+      parameters:
+      - name: purchaseOrderPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Purchase orders get
+      x-summary-source: derived
+    put:
+      tags:
+      - Purchase Orders
+      operationId: PurchaseOrders_Put
+      parameters:
+      - name: purchaseOrderPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PurchaseOrderViewModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/PurchaseOrderViewModel'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/PurchaseOrderViewModel'
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/PurchaseOrderViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PurchaseOrderViewModel'
+        required: true
+      summary: Purchase orders put
+      x-summary-source: derived
+components:
+  schemas:
+    EntityRefViewModel_Account:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    EntityRefViewModel_Customer:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    PurchaseOrderViewModel:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        StatusDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        AuthStatusDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        SubStatusDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        AuthorizationStatus:
+          $ref: '#/components/schemas/AuthorizationStatusViewModel'
+        OrderDate:
+          format: date-time
+          type: string
+        VendorRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Company'
+        RequesterRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Labor'
+        RequesterPhone:
+          type: string
+        RequesterEmail:
+          type: string
+        Subtotal:
+          format: double
+          type: number
+        FreightCharge:
+          format: double
+          type: number
+        TaxAmount:
+          format: double
+          type: number
+        Total:
+          format: double
+          type: number
+        IsOpen:
+          type: boolean
+        IsApproved:
+          type: boolean
+        IsPartsOrdered:
+          type: boolean
+        UDFBit1:
+          type: boolean
+        UDFBit2:
+          type: boolean
+        UDFBit3:
+          type: boolean
+        UDFBit4:
+          type: boolean
+        UDFBit5:
+          type: boolean
+        LastModifiedDate:
+          format: date-time
+          type: string
+        Description:
+          type: string
+        StatusDate:
+          format: date-time
+          type: string
+        BuyerCompanyRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Company'
+        BuyerRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Labor'
+        FollowupDate:
+          format: date-time
+          type: string
+        ShipDate:
+          format: date-time
+          type: string
+        RepairCenterRef:
+          $ref: '#/components/schemas/EntityRefViewModel_RepairCenter'
+        DepartmentRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Department'
+        CustomerRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Customer'
+        PriorityDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        InvoiceNumber:
+          type: string
+        ShippingInfo:
+          $ref: '#/components/schemas/ShippingInfoViewModel'
+        BillingInfo:
+          $ref: '#/components/schemas/BillingInfoViewModel'
+        TakenByPK:
+          format: int32
+          type: integer
+        TakenByInitials:
+          type: string
+        Comments:
+          type: string
+        UDFChar1:
+          type: string
+        UDFChar2:
+          type: string
+        UDFChar3:
+          type: string
+        UDFChar4:
+          type: string
+        UDFChar5:
+          type: string
+        UDFChar6:
+          type: string
+        UDFChar7:
+          type: string
+        UDFChar8:
+          type: string
+        UDFChar9:
+          type: string
+        UDFChar10:
+          type: string
+        UDFDate1:
+          format: date-time
+          type: string
+        UDFDate2:
+          format: date-time
+          type: string
+        UDFDate3:
+          format: date-time
+          type: string
+        UDFDate4:
+          format: date-time
+          type: string
+        UDFDate5:
+          format: date-time
+          type: string
+        DiscountPercentage:
+          format: double
+          type: number
+        Discount:
+          format: double
+          type: number
+        SubTotalPreDiscount:
+          format: double
+          type: number
+        SubTotalPostDiscount:
+          format: double
+          type: number
+        Budget:
+          format: double
+          type: number
+        AccountRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Account'
+        Currency:
+          type: string
+        CurrencySymbol:
+          type: string
+        IsPrinted:
+          type: boolean
+        IsAveraged:
+          type: boolean
+        ResourceUri:
+          type: string
+    AuthorizationStatusViewModel:
+      type: object
+      properties:
+        AuthStatusDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        AuthLevelsRequired:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          type: integer
+        AuthStatusUserPK:
+          format: int32
+          type: integer
+        AuthStatusUserInitials:
+          type: string
+        AuthStatusDate:
+          format: date-time
+          type: string
+    EntityRefViewModel_Labor:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    EntityRefViewModel_RepairCenter:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    EntityRefViewModel_Department:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    ValueDescriptionPairViewModel:
+      type: object
+      properties:
+        Value:
+          type: string
+        Description:
+          type: string
+    IApiResult:
+      type: object
+      properties: {}
+    ApiResponse:
+      type: object
+      properties:
+        Results:
+          type: array
+          items:
+            $ref: '#/components/schemas/IApiResult'
+        Total:
+          format: int32
+          type: integer
+    BillingInfoViewModel:
+      type: object
+      properties:
+        BillToCompany:
+          $ref: '#/components/schemas/CompanyDetailsViewModel'
+        BillingTerms:
+          type: string
+        BillingTermsDesc:
+          type: string
+    EntityRefViewModel_Company:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    ShippingInfoViewModel:
+      type: object
+      properties:
+        ShipToCompany:
+          $ref: '#/components/schemas/CompanyDetailsViewModel'
+        FreightTerms:
+          type: string
+        FreightTermsDesc:
+          type: string
+        ShippingMethod:
+          type: string
+        ShippingMethodDesc:
+          type: string
+        TrackingNo:
+          type: string
+    CompanyDetailsViewModel:
+      type: object
+      properties:
+        CompanyRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Company'
+        Address1:
+          type: string
+        Address2:
+          type: string
+        Address3:
+          type: string
+        Attention:
+          type: string
+  securitySchemes:
+    basic:
+      type: http
+      scheme: basic
+      description: Basic HTTP Authentication

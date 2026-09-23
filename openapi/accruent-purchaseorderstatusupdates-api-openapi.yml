@@ -1,0 +1,59 @@
+openapi: 3.2.0
+info:
+  version: v8
+  title: Maintenance Connection REST Purchase Order Status Updates…
+servers:
+- url: https://api.maintenanceconnection.com:80/v8
+tags:
+- name: PurchaseOrderStatusUpdates
+paths:
+  /PurchaseOrders/{purchaseOrderPK}/StatusUpdates:
+    get:
+      tags:
+      - PurchaseOrderStatusUpdates
+      operationId: PurchaseOrderStatusUpdates_GetStatusUpdatesForPurchaseOrder
+      parameters:
+      - name: purchaseOrderPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Purchase order status updates get status updates for purchase order
+      x-summary-source: derived
+components:
+  schemas:
+    ApiResponse:
+      type: object
+      properties:
+        Results:
+          type: array
+          items:
+            $ref: '#/components/schemas/IApiResult'
+        Total:
+          format: int32
+          type: integer
+    IApiResult:
+      type: object
+      properties: {}
+  securitySchemes:
+    basic:
+      type: http
+      scheme: basic
+      description: Basic HTTP Authentication

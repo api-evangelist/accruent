@@ -1,0 +1,753 @@
+openapi: 3.2.0
+info:
+  version: v8
+  title: Maintenance Connection REST Assets API
+servers:
+- url: https://api.maintenanceconnection.com:80/v8
+tags:
+- name: Assets
+paths:
+  /Assets:
+    get:
+      tags:
+      - Assets
+      operationId: Assets_Get
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Assets get
+      x-summary-source: derived
+    put:
+      tags:
+      - Assets
+      operationId: Assets_Put
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/AssetViewModel'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/AssetViewModel'
+          application/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/AssetViewModel'
+          text/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/AssetViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/AssetViewModel'
+        required: true
+      summary: Assets put
+      x-summary-source: derived
+    post:
+      tags:
+      - Assets
+      operationId: Assets_Post
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/AssetViewModel'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/AssetViewModel'
+          application/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/AssetViewModel'
+          text/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/AssetViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/AssetViewModel'
+        required: true
+      summary: Assets post
+      x-summary-source: derived
+  /Assets/{assetPK}:
+    get:
+      tags:
+      - Assets
+      operationId: Assets_Get
+      parameters:
+      - name: assetPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Assets get
+      x-summary-source: derived
+    put:
+      tags:
+      - Assets
+      operationId: Assets_Put
+      parameters:
+      - name: assetPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssetViewModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/AssetViewModel'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/AssetViewModel'
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/AssetViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/AssetViewModel'
+        required: true
+      summary: Assets put
+      x-summary-source: derived
+    post:
+      tags:
+      - Assets
+      operationId: Assets_Post
+      parameters:
+      - name: assetPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      summary: Assets post
+      x-summary-source: derived
+components:
+  schemas:
+    EntityRefViewModel_Account:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    EntityRefViewModel_Customer:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    EntityRefViewModel_Shop:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    EntityRefViewModel_Labor:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    EntityRefViewModel_RepairCenter:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    IApiResult:
+      type: object
+      properties: {}
+    ValueDescriptionPairViewModel:
+      type: object
+      properties:
+        Value:
+          type: string
+        Description:
+          type: string
+    EntityRefViewModel_Asset:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    EntityRefViewModel_Department:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    ApiResponse:
+      type: object
+      properties:
+        Results:
+          type: array
+          items:
+            $ref: '#/components/schemas/IApiResult'
+        Total:
+          format: int32
+          type: integer
+    EntityRefViewModel_Zone:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    EntityRefViewModel_Classification:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    AssetViewModel:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        IsLocation:
+          type: boolean
+        IsUp:
+          type: boolean
+        PurchaseCost:
+          format: double
+          type: number
+        CurrentValue:
+          format: double
+          type: number
+        ReplacementCost:
+          format: double
+          type: number
+        InstructionsToWO:
+          type: boolean
+        IsMeter:
+          type: boolean
+        Meter1Reading:
+          format: double
+          type: number
+        Meter2Reading:
+          format: double
+          type: number
+        InternalAssetNum:
+          type: string
+        Model:
+          type: string
+        Serial:
+          type: string
+        Vicinity:
+          type: string
+        GenLedger:
+          type: string
+        WarrantyExpire:
+          format: date-time
+          type: string
+        Address:
+          type: string
+        City:
+          type: string
+        State:
+          type: string
+        Zip:
+          type: string
+        Country:
+          type: string
+        PurchasedDate:
+          format: date-time
+          type: string
+        PurchaseOrder:
+          type: string
+        InstallDate:
+          format: date-time
+          type: string
+        StartupDate:
+          format: date-time
+          type: string
+        ReplaceDate:
+          format: date-time
+          type: string
+        Life:
+          format: int32
+          type: integer
+        DisposalDate:
+          format: date-time
+          type: string
+        LicenseNumber:
+          type: string
+        Instructions:
+          type: string
+        InsuranceCarrier:
+          type: string
+        InsurancePolicy:
+          type: string
+        LeaseNumber:
+          type: string
+        RegistrationDate:
+          format: date-time
+          type: string
+        xcoordinate:
+          type: string
+        ycoordinate:
+          type: string
+        zcoordinate:
+          type: string
+        parcelid:
+          type: string
+        Technology:
+          type: string
+        TechnologyDesc:
+          type: string
+        Meter1TrackHistory:
+          type: boolean
+        Meter2TrackHistory:
+          type: boolean
+        LastMaintained:
+          format: date-time
+          type: string
+        LastMaintained_WOPK:
+          format: int32
+          type: integer
+        Icon:
+          type: string
+        Photo:
+          type: string
+        DrawingUpdatesNeeded:
+          type: boolean
+        DisplayOrder:
+          format: int32
+          type: integer
+        RiskAssessmentRequired:
+          type: boolean
+        LastAssessed:
+          format: date-time
+          type: string
+        PMRequired:
+          type: boolean
+        PlanForImprovement:
+          type: boolean
+        HIPPARelated:
+          type: boolean
+        StatementOfConditions:
+          type: boolean
+        StatementOfConditionsCompliant:
+          type: boolean
+        County:
+          type: string
+        YearBuilt:
+          format: date-time
+          type: string
+        MajorRenovations:
+          type: string
+        SquareFootage:
+          format: double
+          type: number
+        NumberOfStories:
+          format: int32
+          type: integer
+        FloodZone:
+          type: string
+        QuakeZone:
+          type: string
+        Ext100Feet:
+          type: string
+        OperatingUnits:
+          format: int32
+          type: integer
+        EstimatedValue:
+          format: double
+          type: number
+        Meter1RollDown:
+          type: boolean
+        Meter2RollDown:
+          type: boolean
+        Meter1RollDownMethod:
+          type: string
+        Meter2RollDownMethod:
+          type: string
+        Meter1ReadingLife:
+          format: double
+          type: number
+        Meter2ReadingLife:
+          format: double
+          type: number
+        IsLinear:
+          type: boolean
+        PMCycleStartDate:
+          format: date-time
+          type: string
+        PMCounter:
+          format: int32
+          type: integer
+        ModelNumber:
+          type: string
+        ModelNumberMFG:
+          type: string
+        ResourceForScheduling:
+          type: boolean
+        RotatingRepairCenterPK:
+          format: int32
+          type: integer
+        RotatingLocationPK:
+          format: int32
+          type: integer
+        RotatingLaborPK:
+          format: int32
+          type: integer
+        RotatingBin:
+          type: string
+        GISLayer:
+          type: string
+        GISKeyValue:
+          type: string
+        GISTable:
+          type: string
+        ReceiveDate:
+          format: date-time
+          type: string
+        Latitude:
+          format: double
+          type: number
+        Longitude:
+          format: double
+          type: number
+        UDFChar1:
+          type: string
+        UDFChar2:
+          type: string
+        UDFChar3:
+          type: string
+        UDFChar4:
+          type: string
+        UDFChar5:
+          type: string
+        UDFChar6:
+          type: string
+        UDFChar7:
+          type: string
+        UDFChar8:
+          type: string
+        UDFChar9:
+          type: string
+        UDFChar10:
+          type: string
+        UDFDate1:
+          format: date-time
+          type: string
+        UDFDate2:
+          format: date-time
+          type: string
+        UDFDate3:
+          format: date-time
+          type: string
+        UDFDate4:
+          format: date-time
+          type: string
+        UDFDate5:
+          format: date-time
+          type: string
+        UDFBit1:
+          type: boolean
+        UDFBit2:
+          type: boolean
+        UDFBit3:
+          type: boolean
+        UDFBit4:
+          type: boolean
+        UDFBit5:
+          type: boolean
+        RowVersionUserPK:
+          format: int32
+          type: integer
+        RowVersionAction:
+          type: string
+        LastModifiedDate:
+          format: date-time
+          type: string
+        ResourceUri:
+          type: string
+        AssetUUID:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+        AssetLevel:
+          format: int32
+          type: integer
+        ParentRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Asset'
+        ClassificationRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Classification'
+        OperatorRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Labor'
+        DepartmentRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Department'
+        CustomerRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Customer'
+        AccountRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Account'
+        RepairCenterRef:
+          $ref: '#/components/schemas/EntityRefViewModel_RepairCenter'
+        ShopRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Shop'
+        VendorRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Company'
+        ManufacturerRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Company'
+        ResponsibilitySafetyRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Company'
+        ResponsibilityRepairRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Company'
+        ResponsibilityPMRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Company'
+        ServiceRepairRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Company'
+        ServicePMRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Company'
+        ContactRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Labor'
+        ZoneRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Zone'
+        StatusDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        TypeDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        SystemDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        PriorityDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        TechnologyDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        Meter1UnitsDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        Meter2UnitsDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        PurchaseTypeDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        ClassIndustryDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        RiskAssessmentGroupDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        ConstructionCodeDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        ISOProtectionDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        AutoSprinklerDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        SmokeAlarmDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        HeatAlarmDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        PMCycleStartByDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        ModelLineDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        ModelSeriesDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        SystemPlatformDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+    EntityRefViewModel_Company:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+  securitySchemes:
+    basic:
+      type: http
+      scheme: basic
+      description: Basic HTTP Authentication

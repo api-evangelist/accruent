@@ -1,0 +1,702 @@
+openapi: 3.2.0
+info:
+  version: v8
+  title: Maintenance Connection REST Work Orders API
+servers:
+- url: https://api.maintenanceconnection.com:80/v8
+tags:
+- name: Work Orders
+paths:
+  /workorders:
+    get:
+      tags:
+      - Work Orders
+      operationId: WorkOrders_Get
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Work orders get
+      x-summary-source: derived
+    put:
+      tags:
+      - Work Orders
+      operationId: WorkOrders_Put
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderViewModel'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderViewModel'
+          application/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderViewModel'
+          text/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderViewModel'
+        required: true
+      summary: Work orders put
+      x-summary-source: derived
+    post:
+      tags:
+      - Work Orders
+      operationId: WorkOrders_Post
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderViewModel'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderViewModel'
+          application/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderViewModel'
+          text/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderViewModel'
+        required: true
+      summary: Work orders post
+      x-summary-source: derived
+  /workorders/{workOrderPK}:
+    get:
+      tags:
+      - Work Orders
+      operationId: WorkOrders_Get
+      parameters:
+      - name: workOrderPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Work orders get
+      x-summary-source: derived
+    put:
+      tags:
+      - Work Orders
+      operationId: WorkOrders_Put
+      parameters:
+      - name: workOrderPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkOrderViewModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/WorkOrderViewModel'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/WorkOrderViewModel'
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/WorkOrderViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/WorkOrderViewModel'
+        required: true
+      summary: Work orders put
+      x-summary-source: derived
+components:
+  schemas:
+    EntityRefViewModel_Shift:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    EntityRefViewModel_Account:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    EntityRefViewModel_Labor:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    IApiResult:
+      type: object
+      properties: {}
+    ValueDescriptionPairViewModel:
+      type: object
+      properties:
+        Value:
+          type: string
+        Description:
+          type: string
+    EntityRefViewModel_Zone:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    EntityRefViewModel_ExternalInterface:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    EntityRefViewModel_Location:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    WorkOrderViewModel:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Reason:
+          type: string
+        TargetDate:
+          format: date-time
+          type: string
+        Instructions:
+          type: string
+        LaborReport:
+          type: string
+        RouteOrder:
+          format: int32
+          type: integer
+        HasWarranty:
+          type: boolean
+        IsShutdownRequired:
+          type: boolean
+        IsLockoutTagout:
+          type: boolean
+        IsChargeable:
+          type: boolean
+        IsFollowupWork:
+          type: boolean
+        IsFailedWorkOrder:
+          type: boolean
+        IsOpen:
+          type: boolean
+        IsApproved:
+          type: boolean
+        IsPartsReserved:
+          type: boolean
+        IsAssigned:
+          type: boolean
+        GroupPK:
+          format: int32
+          type: integer
+        FollowupFromWorkOrderPK:
+          format: int32
+          type: integer
+        TargetHours:
+          format: double
+          type: number
+        TargetDays:
+          format: double
+          type: number
+        ActualHours:
+          format: double
+          type: number
+        ResponseHours:
+          format: double
+          type: number
+        Meter1Reading:
+          format: double
+          type: number
+        Meter2Reading:
+          format: double
+          type: number
+        StatusDate:
+          format: date-time
+          type: string
+        RequestedDate:
+          format: date-time
+          type: string
+        IssuedDate:
+          format: date-time
+          type: string
+        OnHoldDate:
+          format: date-time
+          type: string
+        CompletePercent:
+          format: double
+          type: number
+        CompleteDate:
+          format: date-time
+          type: string
+        ClosedDate:
+          format: date-time
+          type: string
+        CanceledDate:
+          format: date-time
+          type: string
+        DeniedDate:
+          format: date-time
+          type: string
+        RespondedDate:
+          format: date-time
+          type: string
+        FinalizedDate:
+          format: date-time
+          type: string
+        Currency:
+          type: string
+        CurrencySymbol:
+          type: string
+        UDFChar1:
+          type: string
+        UDFChar2:
+          type: string
+        UDFChar3:
+          type: string
+        UDFChar4:
+          type: string
+        UDFChar5:
+          type: string
+        UDFChar6:
+          type: string
+        UDFChar7:
+          type: string
+        UDFChar8:
+          type: string
+        UDFChar9:
+          type: string
+        UDFChar10:
+          type: string
+        UDFDate1:
+          format: date-time
+          type: string
+        UDFDate2:
+          format: date-time
+          type: string
+        UDFDate3:
+          format: date-time
+          type: string
+        UDFDate4:
+          format: date-time
+          type: string
+        UDFDate5:
+          format: date-time
+          type: string
+        UDFBit1:
+          type: boolean
+        UDFBit2:
+          type: boolean
+        UDFBit3:
+          type: boolean
+        UDFBit4:
+          type: boolean
+        UDFBit5:
+          type: boolean
+        LastModifiedAction:
+          type: string
+        LastModifiedDate:
+          format: date-time
+          type: string
+        ResourceUri:
+          type: string
+        WorkOrderUUID:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+        AuthStatusDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        AuthorizationStatus:
+          $ref: '#/components/schemas/AuthorizationStatusViewModel'
+        TypeDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        StatusDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        SubStatusDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        PriorityDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        ReferenceDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        RepairCenterRef:
+          $ref: '#/components/schemas/EntityRefViewModel_RepairCenter'
+        AssetRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Asset'
+        AccountRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Account'
+        ProcedureRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Procedure'
+        RequesterRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Labor'
+        RequesterPhone:
+          type: string
+        RequesterEmail:
+          type: string
+        RequesterName:
+          type: string
+        StockRoomRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Location'
+        ToolRoomRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Location'
+        SupervisorRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Labor'
+        ProjectRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Project'
+        ShopRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Shop'
+        ShiftRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Shift'
+        DepartmentRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Department'
+        CustomerRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Customer'
+        ProblemRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Failure'
+        FailureRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Failure'
+        SolutionRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Failure'
+        PMRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Preventive'
+        CategoryRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Category'
+        TakenByRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Labor'
+        ZoneRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Zone'
+        ExternalInterfaceRef:
+          $ref: '#/components/schemas/EntityRefViewModel_ExternalInterface'
+    AuthorizationStatusViewModel:
+      type: object
+      properties:
+        AuthStatusDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        AuthLevelsRequired:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          type: integer
+        AuthStatusUserPK:
+          format: int32
+          type: integer
+        AuthStatusUserInitials:
+          type: string
+        AuthStatusDate:
+          format: date-time
+          type: string
+    EntityRefViewModel_Preventive:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    EntityRefViewModel_Project:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    EntityRefViewModel_Department:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    EntityRefViewModel_Procedure:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    EntityRefViewModel_Customer:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    EntityRefViewModel_Shop:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    ApiResponse:
+      type: object
+      properties:
+        Results:
+          type: array
+          items:
+            $ref: '#/components/schemas/IApiResult'
+        Total:
+          format: int32
+          type: integer
+    EntityRefViewModel_Failure:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    EntityRefViewModel_Category:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    EntityRefViewModel_RepairCenter:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    EntityRefViewModel_Asset:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+  securitySchemes:
+    basic:
+      type: http
+      scheme: basic
+      description: Basic HTTP Authentication

@@ -1,0 +1,460 @@
+openapi: 3.2.0
+info:
+  version: v8
+  title: Maintenance Connection REST Parts API
+servers:
+- url: https://api.maintenanceconnection.com:80/v8
+tags:
+- name: Parts
+paths:
+  /Parts:
+    get:
+      tags:
+      - Parts
+      operationId: Parts_Get
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Parts get
+      x-summary-source: derived
+    put:
+      tags:
+      - Parts
+      operationId: Parts_Put
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PartViewModel'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PartViewModel'
+          application/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PartViewModel'
+          text/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PartViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PartViewModel'
+        required: true
+      summary: Parts put
+      x-summary-source: derived
+    post:
+      tags:
+      - Parts
+      operationId: Parts_Post
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PartViewModel'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PartViewModel'
+          application/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PartViewModel'
+          text/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PartViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PartViewModel'
+        required: true
+      summary: Parts post
+      x-summary-source: derived
+  /Parts/{partPK}:
+    get:
+      tags:
+      - Parts
+      operationId: Parts_Get
+      parameters:
+      - name: partPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Parts get
+      x-summary-source: derived
+    put:
+      tags:
+      - Parts
+      operationId: Parts_Put
+      parameters:
+      - name: partPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PartViewModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/PartViewModel'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/PartViewModel'
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/PartViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PartViewModel'
+        required: true
+      summary: Parts put
+      x-summary-source: derived
+    post:
+      tags:
+      - Parts
+      operationId: Parts_Post
+      parameters:
+      - name: partPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      summary: Parts post
+      x-summary-source: derived
+components:
+  schemas:
+    EntityRefViewModel_Category:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    IApiResult:
+      type: object
+      properties: {}
+    ValueDescriptionPairViewModel:
+      type: object
+      properties:
+        Value:
+          type: string
+        Description:
+          type: string
+    ApiResponse:
+      type: object
+      properties:
+        Results:
+          type: array
+          items:
+            $ref: '#/components/schemas/IApiResult'
+        Total:
+          format: int32
+          type: integer
+    EntityRefViewModel_Classification:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    PartViewModel:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Active:
+          type: boolean
+        Hazardous:
+          type: boolean
+        ShelfLifeDays:
+          format: int32
+          type: integer
+        ShippingWeight:
+          format: double
+          type: number
+        IssueUnitCost:
+          format: double
+          type: number
+        IssueUnitChargePrice:
+          format: double
+          type: number
+        IssueUnitChargePercentage:
+          format: double
+          type: number
+        AverageOrderUnitPrice:
+          format: double
+          type: number
+        LastOrderUnitPrice:
+          format: double
+          type: number
+        LastModifiedDate:
+          format: date-time
+          type: string
+        Name:
+          type: string
+        PartDescription:
+          type: string
+        CategoryRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Category'
+        ClassificationRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Classification'
+        Model:
+          type: string
+        ManufacturerRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Company'
+        InternalPartNumber:
+          type: string
+        IssueUnitsDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        LastOrdered:
+          format: date-time
+          type: string
+        LastIssued:
+          format: date-time
+          type: string
+        Photo:
+          type: string
+        Comments:
+          type: string
+        UDFChar1:
+          type: string
+        UDFChar2:
+          type: string
+        UDFChar3:
+          type: string
+        UDFChar4:
+          type: string
+        UDFChar5:
+          type: string
+        UDFChar6:
+          type: string
+        UDFChar7:
+          type: string
+        UDFChar8:
+          type: string
+        UDFChar9:
+          type: string
+        UDFChar10:
+          type: string
+        UDFDate1:
+          format: date-time
+          type: string
+        UDFDate2:
+          format: date-time
+          type: string
+        UDFDate3:
+          format: date-time
+          type: string
+        UDFDate4:
+          format: date-time
+          type: string
+        UDFDate5:
+          format: date-time
+          type: string
+        UDFBit1:
+          type: boolean
+        UDFBit2:
+          type: boolean
+        UDFBit3:
+          type: boolean
+        UDFBit4:
+          type: boolean
+        UDFBit5:
+          type: boolean
+        UpdateStockRooms:
+          type: boolean
+        UpdateCostPR:
+          type: boolean
+        UpdateCostPRFrom:
+          type: string
+        UpdateCostPRFromDesc:
+          type: string
+        UpdateChargePR:
+          type: boolean
+        UpdateStockRooms2:
+          type: boolean
+        CostRuleDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        DirectIssue:
+          type: boolean
+        AvailableToRequester:
+          type: boolean
+        RotatingPart:
+          type: boolean
+        OrderUnitsDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        ConversionToIssueUnits:
+          format: double
+          type: number
+        LastOrderedPOPK:
+          format: int32
+          type: integer
+        LastOrderedPOID:
+          type: string
+        LastIssuedWOPK:
+          format: int32
+          type: integer
+        LastIssuedWOID:
+          type: string
+        WarrantyDays:
+          format: int32
+          type: integer
+        WarrantyFromDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        ManufacturerNumber:
+          type: string
+        PartURL:
+          type: string
+        ResourceUri:
+          type: string
+    EntityRefViewModel_Company:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+  securitySchemes:
+    basic:
+      type: http
+      scheme: basic
+      description: Basic HTTP Authentication

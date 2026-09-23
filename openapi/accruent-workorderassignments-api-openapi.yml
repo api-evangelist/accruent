@@ -1,0 +1,479 @@
+openapi: 3.2.0
+info:
+  version: v8
+  title: Maintenance Connection REST Work Order Assignments API
+servers:
+- url: https://api.maintenanceconnection.com:80/v8
+tags:
+- name: WorkOrderAssignments
+paths:
+  /WorkOrders/{workOrderPK}/Assignments/{assignmentPK}:
+    get:
+      tags:
+      - WorkOrderAssignments
+      operationId: WorkOrderAssignments_Get
+      parameters:
+      - name: workOrderPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: assignmentPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Work order assignments get
+      x-summary-source: derived
+    put:
+      tags:
+      - WorkOrderAssignments
+      operationId: WorkOrderAssignments_Put
+      parameters:
+      - name: workOrderPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: assignmentPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkOrderAssignmentViewModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/WorkOrderAssignmentViewModel'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/WorkOrderAssignmentViewModel'
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/WorkOrderAssignmentViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/WorkOrderAssignmentViewModel'
+        required: true
+      summary: Work order assignments put
+      x-summary-source: derived
+  /WorkOrders/{workOrderPK}/Assignments:
+    get:
+      tags:
+      - WorkOrderAssignments
+      operationId: WorkOrderAssignments_GetAssignmentsForWorkOrder
+      parameters:
+      - name: workOrderPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Work order assignments get assignments for work order
+      x-summary-source: derived
+    post:
+      tags:
+      - WorkOrderAssignments
+      operationId: WorkOrderAssignments_Post
+      parameters:
+      - name: workOrderPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderAssignmentViewModel'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderAssignmentViewModel'
+          application/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderAssignmentViewModel'
+          text/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderAssignmentViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderAssignmentViewModel'
+        required: true
+      summary: Work order assignments post
+      x-summary-source: derived
+  /WorkOrderAssignments:
+    get:
+      tags:
+      - WorkOrderAssignments
+      operationId: WorkOrderAssignments_Get
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Work order assignments get
+      x-summary-source: derived
+    put:
+      tags:
+      - WorkOrderAssignments
+      operationId: WorkOrderAssignments_Put
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderAssignmentViewModel'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderAssignmentViewModel'
+          application/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderAssignmentViewModel'
+          text/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderAssignmentViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderAssignmentViewModel'
+        required: true
+      summary: Work order assignments put
+      x-summary-source: derived
+    post:
+      tags:
+      - WorkOrderAssignments
+      operationId: WorkOrderAssignments_Post
+      parameters:
+      - name: workOrderPK
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderAssignmentViewModel'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderAssignmentViewModel'
+          application/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderAssignmentViewModel'
+          text/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderAssignmentViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderAssignmentViewModel'
+        required: true
+      summary: Work order assignments post
+      x-summary-source: derived
+  /WorkOrderAssignments/{assignmentPK}:
+    get:
+      tags:
+      - WorkOrderAssignments
+      operationId: WorkOrderAssignments_Get
+      parameters:
+      - name: workOrderPK
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: assignmentPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Work order assignments get
+      x-summary-source: derived
+    put:
+      tags:
+      - WorkOrderAssignments
+      operationId: WorkOrderAssignments_Put
+      parameters:
+      - name: workOrderPK
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: assignmentPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkOrderAssignmentViewModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/WorkOrderAssignmentViewModel'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/WorkOrderAssignmentViewModel'
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/WorkOrderAssignmentViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/WorkOrderAssignmentViewModel'
+        required: true
+      summary: Work order assignments put
+      x-summary-source: derived
+components:
+  schemas:
+    EntityRefViewModel_Labor:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    ApiResponse:
+      type: object
+      properties:
+        Results:
+          type: array
+          items:
+            $ref: '#/components/schemas/IApiResult'
+        Total:
+          format: int32
+          type: integer
+    WorkOrderAssignmentViewModel:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        WorkOrderPK:
+          format: int32
+          type: integer
+        IsAssigned:
+          type: boolean
+        AssignedDate:
+          format: date-time
+          type: string
+        AssignedHours:
+          format: double
+          type: number
+        LaborRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Labor'
+        IsAssignedLead:
+          type: boolean
+        IsAssignedPDA:
+          type: boolean
+        WOlaborPK:
+          format: int32
+          type: integer
+        CompletePercent:
+          format: double
+          type: number
+        CompletedDate:
+          format: date-time
+          type: string
+        IsActive:
+          type: boolean
+        IsAnytime:
+          type: boolean
+        LastModifiedDate:
+          format: date-time
+          type: string
+        ResourceUri:
+          type: string
+    IApiResult:
+      type: object
+      properties: {}
+  securitySchemes:
+    basic:
+      type: http
+      scheme: basic
+      description: Basic HTTP Authentication

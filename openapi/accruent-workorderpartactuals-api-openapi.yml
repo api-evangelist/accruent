@@ -1,0 +1,589 @@
+openapi: 3.2.0
+info:
+  version: v8
+  title: Maintenance Connection REST Work Order Part Actuals API
+servers:
+- url: https://api.maintenanceconnection.com:80/v8
+tags:
+- name: WorkOrderPartActuals
+paths:
+  /WorkOrders/{workOrderPK}/PartActuals/{PK}:
+    get:
+      tags:
+      - WorkOrderPartActuals
+      operationId: WorkOrderPartActuals_Get
+      parameters:
+      - name: workOrderPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: PK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Work order part actuals get
+      x-summary-source: derived
+    put:
+      tags:
+      - WorkOrderPartActuals
+      operationId: WorkOrderPartActuals_Put
+      parameters:
+      - name: workOrderPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: PK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkOrderPartActualViewModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/WorkOrderPartActualViewModel'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/WorkOrderPartActualViewModel'
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/WorkOrderPartActualViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/WorkOrderPartActualViewModel'
+        required: true
+      summary: Work order part actuals put
+      x-summary-source: derived
+  /WorkOrders/{workOrderPK}/PartActuals:
+    get:
+      tags:
+      - WorkOrderPartActuals
+      operationId: WorkOrderPartActuals_GetPartActualsForWorkOrder
+      parameters:
+      - name: workOrderPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Work order part actuals get part actuals for work order
+      x-summary-source: derived
+    post:
+      tags:
+      - WorkOrderPartActuals
+      operationId: WorkOrderPartActuals_Post
+      parameters:
+      - name: workOrderPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderPartActualViewModel'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderPartActualViewModel'
+          application/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderPartActualViewModel'
+          text/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderPartActualViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderPartActualViewModel'
+        required: true
+      summary: Work order part actuals post
+      x-summary-source: derived
+  /WorkOrderPartActuals:
+    get:
+      tags:
+      - WorkOrderPartActuals
+      operationId: WorkOrderPartActuals_Get
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Work order part actuals get
+      x-summary-source: derived
+    put:
+      tags:
+      - WorkOrderPartActuals
+      operationId: WorkOrderPartActuals_Put
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderPartActualViewModel'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderPartActualViewModel'
+          application/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderPartActualViewModel'
+          text/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderPartActualViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderPartActualViewModel'
+        required: true
+      summary: Work order part actuals put
+      x-summary-source: derived
+    post:
+      tags:
+      - WorkOrderPartActuals
+      operationId: WorkOrderPartActuals_Post
+      parameters:
+      - name: workOrderPK
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderPartActualViewModel'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderPartActualViewModel'
+          application/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderPartActualViewModel'
+          text/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderPartActualViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/WorkOrderPartActualViewModel'
+        required: true
+      summary: Work order part actuals post
+      x-summary-source: derived
+  /WorkOrderPartActuals/{PK}:
+    get:
+      tags:
+      - WorkOrderPartActuals
+      operationId: WorkOrderPartActuals_Get
+      parameters:
+      - name: workOrderPK
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: PK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Work order part actuals get
+      x-summary-source: derived
+    put:
+      tags:
+      - WorkOrderPartActuals
+      operationId: WorkOrderPartActuals_Put
+      parameters:
+      - name: workOrderPK
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: PK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkOrderPartActualViewModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/WorkOrderPartActualViewModel'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/WorkOrderPartActualViewModel'
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/WorkOrderPartActualViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/WorkOrderPartActualViewModel'
+        required: true
+      summary: Work order part actuals put
+      x-summary-source: derived
+components:
+  schemas:
+    EntityRefViewModel_Category:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    EntityRefViewModel_Account:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    EntityRefViewModel_Part:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    WorkOrderPartActualViewModel:
+      type: object
+      properties:
+        QuantityActual:
+          format: double
+          type: number
+        PK:
+          format: int32
+          type: integer
+        WorkOrderPK:
+          format: int32
+          type: integer
+        DirectIssue:
+          type: boolean
+        OutOfPocket:
+          type: boolean
+        QuantityEstimated:
+          format: double
+          type: number
+        QuantityEstimatedUsed:
+          format: double
+          type: number
+        QuantityLinked:
+          format: int32
+          type: integer
+        IssueUnitCost:
+          format: double
+          type: number
+        IssueUnitChargePrice:
+          format: double
+          type: number
+        IssueUnitChargePercentage:
+          format: double
+          type: number
+        OtherCost:
+          format: double
+          type: number
+        TotalCost:
+          format: double
+          type: number
+        TotalCharge:
+          format: double
+          type: number
+        LastModifiedDate:
+          format: date-time
+          type: string
+        AutoCalcCost:
+          type: boolean
+        AutoCalcCharge:
+          type: boolean
+        ResourceUri:
+          type: string
+        Serial:
+          type: string
+        SerialReplaced:
+          type: string
+        SerialReplacedOutOfService:
+          type: boolean
+        SerialReplaceExisting:
+          type: string
+        SerialToLocationID:
+          type: string
+        Comments:
+          type: string
+        EstimatePK:
+          format: int32
+          type: integer
+        POPK:
+          format: int32
+          type: integer
+        PODetailPK:
+          format: int32
+          type: integer
+        POReceivedPK:
+          format: int32
+          type: integer
+        PartDate:
+          format: date-time
+          type: string
+        PartRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Part'
+        LocationRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Location'
+        Bin:
+          type: string
+        AccountRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Account'
+        CategoryRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Category'
+        UDFChar1:
+          type: string
+        UDFChar2:
+          type: string
+        UDFChar3:
+          type: string
+        UDFChar4:
+          type: string
+        UDFChar5:
+          type: string
+        UDFDate1:
+          format: date-time
+          type: string
+        UDFDate2:
+          format: date-time
+          type: string
+        UDFBit1:
+          type: boolean
+        UDFBit2:
+          type: boolean
+    IApiResult:
+      type: object
+      properties: {}
+    ApiResponse:
+      type: object
+      properties:
+        Results:
+          type: array
+          items:
+            $ref: '#/components/schemas/IApiResult'
+        Total:
+          format: int32
+          type: integer
+    EntityRefViewModel_Location:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+  securitySchemes:
+    basic:
+      type: http
+      scheme: basic
+      description: Basic HTTP Authentication

@@ -1,0 +1,512 @@
+openapi: 3.2.0
+info:
+  version: v8
+  title: Maintenance Connection REST Part Vendors API
+servers:
+- url: https://api.maintenanceconnection.com:80/v8
+tags:
+- name: PartVendors
+paths:
+  /Parts/{partPK}/vendors:
+    get:
+      tags:
+      - PartVendors
+      operationId: PartVendors_Get
+      parameters:
+      - name: partPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Part vendors get
+      x-summary-source: derived
+    post:
+      tags:
+      - PartVendors
+      operationId: PartVendors_Post
+      parameters:
+      - name: partPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PartVendorViewModel'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PartVendorViewModel'
+          application/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PartVendorViewModel'
+          text/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PartVendorViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PartVendorViewModel'
+        required: true
+      summary: Part vendors post
+      x-summary-source: derived
+  /Parts/{partPK}/vendors/{partVendorPK}:
+    get:
+      tags:
+      - PartVendors
+      operationId: PartVendors_Get
+      parameters:
+      - name: partPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: partVendorPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Part vendors get
+      x-summary-source: derived
+  /Parts/{partPK}/vendors/{partvendorPK}:
+    put:
+      tags:
+      - PartVendors
+      operationId: PartVendors_Put
+      parameters:
+      - name: partPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: partvendorPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PartVendorViewModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/PartVendorViewModel'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/PartVendorViewModel'
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/PartVendorViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PartVendorViewModel'
+        required: true
+      summary: Part vendors put
+      x-summary-source: derived
+  /PartVendors:
+    get:
+      tags:
+      - PartVendors
+      operationId: PartVendors_Get
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Part vendors get
+      x-summary-source: derived
+    put:
+      tags:
+      - PartVendors
+      operationId: PartVendors_Put
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PartVendorViewModel'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PartVendorViewModel'
+          application/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PartVendorViewModel'
+          text/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PartVendorViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PartVendorViewModel'
+        required: true
+      summary: Part vendors put
+      x-summary-source: derived
+    post:
+      tags:
+      - PartVendors
+      operationId: PartVendors_Post
+      parameters:
+      - name: partPK
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PartVendorViewModel'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PartVendorViewModel'
+          application/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PartVendorViewModel'
+          text/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PartVendorViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PartVendorViewModel'
+        required: true
+      summary: Part vendors post
+      x-summary-source: derived
+  /PartVendors/{partVendorPK}:
+    get:
+      tags:
+      - PartVendors
+      operationId: PartVendors_Get
+      parameters:
+      - name: partPK
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: partVendorPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Part vendors get
+      x-summary-source: derived
+  /PartVendors/{partvendorPK}:
+    put:
+      tags:
+      - PartVendors
+      operationId: PartVendors_Put
+      parameters:
+      - name: partPK
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: partvendorPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PartVendorViewModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/PartVendorViewModel'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/PartVendorViewModel'
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/PartVendorViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PartVendorViewModel'
+        required: true
+      summary: Part vendors put
+      x-summary-source: derived
+components:
+  schemas:
+    ValueDescriptionPairViewModel:
+      type: object
+      properties:
+        Value:
+          type: string
+        Description:
+          type: string
+    PartVendorViewModel:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        PartPK:
+          format: int32
+          type: integer
+        CompanyPK:
+          format: int32
+          type: integer
+        CompanyRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Company'
+        Priority:
+          format: int32
+          type: integer
+        VendorPartNumber:
+          type: string
+        VendorPartCatalogNo:
+          type: string
+        VendorPartURL:
+          type: string
+        ConversionToIssueUnits:
+          format: double
+          type: number
+        OrderUnitPrice:
+          format: double
+          type: number
+        Discount:
+          format: double
+          type: number
+        IsTax:
+          type: boolean
+        TaxRate:
+          format: double
+          type: number
+        OrderUnitsDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        TaxCodeDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        DaysToDeliver:
+          format: int32
+          type: integer
+        LastModifiedDate:
+          format: date-time
+          type: string
+        LocationRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Location'
+        ResourceUri:
+          type: string
+    IApiResult:
+      type: object
+      properties: {}
+    ApiResponse:
+      type: object
+      properties:
+        Results:
+          type: array
+          items:
+            $ref: '#/components/schemas/IApiResult'
+        Total:
+          format: int32
+          type: integer
+    EntityRefViewModel_Location:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    EntityRefViewModel_Company:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+  securitySchemes:
+    basic:
+      type: http
+      scheme: basic
+      description: Basic HTTP Authentication

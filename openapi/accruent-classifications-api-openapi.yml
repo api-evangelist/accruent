@@ -1,0 +1,317 @@
+openapi: 3.2.0
+info:
+  version: v8
+  title: Maintenance Connection REST Classifications API
+servers:
+- url: https://api.maintenanceconnection.com:80/v8
+tags:
+- name: Classifications
+paths:
+  /classifications:
+    get:
+      tags:
+      - Classifications
+      operationId: Classifications_Get
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Classifications get
+      x-summary-source: derived
+    put:
+      tags:
+      - Classifications
+      operationId: Classifications_Put
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ClassificationViewModel'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ClassificationViewModel'
+          application/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ClassificationViewModel'
+          text/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ClassificationViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ClassificationViewModel'
+        required: true
+      summary: Classifications put
+      x-summary-source: derived
+    post:
+      tags:
+      - Classifications
+      operationId: Classifications_Post
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ClassificationViewModel'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ClassificationViewModel'
+          application/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ClassificationViewModel'
+          text/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ClassificationViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ClassificationViewModel'
+        required: true
+      summary: Classifications post
+      x-summary-source: derived
+  /classifications/{classificationPK}:
+    get:
+      tags:
+      - Classifications
+      operationId: Classifications_Get
+      parameters:
+      - name: classificationPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Classifications get
+      x-summary-source: derived
+    put:
+      tags:
+      - Classifications
+      operationId: Classifications_Put
+      parameters:
+      - name: classificationPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClassificationViewModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/ClassificationViewModel'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ClassificationViewModel'
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/ClassificationViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ClassificationViewModel'
+        required: true
+      summary: Classifications put
+      x-summary-source: derived
+components:
+  schemas:
+    IApiResult:
+      type: object
+      properties: {}
+    ValueDescriptionPairViewModel:
+      type: object
+      properties:
+        Value:
+          type: string
+        Description:
+          type: string
+    ClassificationViewModel:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        IsLocation:
+          type: boolean
+        IsActive:
+          type: boolean
+        IsMeter:
+          type: boolean
+        IsMeter1HistoryTracked:
+          type: boolean
+        IsMeter2HistoryTracked:
+          type: boolean
+        Model:
+          type: string
+        ModelNumber:
+          type: string
+        ModelNumberMFG:
+          type: string
+        UDFChar1:
+          type: string
+        UDFChar2:
+          type: string
+        UDFChar3:
+          type: string
+        UDFChar4:
+          type: string
+        UDFChar5:
+          type: string
+        UDFBit1:
+          type: boolean
+        UDFBit2:
+          type: boolean
+        UDFDate1:
+          format: date-time
+          type: string
+        UDFDate2:
+          format: date-time
+          type: string
+        LastModifiedDate:
+          format: date-time
+          type: string
+        ResourceUri:
+          type: string
+        TypeDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        PriorityDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        Meter1UnitsDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        Meter2UnitsDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        ModelLineDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        ModelSeriesDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        SystemPlatformDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        ManufacturerRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Company'
+    ApiResponse:
+      type: object
+      properties:
+        Results:
+          type: array
+          items:
+            $ref: '#/components/schemas/IApiResult'
+        Total:
+          format: int32
+          type: integer
+    EntityRefViewModel_Company:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+  securitySchemes:
+    basic:
+      type: http
+      scheme: basic
+      description: Basic HTTP Authentication

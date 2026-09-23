@@ -1,0 +1,206 @@
+openapi: 3.2.0
+info:
+  version: v8
+  title: Maintenance Connection REST Asset Documents API
+servers:
+- url: https://api.maintenanceconnection.com:80/v8
+tags:
+- name: AssetDocuments
+paths:
+  /Assets/{assetPK}/documents:
+    get:
+      tags:
+      - AssetDocuments
+      operationId: AssetDocuments_Get
+      parameters:
+      - name: assetPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Asset documents get
+      x-summary-source: derived
+    post:
+      tags:
+      - AssetDocuments
+      operationId: AssetDocuments_Post
+      parameters:
+      - name: assetPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Asset documents post
+      x-summary-source: derived
+  /Assets/{assetPK}/documents/{PK}:
+    get:
+      tags:
+      - AssetDocuments
+      operationId: AssetDocuments_Get
+      parameters:
+      - name: assetPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: PK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Asset documents get
+      x-summary-source: derived
+  /AssetDocuments:
+    get:
+      tags:
+      - AssetDocuments
+      operationId: AssetDocuments_Get
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Asset documents get
+      x-summary-source: derived
+  /AssetDocuments/{assetPK}:
+    get:
+      tags:
+      - AssetDocuments
+      operationId: AssetDocuments_Get
+      parameters:
+      - name: assetPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Asset documents get
+      x-summary-source: derived
+    post:
+      tags:
+      - AssetDocuments
+      operationId: AssetDocuments_Post
+      parameters:
+      - name: assetPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Asset documents post
+      x-summary-source: derived
+components:
+  schemas:
+    ApiResponse:
+      type: object
+      properties:
+        Results:
+          type: array
+          items:
+            $ref: '#/components/schemas/IApiResult'
+        Total:
+          format: int32
+          type: integer
+    IApiResult:
+      type: object
+      properties: {}
+  securitySchemes:
+    basic:
+      type: http
+      scheme: basic
+      description: Basic HTTP Authentication

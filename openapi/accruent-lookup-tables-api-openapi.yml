@@ -1,0 +1,253 @@
+openapi: 3.2.0
+info:
+  version: v8
+  title: Maintenance Connection REST Lookup Tables API
+servers:
+- url: https://api.maintenanceconnection.com:80/v8
+tags:
+- name: Lookup Tables
+paths:
+  /LookupTables:
+    get:
+      tags:
+      - Lookup Tables
+      operationId: LookupTables_Get
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Lookup tables get
+      x-summary-source: derived
+    put:
+      tags:
+      - Lookup Tables
+      operationId: LookupTables_Put
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/LookupTableViewModel'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/LookupTableViewModel'
+          application/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/LookupTableViewModel'
+          text/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/LookupTableViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/LookupTableViewModel'
+        required: true
+      summary: Lookup tables put
+      x-summary-source: derived
+    post:
+      tags:
+      - Lookup Tables
+      operationId: LookupTables_Post
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/LookupTableViewModel'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/LookupTableViewModel'
+          application/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/LookupTableViewModel'
+          text/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/LookupTableViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/LookupTableViewModel'
+        required: true
+      summary: Lookup tables post
+      x-summary-source: derived
+  /LookupTables/{lookupTableID}:
+    get:
+      tags:
+      - Lookup Tables
+      operationId: LookupTables_Get
+      parameters:
+      - name: lookupTableID
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Lookup tables get
+      x-summary-source: derived
+    put:
+      tags:
+      - Lookup Tables
+      operationId: LookupTables_Put
+      parameters:
+      - name: lookupTableID
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LookupTableViewModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/LookupTableViewModel'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/LookupTableViewModel'
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/LookupTableViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/LookupTableViewModel'
+        required: true
+      summary: Lookup tables put
+      x-summary-source: derived
+components:
+  schemas:
+    ApiResponse:
+      type: object
+      properties:
+        Results:
+          type: array
+          items:
+            $ref: '#/components/schemas/IApiResult'
+        Total:
+          format: int32
+          type: integer
+    IApiResult:
+      type: object
+      properties: {}
+    LookupTableViewModel:
+      type: object
+      properties:
+        LookupTableID:
+          type: string
+        Description:
+          type: string
+        CodeWidth:
+          format: int32
+          type: integer
+        DescriptionWidth:
+          format: int32
+          type: integer
+        Internal:
+          type: boolean
+        Enabled:
+          type: boolean
+        SkipValidation:
+          type: boolean
+        CanModify:
+          type: boolean
+        NoCascadeUpdate:
+          type: boolean
+        LastModifiedDate:
+          format: date-time
+          type: string
+  securitySchemes:
+    basic:
+      type: http
+      scheme: basic
+      description: Basic HTTP Authentication

@@ -1,0 +1,230 @@
+openapi: 3.2.0
+info:
+  version: v8
+  title: Maintenance Connection REST Purchase Order Note API
+servers:
+- url: https://api.maintenanceconnection.com:80/v8
+tags:
+- name: PurchaseOrderNote
+paths:
+  /PurchaseOrderNote:
+    get:
+      tags:
+      - PurchaseOrderNote
+      operationId: PurchaseOrderNote_Get
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Purchase order note get
+      x-summary-source: derived
+    post:
+      tags:
+      - PurchaseOrderNote
+      operationId: PurchaseOrderNote_Post
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PurchaseOrderNoteViewModel'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PurchaseOrderNoteViewModel'
+          application/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PurchaseOrderNoteViewModel'
+          text/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PurchaseOrderNoteViewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PurchaseOrderNoteViewModel'
+        required: true
+      summary: Purchase order note post
+      x-summary-source: derived
+  /PurchaseOrderNote/{purchaseOrderNotePK}:
+    get:
+      tags:
+      - PurchaseOrderNote
+      operationId: PurchaseOrderNote_Get
+      parameters:
+      - name: purchaseOrderNotePK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Purchase order note get
+      x-summary-source: derived
+  /PurchaseOrders/{purchaseOrderPK}/Notes:
+    get:
+      tags:
+      - PurchaseOrderNote
+      operationId: PurchaseOrderNote_GetNotesForPurchaseOrder
+      parameters:
+      - name: purchaseOrderPK
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      summary: Purchase order note get notes for purchase order
+      x-summary-source: derived
+components:
+  schemas:
+    AuthorizationStatusViewModel:
+      type: object
+      properties:
+        AuthStatusDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        AuthLevelsRequired:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          type: integer
+        AuthStatusUserPK:
+          format: int32
+          type: integer
+        AuthStatusUserInitials:
+          type: string
+        AuthStatusDate:
+          format: date-time
+          type: string
+    IApiResult:
+      type: object
+      properties: {}
+    ValueDescriptionPairViewModel:
+      type: object
+      properties:
+        Value:
+          type: string
+        Description:
+          type: string
+    ApiResponse:
+      type: object
+      properties:
+        Results:
+          type: array
+          items:
+            $ref: '#/components/schemas/IApiResult'
+        Total:
+          format: int32
+          type: integer
+    PurchaseOrderNoteViewModel:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        POPK:
+          format: int32
+          type: integer
+        LaborPK:
+          format: int32
+          type: integer
+        Name:
+          type: string
+        Initials:
+          type: string
+        Type:
+          type: string
+        TypeDesc:
+          type: string
+        Reason:
+          type: string
+        ReasonDesc:
+          type: string
+        NoteDate:
+          format: date-time
+          type: string
+        Note:
+          type: string
+        Custom1:
+          type: boolean
+        Custom2:
+          type: boolean
+        DemoLaborPK:
+          format: int32
+          type: integer
+        AuthorizationStatus:
+          $ref: '#/components/schemas/AuthorizationStatusViewModel'
+  securitySchemes:
+    basic:
+      type: http
+      scheme: basic
+      description: Basic HTTP Authentication
