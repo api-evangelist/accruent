@@ -34,7 +34,7 @@ paths:
     get:
       tags:
       - Specifications
-      operationId: Specifications_Get
+      operationId: getSpecificationsBySpecificationPK
       parameters:
       - name: specificationPK
         in: path
@@ -60,8 +60,13 @@ paths:
                 $ref: '#/components/schemas/ApiResponse'
       summary: Specifications get
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: Specifications_Get
 components:
   schemas:
+    IApiResult:
+      type: object
+      properties: {}
     ApiResponse:
       type: object
       properties:
@@ -72,9 +77,6 @@ components:
         Total:
           format: int32
           type: integer
-    IApiResult:
-      type: object
-      properties: {}
   securitySchemes:
     basic:
       type: http

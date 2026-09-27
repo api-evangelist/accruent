@@ -98,7 +98,7 @@ paths:
     get:
       tags:
       - PartLocations
-      operationId: PartLocations_Get
+      operationId: getPartsByPartPKLocationsByPartLocationPK
       parameters:
       - name: partPK
         in: path
@@ -130,6 +130,8 @@ paths:
                 $ref: '#/components/schemas/ApiResponse'
       summary: Part locations get
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: PartLocations_Get
     put:
       tags:
       - PartLocations
@@ -187,7 +189,7 @@ paths:
     get:
       tags:
       - PartLocations
-      operationId: PartLocations_Get
+      operationId: getPartLocations
       responses:
         '200':
           description: OK
@@ -206,10 +208,12 @@ paths:
                 $ref: '#/components/schemas/ApiResponse'
       summary: Part locations get
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: PartLocations_Get
     put:
       tags:
       - PartLocations
-      operationId: PartLocations_Put
+      operationId: putPartLocations
       responses:
         '200':
           description: OK
@@ -256,10 +260,12 @@ paths:
         required: true
       summary: Part locations put
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: PartLocations_Put
     post:
       tags:
       - PartLocations
-      operationId: PartLocations_Post
+      operationId: postPartLocations
       parameters:
       - name: partPK
         in: query
@@ -313,11 +319,13 @@ paths:
         required: true
       summary: Part locations post
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: PartLocations_Post
   /PartLocations/{partLocationPK}:
     get:
       tags:
       - PartLocations
-      operationId: PartLocations_Get
+      operationId: getPartLocationsByPartLocationPK
       parameters:
       - name: partPK
         in: query
@@ -349,10 +357,12 @@ paths:
                 $ref: '#/components/schemas/ApiResponse'
       summary: Part locations get
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: PartLocations_Get
     put:
       tags:
       - PartLocations
-      operationId: PartLocations_Put
+      operationId: putPartLocationsByPartLocationPK
       parameters:
       - name: partPK
         in: query
@@ -402,8 +412,58 @@ paths:
         required: true
       summary: Part locations put
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: PartLocations_Put
 components:
   schemas:
+    EntityRefViewModel_Account:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    ApiResponse:
+      type: object
+      properties:
+        Results:
+          type: array
+          items:
+            $ref: '#/components/schemas/IApiResult'
+        Total:
+          format: int32
+          type: integer
+    ValueDescriptionPairViewModel:
+      type: object
+      properties:
+        Value:
+          type: string
+        Description:
+          type: string
+    EntityRefViewModel_Location:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    IApiResult:
+      type: object
+      properties: {}
     PartLocationViewModel:
       type: object
       properties:
@@ -492,54 +552,6 @@ components:
           type: string
         CostRuleDetails:
           $ref: '#/components/schemas/ValueDescriptionPairViewModel'
-    EntityRefViewModel_Account:
-      type: object
-      properties:
-        PK:
-          format: int32
-          type: integer
-        ID:
-          type: string
-        Name:
-          type: string
-        Uuid:
-          format: uuid
-          type: string
-          example: 00000000-0000-0000-0000-000000000000
-    IApiResult:
-      type: object
-      properties: {}
-    ValueDescriptionPairViewModel:
-      type: object
-      properties:
-        Value:
-          type: string
-        Description:
-          type: string
-    ApiResponse:
-      type: object
-      properties:
-        Results:
-          type: array
-          items:
-            $ref: '#/components/schemas/IApiResult'
-        Total:
-          format: int32
-          type: integer
-    EntityRefViewModel_Location:
-      type: object
-      properties:
-        PK:
-          format: int32
-          type: integer
-        ID:
-          type: string
-        Name:
-          type: string
-        Uuid:
-          format: uuid
-          type: string
-          example: 00000000-0000-0000-0000-000000000000
   securitySchemes:
     basic:
       type: http

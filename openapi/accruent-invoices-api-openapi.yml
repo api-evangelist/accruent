@@ -141,7 +141,7 @@ paths:
     get:
       tags:
       - Invoices
-      operationId: Invoices_Get
+      operationId: getInvoicesByInvoicePK
       parameters:
       - name: purchaseOrderPK
         in: query
@@ -173,10 +173,12 @@ paths:
                 $ref: '#/components/schemas/ApiResponse'
       summary: Invoices get
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: Invoices_Get
     put:
       tags:
       - Invoices
-      operationId: Invoices_Put
+      operationId: putInvoicesByInvoicePK
       parameters:
       - name: purchaseOrderPK
         in: query
@@ -226,11 +228,13 @@ paths:
         required: true
       summary: Invoices put
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: Invoices_Put
   /PurchaseOrders/{purchaseOrderPK}/Invoices/{invoicePK}:
     get:
       tags:
       - Invoices
-      operationId: Invoices_Get
+      operationId: getPurchaseOrdersByPurchaseOrderPKInvoicesByInvoicePK
       parameters:
       - name: purchaseOrderPK
         in: path
@@ -262,10 +266,12 @@ paths:
                 $ref: '#/components/schemas/ApiResponse'
       summary: Invoices get
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: Invoices_Get
     put:
       tags:
       - Invoices
-      operationId: Invoices_Put
+      operationId: putPurchaseOrdersByPurchaseOrderPKInvoicesByInvoicePK
       parameters:
       - name: purchaseOrderPK
         in: path
@@ -315,6 +321,8 @@ paths:
         required: true
       summary: Invoices put
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: Invoices_Put
   /PurchaseOrders/{purchaseOrderPK}/Invoices:
     get:
       tags:
@@ -348,7 +356,7 @@ paths:
     post:
       tags:
       - Invoices
-      operationId: Invoices_Post
+      operationId: postPurchaseOrdersByPurchaseOrderPKInvoices
       parameters:
       - name: purchaseOrderPK
         in: path
@@ -402,8 +410,13 @@ paths:
         required: true
       summary: Invoices post
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: Invoices_Post
 components:
   schemas:
+    IApiResult:
+      type: object
+      properties: {}
     InvoiceViewModel:
       type: object
       properties:
@@ -465,9 +478,6 @@ components:
         Total:
           format: int32
           type: integer
-    IApiResult:
-      type: object
-      properties: {}
   securitySchemes:
     basic:
       type: http

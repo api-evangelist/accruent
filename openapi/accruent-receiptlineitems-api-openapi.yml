@@ -147,7 +147,7 @@ paths:
     get:
       tags:
       - ReceiptLineItems
-      operationId: ReceiptLineItems_Get
+      operationId: getReceiptLineItemsByLineItemPK
       parameters:
       - name: purchaseOrderPK
         in: query
@@ -185,10 +185,12 @@ paths:
                 $ref: '#/components/schemas/ApiResponse'
       summary: Receipt line items get
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: ReceiptLineItems_Get
     put:
       tags:
       - ReceiptLineItems
-      operationId: ReceiptLineItems_Put
+      operationId: putReceiptLineItemsByLineItemPK
       parameters:
       - name: purchaseOrderPK
         in: query
@@ -244,11 +246,13 @@ paths:
         required: true
       summary: Receipt line items put
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: ReceiptLineItems_Put
   /PurchaseOrders/{purchaseOrderPK}/Receipts/{receiptPK}/LineItems/{lineItemPK}:
     get:
       tags:
       - ReceiptLineItems
-      operationId: ReceiptLineItems_Get
+      operationId: getPurchaseOrdersByPurchaseOrderPKReceiptsByReceiptPKLineItemsByLineItemPK
       parameters:
       - name: purchaseOrderPK
         in: path
@@ -286,10 +290,12 @@ paths:
                 $ref: '#/components/schemas/ApiResponse'
       summary: Receipt line items get
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: ReceiptLineItems_Get
     put:
       tags:
       - ReceiptLineItems
-      operationId: ReceiptLineItems_Put
+      operationId: putPurchaseOrdersByPurchaseOrderPKReceiptsByReceiptPKLineItemsByLineItemPK
       parameters:
       - name: purchaseOrderPK
         in: path
@@ -345,6 +351,8 @@ paths:
         required: true
       summary: Receipt line items put
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: ReceiptLineItems_Put
   /PurchaseOrders/{purchaseOrderPK}/Receipts/{receiptPK}/LineItems:
     get:
       tags:
@@ -384,7 +392,7 @@ paths:
     post:
       tags:
       - ReceiptLineItems
-      operationId: ReceiptLineItems_Post
+      operationId: postPurchaseOrdersByPurchaseOrderPKReceiptsByReceiptPKLineItems
       parameters:
       - name: purchaseOrderPK
         in: path
@@ -444,8 +452,13 @@ paths:
         required: true
       summary: Receipt line items post
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: ReceiptLineItems_Post
 components:
   schemas:
+    IApiResult:
+      type: object
+      properties: {}
     ReceiptLineItemViewModel:
       type: object
       properties:
@@ -487,9 +500,6 @@ components:
         Total:
           format: int32
           type: integer
-    IApiResult:
-      type: object
-      properties: {}
   securitySchemes:
     basic:
       type: http

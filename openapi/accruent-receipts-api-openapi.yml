@@ -141,7 +141,7 @@ paths:
     get:
       tags:
       - Receipts
-      operationId: Receipts_Get
+      operationId: getReceiptsByReceiptPK
       parameters:
       - name: purchaseOrderPK
         in: query
@@ -173,10 +173,12 @@ paths:
                 $ref: '#/components/schemas/ApiResponse'
       summary: Receipts get
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: Receipts_Get
     put:
       tags:
       - Receipts
-      operationId: Receipts_Put
+      operationId: putReceiptsByReceiptPK
       parameters:
       - name: purchaseOrderPK
         in: query
@@ -226,11 +228,13 @@ paths:
         required: true
       summary: Receipts put
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: Receipts_Put
   /PurchaseOrders/{purchaseOrderPK}/Receipts/{receiptPK}:
     get:
       tags:
       - Receipts
-      operationId: Receipts_Get
+      operationId: getPurchaseOrdersByPurchaseOrderPKReceiptsByReceiptPK
       parameters:
       - name: purchaseOrderPK
         in: path
@@ -262,10 +266,12 @@ paths:
                 $ref: '#/components/schemas/ApiResponse'
       summary: Receipts get
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: Receipts_Get
     put:
       tags:
       - Receipts
-      operationId: Receipts_Put
+      operationId: putPurchaseOrdersByPurchaseOrderPKReceiptsByReceiptPK
       parameters:
       - name: purchaseOrderPK
         in: path
@@ -315,6 +321,8 @@ paths:
         required: true
       summary: Receipts put
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: Receipts_Put
   /PurchaseOrders/{purchaseOrderPK}/Receipts:
     get:
       tags:
@@ -348,7 +356,7 @@ paths:
     post:
       tags:
       - Receipts
-      operationId: Receipts_Post
+      operationId: postPurchaseOrdersByPurchaseOrderPKReceipts
       parameters:
       - name: purchaseOrderPK
         in: path
@@ -402,6 +410,8 @@ paths:
         required: true
       summary: Receipts post
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: Receipts_Post
 components:
   schemas:
     EntityRefViewModel_Labor:
@@ -418,6 +428,9 @@ components:
           format: uuid
           type: string
           example: 00000000-0000-0000-0000-000000000000
+    IApiResult:
+      type: object
+      properties: {}
     ReceiptViewModel:
       type: object
       properties:
@@ -460,9 +473,6 @@ components:
         Total:
           format: int32
           type: integer
-    IApiResult:
-      type: object
-      properties: {}
   securitySchemes:
     basic:
       type: http

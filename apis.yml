@@ -31,7 +31,7 @@ tags:
 - Engineering Document Management
 - Built Environment
 - Enterprise Software
-- Real-Estate
+- Real Estate
 tags_raw:
 - facilities-management
 - asset-management
@@ -45,6 +45,7 @@ tags_raw:
 - built-environment
 - enterprise-software
 - real-estate
+- Real-Estate
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -60,7 +61,7 @@ apis:
   humanURL: https://developer.accruent.com/wiki/siterra/gettingstarted
   baseURL: https://api.accruent.com/siterra/us/
   tags:
-  - Telecom
+  - Telecommunications
   - Site Management
   - Project Management
   - Asset Management
@@ -69,6 +70,7 @@ apis:
   - site-management
   - project-management
   - asset-management
+  - Telecom
   properties:
   - type: DeveloperPortal
     url: https://developer.accruent.com/
@@ -88,12 +90,13 @@ apis:
     https://help.accruent.com/meridian/Content/Online_Help/Cloud_Portal/Integrations/MeridianCloudAPI.htm
   tags:
   - Engineering Document Management
-  - Document-Management
+  - Document Management
   - Asset Management
   tags_raw:
   - engineering-document-management
   - document-management
   - asset-management
+  - Document-Management
   properties:
   - type: DeveloperPortal
     url: https://api-developer.meridiancloud.net/
@@ -136,13 +139,14 @@ apis:
   tags:
   - IWMS
   - Lease Accounting
-  - Real-Estate
+  - Real Estate
   - Facilities Management
   tags_raw:
   - iwms
   - lease-accounting
   - real-estate
   - facilities-management
+  - Real-Estate
   properties:
   - type: Documentation
     url: >-

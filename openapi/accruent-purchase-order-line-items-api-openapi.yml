@@ -141,7 +141,7 @@ paths:
     get:
       tags:
       - Purchase Order Line Items
-      operationId: PurchaseOrderLineItems_Get
+      operationId: getPurchaseOrderLineItemsByLineItemPK
       parameters:
       - name: purchaseOrderPK
         in: query
@@ -173,10 +173,12 @@ paths:
                 $ref: '#/components/schemas/ApiResponse'
       summary: Purchase order line items get
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: PurchaseOrderLineItems_Get
     put:
       tags:
       - Purchase Order Line Items
-      operationId: PurchaseOrderLineItems_Put
+      operationId: putPurchaseOrderLineItemsByLineItemPK
       parameters:
       - name: purchaseOrderPK
         in: query
@@ -226,11 +228,13 @@ paths:
         required: true
       summary: Purchase order line items put
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: PurchaseOrderLineItems_Put
   /PurchaseOrders/{purchaseOrderPK}/LineItems/{lineItemPK}:
     get:
       tags:
       - Purchase Order Line Items
-      operationId: PurchaseOrderLineItems_Get
+      operationId: getPurchaseOrdersByPurchaseOrderPKLineItemsByLineItemPK
       parameters:
       - name: purchaseOrderPK
         in: path
@@ -262,10 +266,12 @@ paths:
                 $ref: '#/components/schemas/ApiResponse'
       summary: Purchase order line items get
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: PurchaseOrderLineItems_Get
     put:
       tags:
       - Purchase Order Line Items
-      operationId: PurchaseOrderLineItems_Put
+      operationId: putPurchaseOrdersByPurchaseOrderPKLineItemsByLineItemPK
       parameters:
       - name: purchaseOrderPK
         in: path
@@ -315,6 +321,8 @@ paths:
         required: true
       summary: Purchase order line items put
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: PurchaseOrderLineItems_Put
   /PurchaseOrders/{purchaseOrderPK}/LineItems:
     get:
       tags:
@@ -348,7 +356,7 @@ paths:
     post:
       tags:
       - Purchase Order Line Items
-      operationId: PurchaseOrderLineItems_Post
+      operationId: postPurchaseOrdersByPurchaseOrderPKLineItems
       parameters:
       - name: purchaseOrderPK
         in: path
@@ -402,99 +410,11 @@ paths:
         required: true
       summary: Purchase order line items post
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: PurchaseOrderLineItems_Post
 components:
   schemas:
     EntityRefViewModel_Account:
-      type: object
-      properties:
-        PK:
-          format: int32
-          type: integer
-        ID:
-          type: string
-        Name:
-          type: string
-        Uuid:
-          format: uuid
-          type: string
-          example: 00000000-0000-0000-0000-000000000000
-    EntityRefViewModel_Part:
-      type: object
-      properties:
-        PK:
-          format: int32
-          type: integer
-        ID:
-          type: string
-        Name:
-          type: string
-        Uuid:
-          format: uuid
-          type: string
-          example: 00000000-0000-0000-0000-000000000000
-    EntityRefViewModel_Labor:
-      type: object
-      properties:
-        PK:
-          format: int32
-          type: integer
-        ID:
-          type: string
-        Name:
-          type: string
-        Uuid:
-          format: uuid
-          type: string
-          example: 00000000-0000-0000-0000-000000000000
-    IApiResult:
-      type: object
-      properties: {}
-    ValueDescriptionPairViewModel:
-      type: object
-      properties:
-        Value:
-          type: string
-        Description:
-          type: string
-    EntityRefViewModel_Asset:
-      type: object
-      properties:
-        PK:
-          format: int32
-          type: integer
-        ID:
-          type: string
-        Name:
-          type: string
-        Uuid:
-          format: uuid
-          type: string
-          example: 00000000-0000-0000-0000-000000000000
-    EntityRefViewModel_WorkOrder:
-      type: object
-      properties:
-        PK:
-          format: int32
-          type: integer
-        ID:
-          type: string
-        Name:
-          type: string
-        Uuid:
-          format: uuid
-          type: string
-          example: 00000000-0000-0000-0000-000000000000
-    ApiResponse:
-      type: object
-      properties:
-        Results:
-          type: array
-          items:
-            $ref: '#/components/schemas/IApiResult'
-        Total:
-          format: int32
-          type: integer
-    EntityRefViewModel_Location:
       type: object
       properties:
         PK:
@@ -603,6 +523,96 @@ components:
           type: string
         ResourceUri:
           type: string
+    ValueDescriptionPairViewModel:
+      type: object
+      properties:
+        Value:
+          type: string
+        Description:
+          type: string
+    EntityRefViewModel_Location:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    EntityRefViewModel_WorkOrder:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    IApiResult:
+      type: object
+      properties: {}
+    EntityRefViewModel_Part:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    ApiResponse:
+      type: object
+      properties:
+        Results:
+          type: array
+          items:
+            $ref: '#/components/schemas/IApiResult'
+        Total:
+          format: int32
+          type: integer
+    EntityRefViewModel_Labor:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    EntityRefViewModel_Asset:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
   securitySchemes:
     basic:
       type: http

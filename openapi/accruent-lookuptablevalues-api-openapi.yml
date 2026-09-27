@@ -96,7 +96,7 @@ paths:
     get:
       tags:
       - LookupTableValues
-      operationId: LookupTableValues_Get
+      operationId: getLookupTablesByLookupTableIDValuesByCodeName
       parameters:
       - name: lookupTableID
         in: path
@@ -126,6 +126,8 @@ paths:
                 $ref: '#/components/schemas/ApiResponse'
       summary: Lookup table values get
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: LookupTableValues_Get
     put:
       tags:
       - LookupTableValues
@@ -181,7 +183,7 @@ paths:
     get:
       tags:
       - LookupTableValues
-      operationId: LookupTableValues_Get
+      operationId: getLookupTableValues
       responses:
         '200':
           description: OK
@@ -200,10 +202,12 @@ paths:
                 $ref: '#/components/schemas/ApiResponse'
       summary: Lookup table values get
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: LookupTableValues_Get
     put:
       tags:
       - LookupTableValues
-      operationId: LookupTableValues_Put
+      operationId: putLookupTableValues
       responses:
         '200':
           description: OK
@@ -250,11 +254,13 @@ paths:
         required: true
       summary: Lookup table values put
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: LookupTableValues_Put
   /LookupTableValues/{lookupTableID}:
     get:
       tags:
       - LookupTableValues
-      operationId: LookupTableValues_Get
+      operationId: getLookupTableValuesByLookupTableID
       parameters:
       - name: lookupTableID
         in: path
@@ -279,10 +285,12 @@ paths:
                 $ref: '#/components/schemas/ApiResponse'
       summary: Lookup table values get
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: LookupTableValues_Get
     put:
       tags:
       - LookupTableValues
-      operationId: LookupTableValues_Put
+      operationId: putLookupTableValuesByLookupTableID
       parameters:
       - name: lookupTableID
         in: path
@@ -330,10 +338,12 @@ paths:
         required: true
       summary: Lookup table values put
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: LookupTableValues_Put
     post:
       tags:
       - LookupTableValues
-      operationId: LookupTableValues_Post
+      operationId: postLookupTableValuesByLookupTableID
       parameters:
       - name: lookupTableID
         in: path
@@ -386,8 +396,13 @@ paths:
         required: true
       summary: Lookup table values post
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: LookupTableValues_Post
 components:
   schemas:
+    IApiResult:
+      type: object
+      properties: {}
     LookupTableValueViewModel:
       type: object
       properties:
@@ -417,9 +432,6 @@ components:
         Total:
           format: int32
           type: integer
-    IApiResult:
-      type: object
-      properties: {}
   securitySchemes:
     basic:
       type: http
