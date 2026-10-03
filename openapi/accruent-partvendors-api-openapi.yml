@@ -469,6 +469,16 @@ components:
           $ref: '#/components/schemas/EntityRefViewModel_Location'
         ResourceUri:
           type: string
+    ApiResponse:
+      type: object
+      properties:
+        Results:
+          type: array
+          items:
+            $ref: '#/components/schemas/IApiResult'
+        Total:
+          format: int32
+          type: integer
     ValueDescriptionPairViewModel:
       type: object
       properties:
@@ -476,7 +486,7 @@ components:
           type: string
         Description:
           type: string
-    EntityRefViewModel_Company:
+    EntityRefViewModel_Location:
       type: object
       properties:
         PK:
@@ -490,7 +500,7 @@ components:
           format: uuid
           type: string
           example: 00000000-0000-0000-0000-000000000000
-    EntityRefViewModel_Location:
+    EntityRefViewModel_Company:
       type: object
       properties:
         PK:
@@ -507,16 +517,6 @@ components:
     IApiResult:
       type: object
       properties: {}
-    ApiResponse:
-      type: object
-      properties:
-        Results:
-          type: array
-          items:
-            $ref: '#/components/schemas/IApiResult'
-        Total:
-          format: int32
-          type: integer
   securitySchemes:
     basic:
       type: http

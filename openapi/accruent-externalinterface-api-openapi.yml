@@ -175,19 +175,6 @@ components:
           maxLength: 50
           minLength: 0
           type: string
-    ExternalInterfaceViewModel:
-      type: object
-      properties:
-        ExternalInterfacePK:
-          format: int32
-          type: integer
-        ExternalInterfaceID:
-          type: string
-        ExternalInterfaceName:
-          type: string
-    IApiResult:
-      type: object
-      properties: {}
     ApiResponse:
       type: object
       properties:
@@ -198,6 +185,19 @@ components:
         Total:
           format: int32
           type: integer
+    IApiResult:
+      type: object
+      properties: {}
+    ExternalInterfaceViewModel:
+      type: object
+      properties:
+        ExternalInterfacePK:
+          format: int32
+          type: integer
+        ExternalInterfaceID:
+          type: string
+        ExternalInterfaceName:
+          type: string
   securitySchemes:
     basic:
       type: http

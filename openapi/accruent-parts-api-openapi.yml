@@ -244,6 +244,16 @@ paths:
       x-operation-id-original: Parts_Post
 components:
   schemas:
+    ApiResponse:
+      type: object
+      properties:
+        Results:
+          type: array
+          items:
+            $ref: '#/components/schemas/IApiResult'
+        Total:
+          format: int32
+          type: integer
     PartViewModel:
       type: object
       properties:
@@ -397,7 +407,14 @@ components:
           type: string
         ResourceUri:
           type: string
-    EntityRefViewModel_Classification:
+    ValueDescriptionPairViewModel:
+      type: object
+      properties:
+        Value:
+          type: string
+        Description:
+          type: string
+    EntityRefViewModel_Category:
       type: object
       properties:
         PK:
@@ -411,14 +428,21 @@ components:
           format: uuid
           type: string
           example: 00000000-0000-0000-0000-000000000000
-    ValueDescriptionPairViewModel:
+    EntityRefViewModel_Company:
       type: object
       properties:
-        Value:
+        PK:
+          format: int32
+          type: integer
+        ID:
           type: string
-        Description:
+        Name:
           type: string
-    EntityRefViewModel_Company:
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    EntityRefViewModel_Classification:
       type: object
       properties:
         PK:
@@ -435,30 +459,6 @@ components:
     IApiResult:
       type: object
       properties: {}
-    ApiResponse:
-      type: object
-      properties:
-        Results:
-          type: array
-          items:
-            $ref: '#/components/schemas/IApiResult'
-        Total:
-          format: int32
-          type: integer
-    EntityRefViewModel_Category:
-      type: object
-      properties:
-        PK:
-          format: int32
-          type: integer
-        ID:
-          type: string
-        Name:
-          type: string
-        Uuid:
-          format: uuid
-          type: string
-          example: 00000000-0000-0000-0000-000000000000
   securitySchemes:
     basic:
       type: http

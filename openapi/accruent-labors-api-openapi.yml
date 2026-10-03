@@ -244,7 +244,17 @@ paths:
       x-operation-id-original: Labors_Post
 components:
   schemas:
-    EntityRefViewModel_Account:
+    ApiResponse:
+      type: object
+      properties:
+        Results:
+          type: array
+          items:
+            $ref: '#/components/schemas/IApiResult'
+        Total:
+          format: int32
+          type: integer
+    EntityRefViewModel_Labor:
       type: object
       properties:
         PK:
@@ -258,6 +268,13 @@ components:
           format: uuid
           type: string
           example: 00000000-0000-0000-0000-000000000000
+    ValueDescriptionPairViewModel:
+      type: object
+      properties:
+        Value:
+          type: string
+        Description:
+          type: string
     EntityRefViewModel_AccessGroup:
       type: object
       properties:
@@ -386,14 +403,7 @@ components:
           $ref: '#/components/schemas/ValueDescriptionPairViewModel'
         DepartmentRef:
           $ref: '#/components/schemas/EntityRefViewModel_Department'
-    ValueDescriptionPairViewModel:
-      type: object
-      properties:
-        Value:
-          type: string
-        Description:
-          type: string
-    EntityRefViewModel_Department:
+    EntityRefViewModel_Shift:
       type: object
       properties:
         PK:
@@ -407,7 +417,7 @@ components:
           format: uuid
           type: string
           example: 00000000-0000-0000-0000-000000000000
-    EntityRefViewModel_Company:
+    EntityRefViewModel_Department:
       type: object
       properties:
         PK:
@@ -435,7 +445,21 @@ components:
           format: uuid
           type: string
           example: 00000000-0000-0000-0000-000000000000
-    EntityRefViewModel_Shift:
+    EntityRefViewModel_Company:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    EntityRefViewModel_Category:
       type: object
       properties:
         PK:
@@ -452,31 +476,7 @@ components:
     IApiResult:
       type: object
       properties: {}
-    ApiResponse:
-      type: object
-      properties:
-        Results:
-          type: array
-          items:
-            $ref: '#/components/schemas/IApiResult'
-        Total:
-          format: int32
-          type: integer
-    EntityRefViewModel_Labor:
-      type: object
-      properties:
-        PK:
-          format: int32
-          type: integer
-        ID:
-          type: string
-        Name:
-          type: string
-        Uuid:
-          format: uuid
-          type: string
-          example: 00000000-0000-0000-0000-000000000000
-    EntityRefViewModel_Category:
+    EntityRefViewModel_Account:
       type: object
       properties:
         PK:

@@ -456,6 +456,16 @@ paths:
       x-operation-id-original: ReceiptLineItems_Post
 components:
   schemas:
+    ApiResponse:
+      type: object
+      properties:
+        Results:
+          type: array
+          items:
+            $ref: '#/components/schemas/IApiResult'
+        Total:
+          format: int32
+          type: integer
     IApiResult:
       type: object
       properties: {}
@@ -490,16 +500,6 @@ components:
           type: string
         ResourceUri:
           type: string
-    ApiResponse:
-      type: object
-      properties:
-        Results:
-          type: array
-          items:
-            $ref: '#/components/schemas/IApiResult'
-        Total:
-          format: int32
-          type: integer
   securitySchemes:
     basic:
       type: http

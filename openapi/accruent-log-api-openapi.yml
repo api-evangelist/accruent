@@ -114,6 +114,36 @@ paths:
       x-operation-id-original: Log_Get
 components:
   schemas:
+    ApiResponse:
+      type: object
+      properties:
+        Results:
+          type: array
+          items:
+            $ref: '#/components/schemas/IApiResult'
+        Total:
+          format: int32
+          type: integer
+    LogItemViewModel:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        Date:
+          format: date-time
+          type: string
+        Message:
+          type: string
+        AuthorizationStatus:
+          $ref: '#/components/schemas/AuthorizationStatusViewModel'
+    ValueDescriptionPairViewModel:
+      type: object
+      properties:
+        Value:
+          type: string
+        Description:
+          type: string
     AuthorizationStatusViewModel:
       type: object
       properties:
@@ -137,39 +167,9 @@ components:
         AuthStatusDate:
           format: date-time
           type: string
-    LogItemViewModel:
-      type: object
-      properties:
-        PK:
-          format: int32
-          type: integer
-        Date:
-          format: date-time
-          type: string
-        Message:
-          type: string
-        AuthorizationStatus:
-          $ref: '#/components/schemas/AuthorizationStatusViewModel'
-    ValueDescriptionPairViewModel:
-      type: object
-      properties:
-        Value:
-          type: string
-        Description:
-          type: string
     IApiResult:
       type: object
       properties: {}
-    ApiResponse:
-      type: object
-      properties:
-        Results:
-          type: array
-          items:
-            $ref: '#/components/schemas/IApiResult'
-        Total:
-          format: int32
-          type: integer
   securitySchemes:
     basic:
       type: http

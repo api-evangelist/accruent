@@ -213,6 +213,16 @@ paths:
       x-operation-id-original: Classifications_Put
 components:
   schemas:
+    ApiResponse:
+      type: object
+      properties:
+        Results:
+          type: array
+          items:
+            $ref: '#/components/schemas/IApiResult'
+        Total:
+          format: int32
+          type: integer
     ValueDescriptionPairViewModel:
       type: object
       properties:
@@ -304,16 +314,6 @@ components:
     IApiResult:
       type: object
       properties: {}
-    ApiResponse:
-      type: object
-      properties:
-        Results:
-          type: array
-          items:
-            $ref: '#/components/schemas/IApiResult'
-        Total:
-          format: int32
-          type: integer
   securitySchemes:
     basic:
       type: http

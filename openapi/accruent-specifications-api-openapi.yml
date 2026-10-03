@@ -64,9 +64,6 @@ paths:
       x-operation-id-original: Specifications_Get
 components:
   schemas:
-    IApiResult:
-      type: object
-      properties: {}
     ApiResponse:
       type: object
       properties:
@@ -77,6 +74,9 @@ components:
         Total:
           format: int32
           type: integer
+    IApiResult:
+      type: object
+      properties: {}
   securitySchemes:
     basic:
       type: http

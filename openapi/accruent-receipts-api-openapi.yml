@@ -414,20 +414,16 @@ paths:
       x-operation-id-original: Receipts_Post
 components:
   schemas:
-    EntityRefViewModel_Labor:
+    ApiResponse:
       type: object
       properties:
-        PK:
+        Results:
+          type: array
+          items:
+            $ref: '#/components/schemas/IApiResult'
+        Total:
           format: int32
           type: integer
-        ID:
-          type: string
-        Name:
-          type: string
-        Uuid:
-          format: uuid
-          type: string
-          example: 00000000-0000-0000-0000-000000000000
     IApiResult:
       type: object
       properties: {}
@@ -463,16 +459,20 @@ components:
           type: boolean
         CanNotDelete:
           type: boolean
-    ApiResponse:
+    EntityRefViewModel_Labor:
       type: object
       properties:
-        Results:
-          type: array
-          items:
-            $ref: '#/components/schemas/IApiResult'
-        Total:
+        PK:
           format: int32
           type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
   securitySchemes:
     basic:
       type: http

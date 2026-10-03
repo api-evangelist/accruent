@@ -244,69 +244,16 @@ paths:
       x-operation-id-original: Assets_Post
 components:
   schemas:
-    EntityRefViewModel_Account:
+    ApiResponse:
       type: object
       properties:
-        PK:
+        Results:
+          type: array
+          items:
+            $ref: '#/components/schemas/IApiResult'
+        Total:
           format: int32
           type: integer
-        ID:
-          type: string
-        Name:
-          type: string
-        Uuid:
-          format: uuid
-          type: string
-          example: 00000000-0000-0000-0000-000000000000
-    EntityRefViewModel_Classification:
-      type: object
-      properties:
-        PK:
-          format: int32
-          type: integer
-        ID:
-          type: string
-        Name:
-          type: string
-        Uuid:
-          format: uuid
-          type: string
-          example: 00000000-0000-0000-0000-000000000000
-    EntityRefViewModel_Asset:
-      type: object
-      properties:
-        PK:
-          format: int32
-          type: integer
-        ID:
-          type: string
-        Name:
-          type: string
-        Uuid:
-          format: uuid
-          type: string
-          example: 00000000-0000-0000-0000-000000000000
-    ValueDescriptionPairViewModel:
-      type: object
-      properties:
-        Value:
-          type: string
-        Description:
-          type: string
-    EntityRefViewModel_Department:
-      type: object
-      properties:
-        PK:
-          format: int32
-          type: integer
-        ID:
-          type: string
-        Name:
-          type: string
-        Uuid:
-          format: uuid
-          type: string
-          example: 00000000-0000-0000-0000-000000000000
     AssetViewModel:
       type: object
       properties:
@@ -655,7 +602,7 @@ components:
           $ref: '#/components/schemas/ValueDescriptionPairViewModel'
         SystemPlatformDetails:
           $ref: '#/components/schemas/ValueDescriptionPairViewModel'
-    EntityRefViewModel_Company:
+    EntityRefViewModel_Labor:
       type: object
       properties:
         PK:
@@ -669,9 +616,6 @@ components:
           format: uuid
           type: string
           example: 00000000-0000-0000-0000-000000000000
-    IApiResult:
-      type: object
-      properties: {}
     EntityRefViewModel_Zone:
       type: object
       properties:
@@ -686,17 +630,28 @@ components:
           format: uuid
           type: string
           example: 00000000-0000-0000-0000-000000000000
-    ApiResponse:
+    ValueDescriptionPairViewModel:
       type: object
       properties:
-        Results:
-          type: array
-          items:
-            $ref: '#/components/schemas/IApiResult'
-        Total:
+        Value:
+          type: string
+        Description:
+          type: string
+    EntityRefViewModel_Customer:
+      type: object
+      properties:
+        PK:
           format: int32
           type: integer
-    EntityRefViewModel_Labor:
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    EntityRefViewModel_Department:
       type: object
       properties:
         PK:
@@ -724,7 +679,52 @@ components:
           format: uuid
           type: string
           example: 00000000-0000-0000-0000-000000000000
-    EntityRefViewModel_Customer:
+    EntityRefViewModel_Company:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    EntityRefViewModel_Asset:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    EntityRefViewModel_Classification:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    IApiResult:
+      type: object
+      properties: {}
+    EntityRefViewModel_Account:
       type: object
       properties:
         PK:

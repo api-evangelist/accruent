@@ -414,9 +414,6 @@ paths:
       x-operation-id-original: Invoices_Post
 components:
   schemas:
-    IApiResult:
-      type: object
-      properties: {}
     InvoiceViewModel:
       type: object
       properties:
@@ -478,6 +475,9 @@ components:
         Total:
           format: int32
           type: integer
+    IApiResult:
+      type: object
+      properties: {}
   securitySchemes:
     basic:
       type: http

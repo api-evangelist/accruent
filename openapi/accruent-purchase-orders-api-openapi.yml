@@ -213,58 +213,16 @@ paths:
       x-operation-id-original: PurchaseOrders_Put
 components:
   schemas:
-    EntityRefViewModel_Account:
+    ApiResponse:
       type: object
       properties:
-        PK:
+        Results:
+          type: array
+          items:
+            $ref: '#/components/schemas/IApiResult'
+        Total:
           format: int32
           type: integer
-        ID:
-          type: string
-        Name:
-          type: string
-        Uuid:
-          format: uuid
-          type: string
-          example: 00000000-0000-0000-0000-000000000000
-    ShippingInfoViewModel:
-      type: object
-      properties:
-        ShipToCompany:
-          $ref: '#/components/schemas/CompanyDetailsViewModel'
-        FreightTerms:
-          type: string
-        FreightTermsDesc:
-          type: string
-        ShippingMethod:
-          type: string
-        ShippingMethodDesc:
-          type: string
-        TrackingNo:
-          type: string
-    AuthorizationStatusViewModel:
-      type: object
-      properties:
-        AuthStatusDetails:
-          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
-        AuthLevelsRequired:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-          type: integer
-        AuthStatusUserPK:
-          format: int32
-          type: integer
-        AuthStatusUserInitials:
-          type: string
-        AuthStatusDate:
-          format: date-time
-          type: string
     PurchaseOrderViewModel:
       type: object
       properties:
@@ -421,12 +379,64 @@ components:
           type: boolean
         ResourceUri:
           type: string
+    EntityRefViewModel_Labor:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
     ValueDescriptionPairViewModel:
       type: object
       properties:
         Value:
           type: string
         Description:
+          type: string
+    ShippingInfoViewModel:
+      type: object
+      properties:
+        ShipToCompany:
+          $ref: '#/components/schemas/CompanyDetailsViewModel'
+        FreightTerms:
+          type: string
+        FreightTermsDesc:
+          type: string
+        ShippingMethod:
+          type: string
+        ShippingMethodDesc:
+          type: string
+        TrackingNo:
+          type: string
+    EntityRefViewModel_Customer:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    BillingInfoViewModel:
+      type: object
+      properties:
+        BillToCompany:
+          $ref: '#/components/schemas/CompanyDetailsViewModel'
+        BillingTerms:
+          type: string
+        BillingTermsDesc:
           type: string
     EntityRefViewModel_Department:
       type: object
@@ -469,43 +479,33 @@ components:
           format: uuid
           type: string
           example: 00000000-0000-0000-0000-000000000000
-    BillingInfoViewModel:
+    AuthorizationStatusViewModel:
       type: object
       properties:
-        BillToCompany:
-          $ref: '#/components/schemas/CompanyDetailsViewModel'
-        BillingTerms:
+        AuthStatusDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        AuthLevelsRequired:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          type: integer
+        AuthStatusUserPK:
+          format: int32
+          type: integer
+        AuthStatusUserInitials:
           type: string
-        BillingTermsDesc:
+        AuthStatusDate:
+          format: date-time
           type: string
     IApiResult:
       type: object
       properties: {}
-    ApiResponse:
-      type: object
-      properties:
-        Results:
-          type: array
-          items:
-            $ref: '#/components/schemas/IApiResult'
-        Total:
-          format: int32
-          type: integer
-    EntityRefViewModel_Labor:
-      type: object
-      properties:
-        PK:
-          format: int32
-          type: integer
-        ID:
-          type: string
-        Name:
-          type: string
-        Uuid:
-          format: uuid
-          type: string
-          example: 00000000-0000-0000-0000-000000000000
-    EntityRefViewModel_Customer:
+    EntityRefViewModel_Account:
       type: object
       properties:
         PK:

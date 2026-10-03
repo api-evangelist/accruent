@@ -263,9 +263,16 @@ components:
           type: string
         Description:
           type: string
-    IApiResult:
+    ApiResponse:
       type: object
-      properties: {}
+      properties:
+        Results:
+          type: array
+          items:
+            $ref: '#/components/schemas/IApiResult'
+        Total:
+          format: int32
+          type: integer
     PartTransactionViewModel:
       type: object
       properties:
@@ -390,16 +397,9 @@ components:
         OrderUnitPrice:
           format: double
           type: number
-    ApiResponse:
+    IApiResult:
       type: object
-      properties:
-        Results:
-          type: array
-          items:
-            $ref: '#/components/schemas/IApiResult'
-        Total:
-          format: int32
-          type: integer
+      properties: {}
   securitySchemes:
     basic:
       type: http

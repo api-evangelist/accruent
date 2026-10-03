@@ -414,9 +414,6 @@ paths:
       x-operation-id-original: AssetSpecifications_Post
 components:
   schemas:
-    IApiResult:
-      type: object
-      properties: {}
     AssetSpecificationViewModel:
       type: object
       properties:
@@ -484,6 +481,9 @@ components:
         Total:
           format: int32
           type: integer
+    IApiResult:
+      type: object
+      properties: {}
   securitySchemes:
     basic:
       type: http

@@ -400,9 +400,16 @@ paths:
       x-operation-id-original: LookupTableValues_Post
 components:
   schemas:
-    IApiResult:
+    ApiResponse:
       type: object
-      properties: {}
+      properties:
+        Results:
+          type: array
+          items:
+            $ref: '#/components/schemas/IApiResult'
+        Total:
+          format: int32
+          type: integer
     LookupTableValueViewModel:
       type: object
       properties:
@@ -422,16 +429,9 @@ components:
         LastModifiedDate:
           format: date-time
           type: string
-    ApiResponse:
+    IApiResult:
       type: object
-      properties:
-        Results:
-          type: array
-          items:
-            $ref: '#/components/schemas/IApiResult'
-        Total:
-          format: int32
-          type: integer
+      properties: {}
   securitySchemes:
     basic:
       type: http

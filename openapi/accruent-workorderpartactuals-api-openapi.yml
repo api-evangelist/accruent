@@ -414,38 +414,17 @@ paths:
       x-operation-id-original: WorkOrderPartActuals_Put
 components:
   schemas:
-    EntityRefViewModel_Account:
+    ApiResponse:
       type: object
       properties:
-        PK:
+        Results:
+          type: array
+          items:
+            $ref: '#/components/schemas/IApiResult'
+        Total:
           format: int32
           type: integer
-        ID:
-          type: string
-        Name:
-          type: string
-        Uuid:
-          format: uuid
-          type: string
-          example: 00000000-0000-0000-0000-000000000000
     EntityRefViewModel_Location:
-      type: object
-      properties:
-        PK:
-          format: int32
-          type: integer
-        ID:
-          type: string
-        Name:
-          type: string
-        Uuid:
-          format: uuid
-          type: string
-          example: 00000000-0000-0000-0000-000000000000
-    IApiResult:
-      type: object
-      properties: {}
-    EntityRefViewModel_Part:
       type: object
       properties:
         PK:
@@ -568,17 +547,38 @@ components:
           type: boolean
         UDFBit2:
           type: boolean
-    ApiResponse:
+    EntityRefViewModel_Category:
       type: object
       properties:
-        Results:
-          type: array
-          items:
-            $ref: '#/components/schemas/IApiResult'
-        Total:
+        PK:
           format: int32
           type: integer
-    EntityRefViewModel_Category:
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    EntityRefViewModel_Part:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    IApiResult:
+      type: object
+      properties: {}
+    EntityRefViewModel_Account:
       type: object
       properties:
         PK:
