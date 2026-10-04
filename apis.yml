@@ -1024,6 +1024,9 @@ apis:
   - type: DataModel
     url: data-model/accruent-data-model.yml
 common:
+- type: CapabilityMap
+  url: capabilities/accruent-capability-edges.yml
+  name: Accruent Business Capability Map
 - type: DomainSecurity
   url: security/accruent-domain-security.yml
 - type: AgenticAccess
