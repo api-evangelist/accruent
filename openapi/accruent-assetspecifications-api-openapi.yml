@@ -414,6 +414,16 @@ paths:
       x-operation-id-original: AssetSpecifications_Post
 components:
   schemas:
+    ApiResponse:
+      type: object
+      properties:
+        Results:
+          type: array
+          items:
+            $ref: '#/components/schemas/IApiResult'
+        Total:
+          format: int32
+          type: integer
     AssetSpecificationViewModel:
       type: object
       properties:
@@ -471,16 +481,6 @@ components:
           type: integer
         ResourceUri:
           type: string
-    ApiResponse:
-      type: object
-      properties:
-        Results:
-          type: array
-          items:
-            $ref: '#/components/schemas/IApiResult'
-        Total:
-          format: int32
-          type: integer
     IApiResult:
       type: object
       properties: {}

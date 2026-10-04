@@ -254,6 +254,20 @@ components:
         Total:
           format: int32
           type: integer
+    EntityRefViewModel_Classification:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
     PartViewModel:
       type: object
       properties:
@@ -414,20 +428,6 @@ components:
           type: string
         Description:
           type: string
-    EntityRefViewModel_Category:
-      type: object
-      properties:
-        PK:
-          format: int32
-          type: integer
-        ID:
-          type: string
-        Name:
-          type: string
-        Uuid:
-          format: uuid
-          type: string
-          example: 00000000-0000-0000-0000-000000000000
     EntityRefViewModel_Company:
       type: object
       properties:
@@ -442,7 +442,7 @@ components:
           format: uuid
           type: string
           example: 00000000-0000-0000-0000-000000000000
-    EntityRefViewModel_Classification:
+    EntityRefViewModel_Category:
       type: object
       properties:
         PK:

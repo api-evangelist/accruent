@@ -223,6 +223,56 @@ components:
         Total:
           format: int32
           type: integer
+    EntityRefViewModel_RepairCenter:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    CompanyDetailsViewModel:
+      type: object
+      properties:
+        CompanyRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Company'
+        Address1:
+          type: string
+        Address2:
+          type: string
+        Address3:
+          type: string
+        Attention:
+          type: string
+    EntityRefViewModel_Account:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    BillingInfoViewModel:
+      type: object
+      properties:
+        BillToCompany:
+          $ref: '#/components/schemas/CompanyDetailsViewModel'
+        BillingTerms:
+          type: string
+        BillingTermsDesc:
+          type: string
     PurchaseOrderViewModel:
       type: object
       properties:
@@ -379,106 +429,6 @@ components:
           type: boolean
         ResourceUri:
           type: string
-    EntityRefViewModel_Labor:
-      type: object
-      properties:
-        PK:
-          format: int32
-          type: integer
-        ID:
-          type: string
-        Name:
-          type: string
-        Uuid:
-          format: uuid
-          type: string
-          example: 00000000-0000-0000-0000-000000000000
-    ValueDescriptionPairViewModel:
-      type: object
-      properties:
-        Value:
-          type: string
-        Description:
-          type: string
-    ShippingInfoViewModel:
-      type: object
-      properties:
-        ShipToCompany:
-          $ref: '#/components/schemas/CompanyDetailsViewModel'
-        FreightTerms:
-          type: string
-        FreightTermsDesc:
-          type: string
-        ShippingMethod:
-          type: string
-        ShippingMethodDesc:
-          type: string
-        TrackingNo:
-          type: string
-    EntityRefViewModel_Customer:
-      type: object
-      properties:
-        PK:
-          format: int32
-          type: integer
-        ID:
-          type: string
-        Name:
-          type: string
-        Uuid:
-          format: uuid
-          type: string
-          example: 00000000-0000-0000-0000-000000000000
-    BillingInfoViewModel:
-      type: object
-      properties:
-        BillToCompany:
-          $ref: '#/components/schemas/CompanyDetailsViewModel'
-        BillingTerms:
-          type: string
-        BillingTermsDesc:
-          type: string
-    EntityRefViewModel_Department:
-      type: object
-      properties:
-        PK:
-          format: int32
-          type: integer
-        ID:
-          type: string
-        Name:
-          type: string
-        Uuid:
-          format: uuid
-          type: string
-          example: 00000000-0000-0000-0000-000000000000
-    CompanyDetailsViewModel:
-      type: object
-      properties:
-        CompanyRef:
-          $ref: '#/components/schemas/EntityRefViewModel_Company'
-        Address1:
-          type: string
-        Address2:
-          type: string
-        Address3:
-          type: string
-        Attention:
-          type: string
-    EntityRefViewModel_Company:
-      type: object
-      properties:
-        PK:
-          format: int32
-          type: integer
-        ID:
-          type: string
-        Name:
-          type: string
-        Uuid:
-          format: uuid
-          type: string
-          example: 00000000-0000-0000-0000-000000000000
     AuthorizationStatusViewModel:
       type: object
       properties:
@@ -502,37 +452,87 @@ components:
         AuthStatusDate:
           format: date-time
           type: string
+    ShippingInfoViewModel:
+      type: object
+      properties:
+        ShipToCompany:
+          $ref: '#/components/schemas/CompanyDetailsViewModel'
+        FreightTerms:
+          type: string
+        FreightTermsDesc:
+          type: string
+        ShippingMethod:
+          type: string
+        ShippingMethodDesc:
+          type: string
+        TrackingNo:
+          type: string
+    EntityRefViewModel_Labor:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    ValueDescriptionPairViewModel:
+      type: object
+      properties:
+        Value:
+          type: string
+        Description:
+          type: string
+    EntityRefViewModel_Department:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    EntityRefViewModel_Customer:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    EntityRefViewModel_Company:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
     IApiResult:
       type: object
       properties: {}
-    EntityRefViewModel_Account:
-      type: object
-      properties:
-        PK:
-          format: int32
-          type: integer
-        ID:
-          type: string
-        Name:
-          type: string
-        Uuid:
-          format: uuid
-          type: string
-          example: 00000000-0000-0000-0000-000000000000
-    EntityRefViewModel_RepairCenter:
-      type: object
-      properties:
-        PK:
-          format: int32
-          type: integer
-        ID:
-          type: string
-        Name:
-          type: string
-        Uuid:
-          format: uuid
-          type: string
-          example: 00000000-0000-0000-0000-000000000000
   securitySchemes:
     basic:
       type: http

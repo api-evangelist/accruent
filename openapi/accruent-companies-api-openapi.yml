@@ -223,27 +223,6 @@ components:
         Total:
           format: int32
           type: integer
-    ValueDescriptionPairViewModel:
-      type: object
-      properties:
-        Value:
-          type: string
-        Description:
-          type: string
-    EntityRefViewModel_Category:
-      type: object
-      properties:
-        PK:
-          format: int32
-          type: integer
-        ID:
-          type: string
-        Name:
-          type: string
-        Uuid:
-          format: uuid
-          type: string
-          example: 00000000-0000-0000-0000-000000000000
     CompanyViewModel:
       type: object
       properties:
@@ -408,9 +387,13 @@ components:
           $ref: '#/components/schemas/EntityRefViewModel_Account'
         CategoryRef:
           $ref: '#/components/schemas/EntityRefViewModel_Category'
-    IApiResult:
+    ValueDescriptionPairViewModel:
       type: object
-      properties: {}
+      properties:
+        Value:
+          type: string
+        Description:
+          type: string
     EntityRefViewModel_Account:
       type: object
       properties:
@@ -425,6 +408,23 @@ components:
           format: uuid
           type: string
           example: 00000000-0000-0000-0000-000000000000
+    EntityRefViewModel_Category:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    IApiResult:
+      type: object
+      properties: {}
   securitySchemes:
     basic:
       type: http

@@ -154,39 +154,6 @@ components:
         Total:
           format: int32
           type: integer
-    IApiResult:
-      type: object
-      properties: {}
-    ValueDescriptionPairViewModel:
-      type: object
-      properties:
-        Value:
-          type: string
-        Description:
-          type: string
-    AuthorizationStatusViewModel:
-      type: object
-      properties:
-        AuthStatusDetails:
-          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
-        AuthLevelsRequired:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-          type: integer
-        AuthStatusUserPK:
-          format: int32
-          type: integer
-        AuthStatusUserInitials:
-          type: string
-        AuthStatusDate:
-          format: date-time
-          type: string
     PurchaseOrderNoteViewModel:
       type: object
       properties:
@@ -225,6 +192,39 @@ components:
           type: integer
         AuthorizationStatus:
           $ref: '#/components/schemas/AuthorizationStatusViewModel'
+    AuthorizationStatusViewModel:
+      type: object
+      properties:
+        AuthStatusDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        AuthLevelsRequired:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          type: integer
+        AuthStatusUserPK:
+          format: int32
+          type: integer
+        AuthStatusUserInitials:
+          type: string
+        AuthStatusDate:
+          format: date-time
+          type: string
+    ValueDescriptionPairViewModel:
+      type: object
+      properties:
+        Value:
+          type: string
+        Description:
+          type: string
+    IApiResult:
+      type: object
+      properties: {}
   securitySchemes:
     basic:
       type: http

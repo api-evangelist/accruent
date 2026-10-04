@@ -211,6 +211,16 @@ paths:
       x-operation-id-original: LookupTables_Put
 components:
   schemas:
+    ApiResponse:
+      type: object
+      properties:
+        Results:
+          type: array
+          items:
+            $ref: '#/components/schemas/IApiResult'
+        Total:
+          format: int32
+          type: integer
     LookupTableViewModel:
       type: object
       properties:
@@ -237,16 +247,6 @@ components:
         LastModifiedDate:
           format: date-time
           type: string
-    ApiResponse:
-      type: object
-      properties:
-        Results:
-          type: array
-          items:
-            $ref: '#/components/schemas/IApiResult'
-        Total:
-          format: int32
-          type: integer
     IApiResult:
       type: object
       properties: {}

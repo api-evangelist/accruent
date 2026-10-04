@@ -256,13 +256,9 @@ paths:
       x-operation-id-original: PartTransactions_Get
 components:
   schemas:
-    ValueDescriptionPairViewModel:
+    IApiResult:
       type: object
-      properties:
-        Value:
-          type: string
-        Description:
-          type: string
+      properties: {}
     ApiResponse:
       type: object
       properties:
@@ -397,9 +393,13 @@ components:
         OrderUnitPrice:
           format: double
           type: number
-    IApiResult:
+    ValueDescriptionPairViewModel:
       type: object
-      properties: {}
+      properties:
+        Value:
+          type: string
+        Description:
+          type: string
   securitySchemes:
     basic:
       type: http

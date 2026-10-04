@@ -185,9 +185,6 @@ components:
         Total:
           format: int32
           type: integer
-    IApiResult:
-      type: object
-      properties: {}
     ExternalInterfaceViewModel:
       type: object
       properties:
@@ -198,6 +195,9 @@ components:
           type: string
         ExternalInterfaceName:
           type: string
+    IApiResult:
+      type: object
+      properties: {}
   securitySchemes:
     basic:
       type: http
