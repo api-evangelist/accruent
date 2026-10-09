@@ -84,3 +84,59 @@ trial:
   available: true
   product: Maintenance Connection
   url: https://www.accruent.com/products/maintenance-connection/free-trial
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - hybrid
+  - subscription
+  units: []
+  plans:
+  - name: Professional
+    access: other
+    model: subscription
+    model_how: derived
+    units: []
+    periods: []
+  - name: Mobile Add-on
+    access: other
+    model: subscription
+    model_how: derived
+    units: []
+    periods: []
+  - name: Enterprise
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
+  - name: Core
+    access: other
+    model: hybrid
+    model_how: derived
+    units: []
+    periods: []
+  - name: Advanced
+    access: other
+    model: hybrid
+    model_how: derived
+    units: []
+    periods: []
+  - name: Enterprise
+    access: other
+    model: hybrid
+    model_how: derived
+    units: []
+    periods: []
+  - name: Basic
+    access: other
+    model: hybrid
+    model_how: derived
+    units: []
+    periods: []
+  - name: Advanced
+    access: other
+    model: hybrid
+    model_how: derived
+    units: []
+    periods: []
