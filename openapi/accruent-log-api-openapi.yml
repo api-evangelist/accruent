@@ -114,16 +114,6 @@ paths:
       x-operation-id-original: Log_Get
 components:
   schemas:
-    ApiResponse:
-      type: object
-      properties:
-        Results:
-          type: array
-          items:
-            $ref: '#/components/schemas/IApiResult'
-        Total:
-          format: int32
-          type: integer
     LogItemViewModel:
       type: object
       properties:
@@ -137,6 +127,16 @@ components:
           type: string
         AuthorizationStatus:
           $ref: '#/components/schemas/AuthorizationStatusViewModel'
+    ApiResponse:
+      type: object
+      properties:
+        Results:
+          type: array
+          items:
+            $ref: '#/components/schemas/IApiResult'
+        Total:
+          format: int32
+          type: integer
     AuthorizationStatusViewModel:
       type: object
       properties:

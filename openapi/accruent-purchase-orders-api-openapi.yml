@@ -213,17 +213,7 @@ paths:
       x-operation-id-original: PurchaseOrders_Put
 components:
   schemas:
-    ApiResponse:
-      type: object
-      properties:
-        Results:
-          type: array
-          items:
-            $ref: '#/components/schemas/IApiResult'
-        Total:
-          format: int32
-          type: integer
-    EntityRefViewModel_RepairCenter:
+    EntityRefViewModel_Customer:
       type: object
       properties:
         PK:
@@ -237,19 +227,30 @@ components:
           format: uuid
           type: string
           example: 00000000-0000-0000-0000-000000000000
-    CompanyDetailsViewModel:
+    ApiResponse:
       type: object
       properties:
-        CompanyRef:
-          $ref: '#/components/schemas/EntityRefViewModel_Company'
-        Address1:
+        Results:
+          type: array
+          items:
+            $ref: '#/components/schemas/IApiResult'
+        Total:
+          format: int32
+          type: integer
+    EntityRefViewModel_Company:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
           type: string
-        Address2:
+        Name:
           type: string
-        Address3:
+        Uuid:
+          format: uuid
           type: string
-        Attention:
-          type: string
+          example: 00000000-0000-0000-0000-000000000000
     EntityRefViewModel_Account:
       type: object
       properties:
@@ -264,15 +265,92 @@ components:
           format: uuid
           type: string
           example: 00000000-0000-0000-0000-000000000000
-    BillingInfoViewModel:
+    EntityRefViewModel_Labor:
       type: object
       properties:
-        BillToCompany:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    ShippingInfoViewModel:
+      type: object
+      properties:
+        ShipToCompany:
           $ref: '#/components/schemas/CompanyDetailsViewModel'
-        BillingTerms:
+        FreightTerms:
           type: string
-        BillingTermsDesc:
+        FreightTermsDesc:
           type: string
+        ShippingMethod:
+          type: string
+        ShippingMethodDesc:
+          type: string
+        TrackingNo:
+          type: string
+    CompanyDetailsViewModel:
+      type: object
+      properties:
+        CompanyRef:
+          $ref: '#/components/schemas/EntityRefViewModel_Company'
+        Address1:
+          type: string
+        Address2:
+          type: string
+        Address3:
+          type: string
+        Attention:
+          type: string
+    AuthorizationStatusViewModel:
+      type: object
+      properties:
+        AuthStatusDetails:
+          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
+        AuthLevelsRequired:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          type: integer
+        AuthStatusUserPK:
+          format: int32
+          type: integer
+        AuthStatusUserInitials:
+          type: string
+        AuthStatusDate:
+          format: date-time
+          type: string
+    ValueDescriptionPairViewModel:
+      type: object
+      properties:
+        Value:
+          type: string
+        Description:
+          type: string
+    EntityRefViewModel_RepairCenter:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
     PurchaseOrderViewModel:
       type: object
       properties:
@@ -429,94 +507,7 @@ components:
           type: boolean
         ResourceUri:
           type: string
-    AuthorizationStatusViewModel:
-      type: object
-      properties:
-        AuthStatusDetails:
-          $ref: '#/components/schemas/ValueDescriptionPairViewModel'
-        AuthLevelsRequired:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-          type: integer
-        AuthStatusUserPK:
-          format: int32
-          type: integer
-        AuthStatusUserInitials:
-          type: string
-        AuthStatusDate:
-          format: date-time
-          type: string
-    ShippingInfoViewModel:
-      type: object
-      properties:
-        ShipToCompany:
-          $ref: '#/components/schemas/CompanyDetailsViewModel'
-        FreightTerms:
-          type: string
-        FreightTermsDesc:
-          type: string
-        ShippingMethod:
-          type: string
-        ShippingMethodDesc:
-          type: string
-        TrackingNo:
-          type: string
-    EntityRefViewModel_Labor:
-      type: object
-      properties:
-        PK:
-          format: int32
-          type: integer
-        ID:
-          type: string
-        Name:
-          type: string
-        Uuid:
-          format: uuid
-          type: string
-          example: 00000000-0000-0000-0000-000000000000
-    ValueDescriptionPairViewModel:
-      type: object
-      properties:
-        Value:
-          type: string
-        Description:
-          type: string
     EntityRefViewModel_Department:
-      type: object
-      properties:
-        PK:
-          format: int32
-          type: integer
-        ID:
-          type: string
-        Name:
-          type: string
-        Uuid:
-          format: uuid
-          type: string
-          example: 00000000-0000-0000-0000-000000000000
-    EntityRefViewModel_Customer:
-      type: object
-      properties:
-        PK:
-          format: int32
-          type: integer
-        ID:
-          type: string
-        Name:
-          type: string
-        Uuid:
-          format: uuid
-          type: string
-          example: 00000000-0000-0000-0000-000000000000
-    EntityRefViewModel_Company:
       type: object
       properties:
         PK:
@@ -533,6 +524,15 @@ components:
     IApiResult:
       type: object
       properties: {}
+    BillingInfoViewModel:
+      type: object
+      properties:
+        BillToCompany:
+          $ref: '#/components/schemas/CompanyDetailsViewModel'
+        BillingTerms:
+          type: string
+        BillingTermsDesc:
+          type: string
   securitySchemes:
     basic:
       type: http

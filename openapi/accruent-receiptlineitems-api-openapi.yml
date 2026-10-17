@@ -456,9 +456,6 @@ paths:
       x-operation-id-original: ReceiptLineItems_Post
 components:
   schemas:
-    IApiResult:
-      type: object
-      properties: {}
     ReceiptLineItemViewModel:
       type: object
       properties:
@@ -500,6 +497,9 @@ components:
         Total:
           format: int32
           type: integer
+    IApiResult:
+      type: object
+      properties: {}
   securitySchemes:
     basic:
       type: http

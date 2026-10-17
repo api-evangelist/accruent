@@ -456,6 +456,9 @@ components:
         Total:
           format: int32
           type: integer
+    IApiResult:
+      type: object
+      properties: {}
     EntityRefViewModel_Labor:
       type: object
       properties:
@@ -470,9 +473,6 @@ components:
           format: uuid
           type: string
           example: 00000000-0000-0000-0000-000000000000
-    IApiResult:
-      type: object
-      properties: {}
   securitySchemes:
     basic:
       type: http

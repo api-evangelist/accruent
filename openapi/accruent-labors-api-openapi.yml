@@ -244,7 +244,7 @@ paths:
       x-operation-id-original: Labors_Post
 components:
   schemas:
-    EntityRefViewModel_Shift:
+    EntityRefViewModel_Shop:
       type: object
       properties:
         PK:
@@ -268,7 +268,7 @@ components:
         Total:
           format: int32
           type: integer
-    EntityRefViewModel_AccessGroup:
+    EntityRefViewModel_Shift:
       type: object
       properties:
         PK:
@@ -282,56 +282,7 @@ components:
           format: uuid
           type: string
           example: 00000000-0000-0000-0000-000000000000
-    EntityRefViewModel_RepairCenter:
-      type: object
-      properties:
-        PK:
-          format: int32
-          type: integer
-        ID:
-          type: string
-        Name:
-          type: string
-        Uuid:
-          format: uuid
-          type: string
-          example: 00000000-0000-0000-0000-000000000000
-    EntityRefViewModel_Shop:
-      type: object
-      properties:
-        PK:
-          format: int32
-          type: integer
-        ID:
-          type: string
-        Name:
-          type: string
-        Uuid:
-          format: uuid
-          type: string
-          example: 00000000-0000-0000-0000-000000000000
-    EntityRefViewModel_Labor:
-      type: object
-      properties:
-        PK:
-          format: int32
-          type: integer
-        ID:
-          type: string
-        Name:
-          type: string
-        Uuid:
-          format: uuid
-          type: string
-          example: 00000000-0000-0000-0000-000000000000
-    ValueDescriptionPairViewModel:
-      type: object
-      properties:
-        Value:
-          type: string
-        Description:
-          type: string
-    EntityRefViewModel_Department:
+    EntityRefViewModel_Company:
       type: object
       properties:
         PK:
@@ -459,6 +410,20 @@ components:
           $ref: '#/components/schemas/ValueDescriptionPairViewModel'
         DepartmentRef:
           $ref: '#/components/schemas/EntityRefViewModel_Department'
+    EntityRefViewModel_AccessGroup:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
     EntityRefViewModel_Account:
       type: object
       properties:
@@ -473,7 +438,7 @@ components:
           format: uuid
           type: string
           example: 00000000-0000-0000-0000-000000000000
-    EntityRefViewModel_Company:
+    EntityRefViewModel_Labor:
       type: object
       properties:
         PK:
@@ -488,6 +453,41 @@ components:
           type: string
           example: 00000000-0000-0000-0000-000000000000
     EntityRefViewModel_Category:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    ValueDescriptionPairViewModel:
+      type: object
+      properties:
+        Value:
+          type: string
+        Description:
+          type: string
+    EntityRefViewModel_RepairCenter:
+      type: object
+      properties:
+        PK:
+          format: int32
+          type: integer
+        ID:
+          type: string
+        Name:
+          type: string
+        Uuid:
+          format: uuid
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+    EntityRefViewModel_Department:
       type: object
       properties:
         PK:

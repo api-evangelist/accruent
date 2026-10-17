@@ -256,19 +256,6 @@ paths:
       x-operation-id-original: PartTransactions_Get
 components:
   schemas:
-    IApiResult:
-      type: object
-      properties: {}
-    ApiResponse:
-      type: object
-      properties:
-        Results:
-          type: array
-          items:
-            $ref: '#/components/schemas/IApiResult'
-        Total:
-          format: int32
-          type: integer
     PartTransactionViewModel:
       type: object
       properties:
@@ -400,6 +387,19 @@ components:
           type: string
         Description:
           type: string
+    ApiResponse:
+      type: object
+      properties:
+        Results:
+          type: array
+          items:
+            $ref: '#/components/schemas/IApiResult'
+        Total:
+          format: int32
+          type: integer
+    IApiResult:
+      type: object
+      properties: {}
   securitySchemes:
     basic:
       type: http

@@ -161,6 +161,29 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    IApiResult:
+      type: object
+      properties: {}
+    ExternalInterfaceViewModel:
+      type: object
+      properties:
+        ExternalInterfacePK:
+          format: int32
+          type: integer
+        ExternalInterfaceID:
+          type: string
+        ExternalInterfaceName:
+          type: string
+    ApiResponse:
+      type: object
+      properties:
+        Results:
+          type: array
+          items:
+            $ref: '#/components/schemas/IApiResult'
+        Total:
+          format: int32
+          type: integer
     ExternalInterface:
       type: object
       properties:
@@ -175,29 +198,6 @@ components:
           maxLength: 50
           minLength: 0
           type: string
-    ApiResponse:
-      type: object
-      properties:
-        Results:
-          type: array
-          items:
-            $ref: '#/components/schemas/IApiResult'
-        Total:
-          format: int32
-          type: integer
-    ExternalInterfaceViewModel:
-      type: object
-      properties:
-        ExternalInterfacePK:
-          format: int32
-          type: integer
-        ExternalInterfaceID:
-          type: string
-        ExternalInterfaceName:
-          type: string
-    IApiResult:
-      type: object
-      properties: {}
   securitySchemes:
     basic:
       type: http
